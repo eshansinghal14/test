@@ -235,16 +235,10 @@ def main(seed=42,
          hdim=128,
          nhead=2,
          nblock=2,
-         generate=False):
+         generate=False,
+         reset=False):
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--E', type=int, default=10000)
-    parser.add_argument('--reset', action='store_true')
-    args = parser.parse_args()
-
-    E = args.E
-
-    ds = get_data('short_story.txt', reset=args.reset)
+    ds = get_data('short_story.txt', reset=reset)
     s = sp.SentencePieceProcessor(model_file='tok.model')
     vdim = ds['vdim']
     m = gpt_t(nblock=nblock,
