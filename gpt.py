@@ -236,7 +236,7 @@ def main(seed=42,
          nblock=2,
          generate=False):
 
-    ds = get_data('shakespeare.txt')
+    ds = get_data('short_story.txt')
     s = sp.SentencePieceProcessor(model_file='tok.model')
     vdim = ds['vdim']
     m = gpt_t(nblock=nblock,
