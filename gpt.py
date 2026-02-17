@@ -238,7 +238,7 @@ def main(seed=42,
          generate=False,
          reset=False):
 
-    ds = get_data('short_story.txt', reset=reset)
+    ds = get_data('jungle_book.txt', reset=reset)
     s = sp.SentencePieceProcessor(model_file='tok.model')
     vdim = ds['vdim']
     m = gpt_t(nblock=nblock,
