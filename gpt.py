@@ -16,6 +16,7 @@ import sentencepiece as sp
 
 import seaborn as sns
 import matplotlib.pyplot as plt
+import argparse
 
 
 dev = (
@@ -178,10 +179,10 @@ class gpt_t(nn.Module):
             r = th.cat((r, xp), dim=1)
         return r
 
-def get_data(f='/tmp/10.txt.utf-8', m=0):
+def get_data(f='/tmp/10.txt.utf-8', m=0, reset=False):
     global maskid, padid
 
-    if not os.path.exists('tok.model'):
+    if not os.path.exists('tok.model') or reset:
         sp.SentencePieceTrainer.train(input=f,
                                       model_prefix='tok',
                                       model_type='bpe',
@@ -191,7 +192,7 @@ def get_data(f='/tmp/10.txt.utf-8', m=0):
 
     s = sp.SentencePieceProcessor(model_file='tok.model')
     maskid, padid = s.piece_to_id('[mask]'), s.piece_to_id('[pad]')
-    if not os.path.exists('d.p'):
+    if not os.path.exists('d.p') or reset:
         d = {}
         d['vdim'] = s.vocab_size()
         d['x'] = []
@@ -236,7 +237,14 @@ def main(seed=42,
          nblock=2,
          generate=False):
 
-    ds = get_data('short_story.txt')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--E', type=int, default=10000)
+    parser.add_argument('--reset', action='store_true')
+    args = parser.parse_args()
+
+    E = args.E
+
+    ds = get_data('short_story.txt', reset=args.reset)
     s = sp.SentencePieceProcessor(model_file='tok.model')
     vdim = ds['vdim']
     m = gpt_t(nblock=nblock,
