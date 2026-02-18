@@ -1,0 +1,1001 @@
+# LZ78 Pretrained Dictionary
+# code	parent_code	char	pattern
+1	0	T	T
+2	0	h	h
+3	0	e	e
+4	0	 	 
+5	0	P	P
+6	0	r	r
+7	0	o	o
+8	0	j	j
+9	0	t	t
+10	0	u	u
+11	0	n	n
+12	0	b	b
+13	0	g	g
+14	0	B	B
+15	0	k	k
+16	0	f	f
+17	0	i	i
+18	0	p	p
+19	0	a	a
+20	0	W	W
+21	0	\n	\n
+22	0	s	s
+23	0	y	y
+24	0	w	w
+25	0	U	U
+26	0	\r	\r
+27	0	l	l
+28	0	d	d
+29	0	c	c
+30	0	m	m
+31	0	,	,
+32	0	.	.
+33	0	S	S
+34	0	v	v
+35	0	V	V
+36	0	A	A
+37	0	I	I
+38	0	2	2
+39	0	0	0
+40	0	1	1
+41	0	9	9
+42	0	#	#
+43	0	6	6
+44	0	7	7
+45	0	4	4
+46	0	:	:
+47	0	C	C
+48	0	/	/
+49	0	*	*
+50	0	O	O
+51	0	F	F
+52	0	H	H
+53	0	E	E
+54	0	R	R
+55	0	K	K
+56	0	N	N
+57	0	L	L
+58	0	M	M
+59	0	’	’
+60	0	Y	Y
+61	0	G	G
+62	0	D	D
+63	0	q	q
+64	0	]	]
+65	0	·	·
+66	0	5	5
+67	0	_	_
+68	0	;	;
+69	0	”	”
+70	0	-	-
+71	0	x	x
+72	0	!	!
+73	0	8	8
+74	0	3	3
+75	0	[	[
+76	0	Q	Q
+77	0	“	“
+78	0	(	(
+79	0	)	)
+80	0	?	?
+81	0	z	z
+82	0	ä	ä
+83	0	™	™
+84	3	c	ec
+85	4	o	 o
+86	11	 	n 
+87	17	n	in
+88	4	 	  
+89	2	i	hi
+90	22	 	s 
+91	16	o	fo
+92	9	h	th
+93	3	 	e 
+94	10	s	us
+95	19	n	an
+96	7	n	on
+97	4	t	 t
+98	11	i	ni
+99	4	a	 a
+100	11	d	nd
+101	9	 	t 
+102	7	t	ot
+103	19	r	ar
+104	7	r	or
+105	7	 	o 
+106	28	 	d 
+107	24	i	wi
+108	19	l	al
+109	11	o	no
+110	3	s	es
+111	9	r	tr
+112	17	c	ic
+113	9	i	ti
+114	24	h	wh
+115	19	t	at
+116	22	o	so
+117	7	u	ou
+118	7	p	op
+119	23	 	y 
+120	17	t	it
+121	17	v	iv
+122	24	a	wa
+123	6	o	ro
+124	12	e	be
+125	6	g	rg
+126	11	s	ns
+127	3	d	ed
+128	4	w	 w
+129	27	i	li
+130	11	e	ne
+131	24	w	ww
+132	2	a	ha
+133	27	o	lo
+134	27	e	le
+135	10	t	ut
+136	2	o	ho
+137	19	s	as
+138	27	l	ll
+139	6	a	ra
+140	9	o	to
+141	19	m	am
+142	3	l	el
+143	31	 	, 
+144	5	r	Pr
+145	17	s	is
+146	1	h	Th
+147	19	g	ag
+148	4	P	 P
+149	54	I	RI
+150	32	 	. 
+151	36	N	AN
+152	4	b	 b
+153	12	y	by
+154	22	t	st
+155	4	“	 “
+156	52	e	He
+157	4	f	 f
+158	7	f	of
+159	11	a	na
+160	28	i	di
+161	17	r	ir
+162	68	 	; 
+163	7	v	ov
+164	18	r	pr
+165	3	n	en
+166	22	,	s,
+167	29	h	ch
+168	22	i	si
+169	69	 	” 
+170	30	o	mo
+171	10	n	un
+172	19	b	ab
+173	18	e	pe
+174	29	k	ck
+175	3	e	ee
+176	28	e	de
+177	6	y	ry
+178	17	p	ip
+179	30	e	me
+180	19	a	aa
+181	24	e	we
+182	34	i	vi
+183	30	u	mu
+184	34	o	vo
+185	16	a	fa
+186	10	p	up
+187	24	o	wo
+188	13	r	gr
+189	77	T	“T
+190	30	a	ma
+191	28	o	do
+192	29	o	co
+193	75	I	[I
+194	54	i	Ri
+195	51	o	Fo
+196	23	o	yo
+197	7	j	oj
+198	23	r	yr
+199	40	.	1.
+200	61	u	Gu
+201	57	i	Li
+202	93	o	e o
+203	85	f	 of
+204	97	h	 th
+205	99	t	 at
+206	99	n	 an
+207	94	e	use
+208	85	n	 on
+209	101	w	t w
+210	98	t	nit
+211	127	 	ed 
+212	92	e	the
+213	90	o	s o
+214	117	n	oun
+215	128	h	 wh
+216	87	g	ing
+217	95	 	an 
+218	88	 	   
+219	120	s	its
+220	115	 	at 
+221	122	s	was
+222	110	 	es 
+223	128	i	 wi
+224	130	 	ne 
+225	150	n	. n
+226	149	P	RIP
+227	84	t	ect
+228	144	o	Pro
+229	152	y	 by
+230	102	h	oth
+231	89	c	hic
+232	91	r	for
+233	108	l	all
+234	151	 	AN 
+235	154	r	str
+236	111	a	tra
+237	143	w	, w
+238	87	 	in 
+239	138	u	llu
+240	95	d	and
+241	156	 	He 
+242	100	 	nd 
+243	90	t	s t
+244	146	e	The
+245	143	a	, a
+246	169	 	”  
+247	158	 	of 
+248	134	c	lec
+249	128	o	 wo
+250	167	i	chi
+251	96	g	ong
+252	120	e	ite
+253	137	 	as 
+254	90	a	s a
+255	106	w	d w
+256	140	 	to 
+257	89	s	his
+258	114	i	whi
+259	136	u	hou
+260	141	e	ame
+261	86	W	n W
+262	143	h	, h
+263	166	 	s, 
+264	177	 	ry 
+265	170	u	mou
+266	128	a	 wa
+267	180	t	aat
+268	132	d	had
+269	103	a	ara
+270	107	l	wil
+271	170	n	mon
+272	112	h	ich
+273	90	i	s i
+274	87	c	inc
+275	150	H	. H
+276	100	a	nda
+277	107	t	wit
+278	132	v	hav
+279	92	a	tha
+280	129	t	lit
+281	154	 	st 
+282	124	e	bee
+283	145	t	ist
+284	96	a	ona
+285	92	o	tho
+286	104	t	ort
+287	183	c	muc
+288	153	 	by 
+289	160	s	dis
+290	188	e	gre
+291	121	e	ive
+292	171	d	und
+293	116	m	som
+294	176	d	ded
+295	161	 	ir 
+296	162	b	; b
+297	172	o	abo
+298	182	l	vil
+299	163	e	ove
+300	119	w	y w
+301	159	t	nat
+302	178	 	ip 
+303	105	t	o t
+304	190	n	man
+305	130	i	nei
+306	179	n	men
+307	143	b	, b
+308	164	o	pro
+309	157	r	 fr
+310	117	t	out
+311	181	r	wer
+312	134	d	led
+313	133	n	lon
+314	99	b	 ab
+315	173	r	per
+316	192	m	com
+317	192	u	cou
+318	113	v	tiv
+319	138	e	lle
+320	194	p	Rip
+321	139	d	rad
+322	175	m	eem
+323	188	a	gra
+324	189	h	“Th
+325	155	T	 “T
+326	126	e	nse
+327	186	o	upo
+328	135	e	ute
+329	190	r	mar
+330	190	d	mad
+331	167	e	che
+332	109	w	now
+333	187	r	wor
+334	174	e	cke
+335	168	o	sio
+336	196	u	you
+337	191	n	don
+338	170	s	mos
+339	184	u	vou
+340	118	y	opy
+341	123	j	roj
+342	148	r	 Pr
+343	93	P	e P
+344	197	e	oje
+345	143	y	, y
+346	165	b	enb
+347	142	e	ele
+348	125	™	rg™
+349	147	r	agr
+350	198	i	yri
+351	200	t	Gut
+352	201	c	Lic
+353	199	E	1.E
+354	131	.	ww.
+355	201	t	Lit
+356	199	F	1.F
+357	195	u	Fou
+358	218	 	    
+359	206	d	 and
+360	204	e	 the
+361	216	 	ing 
+362	213	f	s of
+363	225	e	. ne
+364	223	t	 wit
+365	235	a	stra
+366	239	s	llus
+367	238	t	in t
+368	207	d	used
+369	229	 	 by 
+370	203	 	 of 
+371	212	 	the 
+372	240	 	and 
+373	230	e	othe
+374	215	i	 whi
+375	219	 	its 
+376	233	 	all 
+377	227	 	ect 
+378	222	o	es o
+379	251	 	ong 
+380	246	 	”   
+381	231	h	hich
+382	204	a	 tha
+383	202	f	e of
+384	205	 	 at 
+385	211	w	ed w
+386	211	t	ed t
+387	236	n	tran
+388	250	l	chil
+389	224	o	ne o
+390	207	 	use 
+391	209	i	t wi
+392	214	t	ount
+393	217	o	an o
+394	245	n	, an
+395	243	h	s th
+396	266	s	 was
+397	271	g	mong
+398	212	r	ther
+399	259	s	hous
+400	237	h	, wh
+401	252	r	iter
+402	247	h	of h
+403	279	t	that
+404	278	e	have
+405	275	e	. He
+406	262	o	, ho
+407	221	 	was 
+408	257	 	his 
+409	254	n	s an
+410	286	a	orta
+411	208	 	 on 
+412	248	t	lect
+413	226	 	RIP 
+414	270	l	will
+415	293	e	some
+416	247	t	of t
+417	265	n	moun
+418	261	i	n Wi
+419	263	a	s, a
+420	260	 	ame 
+421	212	i	thei
+422	285	u	thou
+423	255	i	d wi
+424	232	 	for 
+425	298	l	vill
+426	249	r	 wor
+427	287	h	much
+428	297	u	abou
+429	307	u	, bu
+430	309	o	 fro
+431	256	t	to t
+432	303	h	o th
+433	277	h	with
+434	310	 	out 
+435	302	V	ip V
+436	211	o	ed o
+437	312	 	led 
+438	272	o	icho
+439	247	a	of a
+440	290	a	grea
+441	296	u	; bu
+442	267	s	aats
+443	289	t	dist
+444	320	 	Rip 
+445	220	t	at t
+446	283	r	istr
+447	242	h	nd h
+448	316	p	comp
+449	273	n	s in
+450	268	 	had 
+451	311	e	were
+452	280	t	litt
+453	322	e	eeme
+454	290	e	gree
+455	258	c	whic
+456	244	 	The 
+457	220	w	at w
+458	325	h	 “Th
+459	291	 	ive 
+460	327	n	upon
+461	306	t	ment
+462	318	e	tive
+463	284	t	onat
+464	319	c	llec
+465	314	o	 abo
+466	288	t	by t
+467	304	,	man,
+468	300	i	y wi
+469	317	l	coul
+470	332	 	now 
+471	334	d	cked
+472	292	e	unde
+473	305	g	neig
+474	313	g	long
+475	282	n	been
+476	210	e	nite
+477	330	e	made
+478	335	n	sion
+479	299	r	over
+480	338	t	most
+481	294	 	ded 
+482	339	r	vour
+483	234	W	AN W
+484	340	r	opyr
+485	328	n	uten
+486	228	j	Proj
+487	329	k	mark
+488	341	e	roje
+489	321	e	rade
+490	336	 	you 
+491	346	e	enbe
+492	342	o	 Pro
+493	344	c	ojec
+494	347	c	elec
+495	269	g	arag
+496	323	p	grap
+497	264	A	ry A
+498	348	 	rg™ 
+499	350	g	yrig
+500	274	l	incl
+501	351	e	Gute
+502	345	o	, yo
+503	353	.	1.E.
+504	352	e	Lice
+505	308	v	prov
+506	326	 	nse 
+507	250	v	chiv
+508	276	t	ndat
+509	343	r	e Pr
+510	355	e	Lite
+511	356	.	1.F.
+512	357	n	Foun
+513	337	a	dona
+514	301	i	nati
+515	354	g	ww.g
+516	358	 	     
+517	358	T	    T
+518	358	B	    B
+519	363	t	. net
+520	360	 	 the 
+521	371	v	the v
+522	374	c	 whic
+523	380	 	”    
+524	364	h	 with
+525	382	t	 that
+526	370	t	 of t
+527	392	a	ounta
+528	387	g	trang
+529	366	t	llust
+530	381	 	hich 
+531	396	 	 was 
+532	362	 	s of 
+533	394	d	, and
+534	367	h	in th
+535	400	i	, whi
+536	372	t	and t
+537	404	 	have 
+538	376	t	all t
+539	378	f	es of
+540	403	 	that 
+541	383	 	e of 
+542	389	f	ne of
+543	384	h	 at h
+544	420	V	ame V
+545	416	h	of th
+546	397	 	mong 
+547	419	n	s, an
+548	368	 	used 
+549	402	i	of hi
+550	370	h	 of h
+551	406	w	, how
+552	391	t	t wit
+553	361	o	ing o
+554	418	n	n Win
+555	390	o	use o
+556	386	o	ed to
+557	433	 	with 
+558	398	 	ther 
+559	371	s	the s
+560	393	l	an ol
+561	428	t	about
+562	438	l	ichol
+563	431	h	to th
+564	385	i	ed wi
+565	423	t	d wit
+566	430	m	 from
+567	369	t	 by t
+568	361	t	ing t
+569	407	a	was a
+570	435	a	ip Va
+571	405	 	. He 
+572	422	g	thoug
+573	432	e	o the
+574	437	b	led b
+575	417	t	mount
+576	436	n	ed on
+577	434	t	out t
+578	373	r	other
+579	445	h	at th
+580	379	t	ong t
+581	447	i	nd hi
+582	365	n	stran
+583	426	k	 work
+584	442	k	aatsk
+585	458	e	 “The
+586	440	t	great
+587	452	l	littl
+588	410	n	ortan
+589	462	 	tive 
+590	388	d	child
+591	429	t	, but
+592	415	 	some 
+593	444	V	Rip V
+594	421	r	their
+595	465	u	 abou
+596	455	h	which
+597	471	 	cked 
+598	441	t	; but
+599	467	 	man, 
+600	451	 	were 
+601	460	 	upon 
+602	395	a	s tha
+603	478	 	sion 
+604	475	 	been 
+605	473	h	neigh
+606	411	t	 on t
+607	466	h	by th
+608	427	 	much 
+609	477	 	made 
+610	413	V	RIP V
+611	443	r	distr
+612	476	d	nited
+613	377	G	ect G
+614	485	b	utenb
+615	446	i	istri
+616	488	c	rojec
+617	412	r	lectr
+618	454	 	gree 
+619	489	m	radem
+620	453	n	eemen
+621	468	t	y wit
+622	491	r	enber
+623	494	t	elect
+624	495	r	aragr
+625	492	j	 Proj
+626	401	a	itera
+627	484	i	opyri
+628	486	e	Proje
+629	493	t	oject
+630	371	w	the w
+631	499	h	yrigh
+632	502	u	, you
+633	496	h	graph
+634	505	i	provi
+635	472	r	under
+636	463	i	onati
+637	507	e	chive
+638	448	l	compl
+639	459	F	ive F
+640	509	o	e Pro
+641	501	n	Guten
+642	510	r	Liter
+643	461	,	ment,
+644	508	i	ndati
+645	409	d	s and
+646	500	u	inclu
+647	512	d	Found
+648	497	r	ry Ar
+649	514	o	natio
+650	513	t	donat
+651	449	 	s in 
+652	516	 	      
+653	523	 	”     
+654	525	 	 that 
+655	526	h	 of th
+656	533	 	, and 
+657	529	r	llustr
+658	521	i	the vi
+659	539	 	es of 
+660	535	c	, whic
+661	534	e	in the
+662	541	t	e of t
+663	531	a	 was a
+664	522	h	 which
+665	543	i	 at hi
+666	550	i	 of hi
+667	542	 	ne of 
+668	544	a	ame Va
+669	545	e	of the
+670	530	h	hich h
+671	551	e	, howe
+672	538	h	all th
+673	552	h	t with
+674	556	 	ed to 
+675	527	i	ountai
+676	553	n	ing on
+677	554	k	n Wink
+678	568	h	ing th
+679	528	e	trange
+680	549	s	of his
+681	532	t	s of t
+682	557	h	with h
+683	547	d	s, and
+684	560	d	an old
+685	524	i	 withi
+686	581	s	nd his
+687	579	e	at the
+688	546	t	mong t
+689	536	h	and th
+690	566	 	 from 
+691	573	 	o the 
+692	580	h	ong th
+693	564	t	ed wit
+694	548	t	used t
+695	582	g	strang
+696	565	h	d with
+697	561	 	about 
+698	562	a	ichola
+699	563	e	to the
+700	591	 	, but 
+701	570	n	ip Van
+702	588	t	ortant
+703	597	h	cked h
+704	584	i	aatski
+705	586	 	great 
+706	602	t	s that
+707	574	y	led by
+708	595	t	 about
+709	593	a	Rip Va
+710	577	h	out th
+711	575	a	mounta
+712	545	i	of thi
+713	596	 	which 
+714	605	b	neighb
+715	606	h	 on th
+716	567	h	 by th
+717	614	e	utenbe
+718	557	t	with t
+719	612	 	nited 
+720	615	b	istrib
+721	616	t	roject
+722	611	i	distri
+723	617	o	lectro
+724	618	t	gree t
+725	607	e	by the
+726	620	t	eement
+727	583	s	 works
+728	613	u	ect Gu
+729	623	r	electr
+730	589	w	tive w
+731	625	e	 Proje
+732	622	g	enberg
+733	627	g	opyrig
+734	576	 	ed on 
+735	578	 	other 
+736	629	 	oject 
+737	628	c	Projec
+738	520	P	 the P
+739	555	f	use of
+740	624	a	aragra
+741	631	t	yright
+742	603	o	sion o
+743	634	d	provid
+744	619	a	radema
+745	626	r	iterar
+746	621	h	y with
+747	641	b	Gutenb
+748	630	o	the wo
+749	632	 	, you 
+750	633	 	graph 
+751	644	o	ndatio
+752	643	 	ment, 
+753	636	o	onatio
+754	645	 	s and 
+755	640	j	e Proj
+756	642	a	Litera
+757	637	 	chive 
+758	647	a	Founda
+759	639	o	ive Fo
+760	649	n	nation
+761	652	 	       
+762	653	 	”      
+763	655	e	 of the
+764	657	a	llustra
+765	661	 	in the 
+766	664	 	 which 
+767	659	t	es of t
+768	669	 	of the 
+769	666	s	 of his
+770	675	n	ountain
+771	672	e	all the
+772	676	 	ing on 
+773	668	n	ame Van
+774	677	l	n Winkl
+775	662	h	e of th
+776	680	 	of his 
+777	667	t	ne of t
+778	683	 	s, and 
+779	654	h	 that h
+780	678	e	ing the
+781	688	h	mong th
+782	686	 	nd his 
+783	670	e	hich he
+784	665	s	 at his
+785	679	 	trange 
+786	690	h	 from h
+787	656	t	, and t
+788	660	h	, which
+789	682	i	with hi
+790	673	 	t with 
+791	690	t	 from t
+792	698	s	icholas
+793	663	 	 was a 
+794	701	 	ip Van 
+795	693	h	ed with
+796	658	l	the vil
+797	692	e	ong the
+798	674	t	ed to t
+799	699	 	to the 
+800	694	o	used to
+801	704	l	aatskil
+802	706	 	s that 
+803	696	 	d with 
+804	707	 	led by 
+805	684	 	an old 
+806	687	 	at the 
+807	671	v	, howev
+808	681	h	s of th
+809	717	r	utenber
+810	721	 	roject 
+811	712	s	of this
+812	723	n	lectron
+813	719	S	nited S
+814	720	u	istribu
+815	715	e	 on the
+816	726	 	eement 
+817	730	o	tive wo
+818	732	™	enberg™
+819	718	h	with th
+820	729	o	electro
+821	691	P	o the P
+822	741	 	yright 
+823	736	G	oject G
+824	737	t	Project
+825	731	c	 Projec
+826	722	b	distrib
+827	740	p	aragrap
+828	745	y	iterary
+829	685	n	 within
+830	727	 	 works 
+831	744	r	rademar
+832	733	h	opyrigh
+833	747	e	Gutenbe
+834	724	o	gree to
+835	710	e	out the
+836	738	r	 the Pr
+837	728	t	ect Gut
+838	732	 	enberg 
+839	758	t	Foundat
+840	753	n	onation
+841	755	e	e Proje
+842	759	u	ive Fou
+843	751	n	ndation
+844	708	 	 about 
+845	761	 	        
+846	762	 	”       
+847	763	 	 of the 
+848	764	t	llustrat
+849	766	h	 which h
+850	770	s	ountains
+851	767	h	es of th
+852	775	e	e of the
+853	774	e	n Winkle
+854	773	 	ame Van 
+855	783	 	hich he 
+856	784	 	 at his 
+857	792	 	icholas 
+858	794	W	ip Van W
+859	789	s	with his
+860	769	 	 of his 
+861	768	h	of the h
+862	797	 	ong the 
+863	777	h	ne of th
+864	787	h	, and th
+865	791	h	 from th
+866	809	g	utenberg
+867	810	G	roject G
+868	771	 	all the 
+869	813	t	nited St
+870	812	i	lectroni
+871	795	 	ed with 
+872	811	 	of this 
+873	814	t	istribut
+874	823	u	oject Gu
+875	818	 	enberg™ 
+876	825	t	 Project
+877	780	 	ing the 
+878	827	h	aragraph
+879	821	r	o the Pr
+880	820	n	electron
+881	824	 	Project 
+882	831	k	rademark
+883	836	o	 the Pro
+884	835	 	out the 
+885	808	e	s of the
+886	840	s	onations
+887	837	e	ect Gute
+888	841	c	e Projec
+889	832	t	opyright
+890	845	 	         
+891	846	 	”        
+892	847	s	 of the s
+893	848	i	llustrati
+894	850	 	ountains 
+895	854	W	ame Van W
+896	855	h	hich he h
+897	858	i	ip Van Wi
+898	849	e	 which he
+899	853	 	n Winkle 
+900	864	e	, and the
+901	866	™	utenberg™
+902	867	u	roject Gu
+903	869	a	nited Sta
+904	873	e	istribute
+905	866	.	utenberg.
+906	870	c	lectronic
+907	874	t	oject Gut
+908	876	 	 Project 
+909	880	i	electroni
+910	852	 	e of the 
+911	881	G	Project G
+912	879	o	o the Pro
+913	886	 	onations 
+914	883	j	 the Proj
+915	887	n	ect Guten
+916	890	 	          
+917	891	 	”         
+918	892	a	 of the sa
+919	893	o	llustratio
+920	895	i	ame Van Wi
+921	896	a	hich he ha
+922	897	n	ip Van Win
+923	894	h	ountains h
+924	898	 	 which he 
+925	901	 	utenberg™ 
+926	902	t	roject Gut
+927	903	t	nited Stat
+928	906	 	lectronic 
+929	907	e	oject Gute
+930	909	c	electronic
+931	911	u	Project Gu
+932	905	o	utenberg.o
+933	908	G	 Project G
+934	904	d	istributed
+935	912	j	o the Proj
+936	916	 	           
+937	917	 	”          
+938	919	n	llustration
+939	920	n	ame Van Win
+940	922	k	ip Van Wink
+941	926	e	roject Gute
+942	927	e	nited State
+943	928	w	lectronic w
+944	929	n	oject Guten
+945	925	w	utenberg™ w
+946	932	r	utenberg.or
+947	931	t	Project Gut
+948	936	 	            
+949	938	:	llustration:
+950	939	k	ame Van Wink
+951	941	n	roject Guten
+952	943	o	lectronic wo
+953	944	b	oject Gutenb
+954	948	 	             
+955	951	b	roject Gutenb
+956	952	r	lectronic wor
+957	953	e	oject Gutenbe
+958	954	 	              
+959	955	e	roject Gutenbe
+960	956	k	lectronic work
+961	957	r	oject Gutenber
+962	958	 	               
+963	959	r	roject Gutenber
+964	960	s	lectronic works
+965	961	g	oject Gutenberg
+966	962	 	                
+967	963	g	roject Gutenberg
+968	966	 	                 
+969	967	 	roject Gutenberg 
+970	967	™	roject Gutenberg™
+971	968	 	                  
+972	970	 	roject Gutenberg™ 
+973	971	 	                   
+974	972	w	roject Gutenberg™ w
+975	972	e	roject Gutenberg™ e
+976	973	 	                    
+977	974	o	roject Gutenberg™ wo
+978	975	l	roject Gutenberg™ el
+979	976	 	                     
+980	977	r	roject Gutenberg™ wor
+981	979	 	                      
+982	980	k	roject Gutenberg™ work
+983	981	 	                       
+984	983	 	                        
+985	984	 	                         
+986	985	 	                          
+987	986	 	                           
+988	987	 	                            
+989	988	 	                             
+990	989	 	                              
+991	990	 	                               
+992	991	 	                                
+993	992	 	                                 
+994	993	2	                                 2
+995	993	 	                                  
+996	995	 	                                   
+997	996	 	                                    
+998	997	 	                                     
+999	998	 	                                      

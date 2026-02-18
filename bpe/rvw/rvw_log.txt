@@ -1,0 +1,228 @@
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+sentencepiece_trainer.cc(78) LOG(INFO) Starts training with : 
+trainer_spec {
+  input: rip_van_winkle.txt
+  input_format: 
+  model_prefix: tok
+  model_type: BPE
+  vocab_size: 1024
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  split_digits: 0
+  pretokenization_delimiter: 
+  treat_whitespace_as_suffix: 0
+  allow_whitespace_only_pieces: 0
+  required_chars: 
+  byte_fallback: 0
+  vocabulary_output_piece_score: 1
+  train_extremely_large_corpus: 0
+  seed_sentencepieces_file: 
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+  enable_differential_privacy: 0
+  differential_privacy_noise_level: 0
+  differential_privacy_clipping_threshold: 0
+}
+normalizer_spec {
+  name: nmt_nfkc_cf
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+denormalizer_spec {}
+trainer_interface.cc(355) LOG(INFO) SentenceIterator is not specified. Using MultiFileSentenceIterator.
+trainer_interface.cc(186) LOG(INFO) Loading corpus: rip_van_winkle.txt
+trainer_interface.cc(411) LOG(INFO) Loaded all 1127 sentences
+trainer_interface.cc(427) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(427) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(427) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(432) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(541) LOG(INFO) all chars count=67293
+trainer_interface.cc(552) LOG(INFO) Done: 99.951% characters are covered.
+trainer_interface.cc(562) LOG(INFO) Alphabet size=53
+trainer_interface.cc(563) LOG(INFO) Final character coverage=0.99951
+trainer_interface.cc(594) LOG(INFO) Done! preprocessed 1120 sentences.
+trainer_interface.cc(600) LOG(INFO) Tokenizing input sentences with whitespace: 1120
+trainer_interface.cc(611) LOG(INFO) Done! 3365
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=1612 min_freq=1
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=467 size=20 all=1089 active=1035 piece=▁of
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=255 size=40 all=1548 active=1494 piece=ut
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=148 size=60 all=1941 active=1887 piece=ent
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=114 size=80 all=2288 active=2234 piece=▁on
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=94 size=100 all=2537 active=2483 piece=ir
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=92 min_freq=5
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=70 size=120 all=2757 active=1191 piece=▁sh
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=57 size=140 all=3011 active=1445 piece=ount
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=50 size=160 all=3169 active=1603 piece=and
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=44 size=180 all=3341 active=1775 piece=▁found
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=37 size=200 all=3518 active=1952 piece=▁ab
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=37 min_freq=5
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=34 size=220 all=3652 active=1128 piece=▁li
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=31 size=240 all=3814 active=1290 piece=▁if
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=28 size=260 all=3928 active=1404 piece=ies
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=27 size=280 all=4064 active=1540 piece=ions
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=24 size=300 all=4202 active=1678 piece=ind
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=24 min_freq=5
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=22 size=320 all=4328 active=1113 piece=ate
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=21 size=340 all=4442 active=1227 piece=ement
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=20 size=360 all=4506 active=1291 piece=▁part
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=18 size=380 all=4595 active=1380 piece=▁fo
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=17 size=400 all=4680 active=1465 piece=▁law
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=17 min_freq=4
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=16 size=420 all=4730 active=1050 piece=▁every
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=15 size=440 all=4798 active=1118 piece=▁look
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=14 size=460 all=4856 active=1176 piece=sion
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=14 size=480 all=4871 active=1191 piece=▁neighbour
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=13 size=500 all=4908 active=1228 piece=▁your
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=13 min_freq=4
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=12 size=520 all=4977 active=1070 piece=▁em
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=12 size=540 all=5010 active=1103 piece=▁forth
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=560 all=5060 active=1153 piece=ches
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=11 size=580 all=5109 active=1202 piece=▁cloud
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=600 all=5191 active=1284 piece=▁vo
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=10 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=10 size=620 all=5229 active=1035 piece=▁like
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=640 all=5241 active=1047 piece=bod
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=660 all=5305 active=1111 piece=ting
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=9 size=680 all=5323 active=1129 piece=▁heard
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=700 all=5360 active=1166 piece=▁19
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=8 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=720 all=5413 active=1052 piece=▁sil
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=8 size=740 all=5428 active=1067 piece=▁appro
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=760 all=5468 active=1107 piece=cip
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=780 all=5536 active=1175 piece=▁dam
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=800 all=5560 active=1199 piece=▁hist
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=7 size=820 all=5558 active=997 piece=▁fellow
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=840 all=5553 active=992 piece=ft
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=860 all=5613 active=1052 piece=ened
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=880 all=5663 active=1102 piece=▁dec
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=900 all=5687 active=1126 piece=ished
+bpe_model_trainer.cc(159) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=920 all=5699 active=1009 piece=▁took
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=940 all=5703 active=1013 piece=▁story
+bpe_model_trainer.cc(268) LOG(INFO) Added: freq=6 size=960 all=5703 active=1013 piece=▁friends
+trainer_interface.cc(689) LOG(INFO) Saving model: tok.model
+trainer_interface.cc(701) LOG(INFO) Saving vocabs: tok.vocab
+# params: 0.53 M
+[0100/10000] ℓ: 5.295 p: 199.3 dt: 11.8 ms
+[0200/10000] ℓ: 3.480 p: 32.5 dt: 12.0 ms
+[0300/10000] ℓ: 2.232 p: 9.3 dt: 18.4 ms
+[0400/10000] ℓ: 1.093 p: 3.0 dt: 17.7 ms
+[0500/10000] ℓ: 0.589 p: 1.8 dt: 11.8 ms
+[0600/10000] ℓ: 0.431 p: 1.5 dt: 12.2 ms
+[0700/10000] ℓ: 0.356 p: 1.4 dt: 12.0 ms
+[0800/10000] ℓ: 0.308 p: 1.4 dt: 11.6 ms
+[0900/10000] ℓ: 0.278 p: 1.3 dt: 12.0 ms
+[1000/10000] ℓ: 0.254 p: 1.3 dt: 11.8 ms
+[1100/10000] ℓ: 0.239 p: 1.3 dt: 12.9 ms
+[1200/10000] ℓ: 0.227 p: 1.3 dt: 12.1 ms
+[1300/10000] ℓ: 0.213 p: 1.2 dt: 14.5 ms
+[1400/10000] ℓ: 0.204 p: 1.2 dt: 12.2 ms
+[1500/10000] ℓ: 0.200 p: 1.2 dt: 11.9 ms
+[1600/10000] ℓ: 0.194 p: 1.2 dt: 12.2 ms
+[1700/10000] ℓ: 0.184 p: 1.2 dt: 12.3 ms
+[1800/10000] ℓ: 0.181 p: 1.2 dt: 11.9 ms
+[1900/10000] ℓ: 0.174 p: 1.2 dt: 12.5 ms
+[2000/10000] ℓ: 0.175 p: 1.2 dt: 12.0 ms
+[2100/10000] ℓ: 0.165 p: 1.2 dt: 11.9 ms
+[2200/10000] ℓ: 0.160 p: 1.2 dt: 15.4 ms
+[2300/10000] ℓ: 0.161 p: 1.2 dt: 12.9 ms
+[2400/10000] ℓ: 0.155 p: 1.2 dt: 11.9 ms
+[2500/10000] ℓ: 0.154 p: 1.2 dt: 11.7 ms
+[2600/10000] ℓ: 0.152 p: 1.2 dt: 11.9 ms
+[2700/10000] ℓ: 0.147 p: 1.2 dt: 12.3 ms
+[2800/10000] ℓ: 0.145 p: 1.2 dt: 11.7 ms
+[2900/10000] ℓ: 0.146 p: 1.2 dt: 11.7 ms
+[3000/10000] ℓ: 0.140 p: 1.2 dt: 11.8 ms
+[3100/10000] ℓ: 0.140 p: 1.2 dt: 13.9 ms
+[3200/10000] ℓ: 0.135 p: 1.1 dt: 17.3 ms
+[3300/10000] ℓ: 0.136 p: 1.1 dt: 11.8 ms
+[3400/10000] ℓ: 0.134 p: 1.1 dt: 11.6 ms
+[3500/10000] ℓ: 0.130 p: 1.1 dt: 12.2 ms
+[3600/10000] ℓ: 0.128 p: 1.1 dt: 12.0 ms
+[3700/10000] ℓ: 0.128 p: 1.1 dt: 11.8 ms
+[3800/10000] ℓ: 0.127 p: 1.1 dt: 11.8 ms
+[3900/10000] ℓ: 0.127 p: 1.1 dt: 11.8 ms
+[4000/10000] ℓ: 0.123 p: 1.1 dt: 12.9 ms
+[4100/10000] ℓ: 0.119 p: 1.1 dt: 14.9 ms
+[4200/10000] ℓ: 0.119 p: 1.1 dt: 11.6 ms
+[4300/10000] ℓ: 0.118 p: 1.1 dt: 12.5 ms
+[4400/10000] ℓ: 0.114 p: 1.1 dt: 11.9 ms
+[4500/10000] ℓ: 0.114 p: 1.1 dt: 12.5 ms
+[4600/10000] ℓ: 0.113 p: 1.1 dt: 12.4 ms
+[4700/10000] ℓ: 0.114 p: 1.1 dt: 11.7 ms
+[4800/10000] ℓ: 0.105 p: 1.1 dt: 12.0 ms
+[4900/10000] ℓ: 0.109 p: 1.1 dt: 12.1 ms
+[5000/10000] ℓ: 0.108 p: 1.1 dt: 15.4 ms
+[5100/10000] ℓ: 0.107 p: 1.1 dt: 12.2 ms
+[5200/10000] ℓ: 0.102 p: 1.1 dt: 11.9 ms
+[5300/10000] ℓ: 0.103 p: 1.1 dt: 12.6 ms
+[5400/10000] ℓ: 0.102 p: 1.1 dt: 11.9 ms
+[5500/10000] ℓ: 0.098 p: 1.1 dt: 12.9 ms
+[5600/10000] ℓ: 0.097 p: 1.1 dt: 12.2 ms
+[5700/10000] ℓ: 0.099 p: 1.1 dt: 12.0 ms
+[5800/10000] ℓ: 0.099 p: 1.1 dt: 11.9 ms
+[5900/10000] ℓ: 0.095 p: 1.1 dt: 16.2 ms
+[6000/10000] ℓ: 0.096 p: 1.1 dt: 18.2 ms
+[6100/10000] ℓ: 0.094 p: 1.1 dt: 12.3 ms
+[6200/10000] ℓ: 0.092 p: 1.1 dt: 11.9 ms
+[6300/10000] ℓ: 0.091 p: 1.1 dt: 12.2 ms
+[6400/10000] ℓ: 0.093 p: 1.1 dt: 12.6 ms
+[6500/10000] ℓ: 0.091 p: 1.1 dt: 12.2 ms
+[6600/10000] ℓ: 0.087 p: 1.1 dt: 11.9 ms
+[6700/10000] ℓ: 0.087 p: 1.1 dt: 12.0 ms
+[6800/10000] ℓ: 0.085 p: 1.1 dt: 12.5 ms
+[6900/10000] ℓ: 0.085 p: 1.1 dt: 16.7 ms
+[7000/10000] ℓ: 0.086 p: 1.1 dt: 11.7 ms
+[7100/10000] ℓ: 0.085 p: 1.1 dt: 12.3 ms
+[7200/10000] ℓ: 0.083 p: 1.1 dt: 12.0 ms
+[7300/10000] ℓ: 0.080 p: 1.1 dt: 11.6 ms
+[7400/10000] ℓ: 0.083 p: 1.1 dt: 11.5 ms
+[7500/10000] ℓ: 0.081 p: 1.1 dt: 11.7 ms
+[7600/10000] ℓ: 0.078 p: 1.1 dt: 12.4 ms
+[7700/10000] ℓ: 0.077 p: 1.1 dt: 11.9 ms
+[7800/10000] ℓ: 0.077 p: 1.1 dt: 15.4 ms
+[7900/10000] ℓ: 0.078 p: 1.1 dt: 12.2 ms
+[8000/10000] ℓ: 0.075 p: 1.1 dt: 11.7 ms
+[8100/10000] ℓ: 0.076 p: 1.1 dt: 12.1 ms
+[8200/10000] ℓ: 0.073 p: 1.1 dt: 11.6 ms
+[8300/10000] ℓ: 0.074 p: 1.1 dt: 12.7 ms
+[8400/10000] ℓ: 0.075 p: 1.1 dt: 11.8 ms
+[8500/10000] ℓ: 0.073 p: 1.1 dt: 11.7 ms
+[8600/10000] ℓ: 0.070 p: 1.1 dt: 11.8 ms
+[8700/10000] ℓ: 0.073 p: 1.1 dt: 15.7 ms
+[8800/10000] ℓ: 0.071 p: 1.1 dt: 18.5 ms
+[8900/10000] ℓ: 0.070 p: 1.1 dt: 11.7 ms
+[9000/10000] ℓ: 0.071 p: 1.1 dt: 11.6 ms
+[9100/10000] ℓ: 0.071 p: 1.1 dt: 11.6 ms
+[9200/10000] ℓ: 0.070 p: 1.1 dt: 12.6 ms
+[9300/10000] ℓ: 0.072 p: 1.1 dt: 11.6 ms
+[9400/10000] ℓ: 0.069 p: 1.1 dt: 11.6 ms
+[9500/10000] ℓ: 0.070 p: 1.1 dt: 11.7 ms
+[9600/10000] ℓ: 0.069 p: 1.1 dt: 11.8 ms
+[9700/10000] ℓ: 0.070 p: 1.1 dt: 15.7 ms
+[9800/10000] ℓ: 0.070 p: 1.1 dt: 11.7 ms
+[9900/10000] ℓ: 0.070 p: 1.1 dt: 11.8 ms

@@ -1,0 +1,2768 @@
+# LZ78 Pretrained Dictionary
+# code	parent_code	char	pattern
+1	0	T	T
+2	0	h	h
+3	0	e	e
+4	0	 	 
+5	0	P	P
+6	0	r	r
+7	0	o	o
+8	0	j	j
+9	0	t	t
+10	0	u	u
+11	0	n	n
+12	0	b	b
+13	0	g	g
+14	0	B	B
+15	0	k	k
+16	0	f	f
+17	0	i	i
+18	0	p	p
+19	0	a	a
+20	0	W	W
+21	0	\n	\n
+22	0	s	s
+23	0	y	y
+24	0	w	w
+25	0	U	U
+26	0	\r	\r
+27	0	l	l
+28	0	d	d
+29	0	c	c
+30	0	m	m
+31	0	,	,
+32	0	.	.
+33	0	S	S
+34	0	v	v
+35	0	V	V
+36	0	A	A
+37	0	I	I
+38	0	2	2
+39	0	0	0
+40	0	1	1
+41	0	9	9
+42	0	#	#
+43	0	6	6
+44	0	7	7
+45	0	4	4
+46	0	:	:
+47	0	C	C
+48	0	/	/
+49	0	*	*
+50	0	O	O
+51	0	F	F
+52	0	H	H
+53	0	E	E
+54	0	R	R
+55	0	K	K
+56	0	N	N
+57	0	L	L
+58	0	M	M
+59	0	’	’
+60	0	Y	Y
+61	0	G	G
+62	0	D	D
+63	0	q	q
+64	0	]	]
+65	0	·	·
+66	0	5	5
+67	0	_	_
+68	0	;	;
+69	0	”	”
+70	0	-	-
+71	0	x	x
+72	0	!	!
+73	0	8	8
+74	0	3	3
+75	0	[	[
+76	0	Q	Q
+77	0	“	“
+78	0	(	(
+79	0	)	)
+80	0	?	?
+81	0	z	z
+82	0	ä	ä
+83	0	™	™
+84	3	c	ec
+85	9	e	te
+86	3	r	er
+87	7	o	oo
+88	4	o	 o
+89	11	 	n 
+90	17	n	in
+91	4	 	  
+92	2	i	hi
+93	4	i	 i
+94	22	 	s 
+95	16	o	fo
+96	6	 	r 
+97	9	h	th
+98	3	 	e 
+99	10	s	us
+100	16	 	f 
+101	19	n	an
+102	7	n	on
+103	2	e	he
+104	6	e	re
+105	4	t	 t
+106	11	i	ni
+107	9	a	ta
+108	4	a	 a
+109	11	d	nd
+110	7	s	os
+111	9	 	t 
+112	7	t	ot
+113	4	p	 p
+114	19	r	ar
+115	9	s	ts
+116	7	r	or
+117	4	n	 n
+118	7	 	o 
+119	28	 	d 
+120	24	i	wi
+121	19	l	al
+122	11	o	no
+123	4	r	 r
+124	3	s	es
+125	9	r	tr
+126	17	c	ic
+127	9	i	ti
+128	24	h	wh
+129	19	t	at
+130	22	o	so
+131	3	v	ev
+132	4	Y	 Y
+133	7	u	ou
+134	4	m	 m
+135	19	y	ay
+136	4	c	 c
+137	7	p	op
+138	23	 	y 
+139	17	t	it
+140	17	v	iv
+141	24	a	wa
+142	4	u	 u
+143	6	o	ro
+144	8	e	je
+145	29	t	ct
+146	12	e	be
+147	6	g	rg
+148	11	s	ns
+149	29	l	cl
+150	3	d	ed
+151	4	w	 w
+152	12	o	bo
+153	7	k	ok
+154	27	i	li
+155	11	e	ne
+156	24	w	ww
+157	4	I	 I
+158	17	l	il
+159	27	 	l 
+160	2	a	ha
+161	4	l	 l
+162	19	w	aw
+163	4	y	 y
+164	27	o	lo
+165	29	a	ca
+166	3	f	ef
+167	9	l	tl
+168	18	 	p 
+169	27	e	le
+170	10	t	ut
+171	2	o	ho
+172	19	s	as
+173	27	l	ll
+174	6	a	ra
+175	9	o	to
+176	36	r	Ar
+177	19	c	ac
+178	19	m	am
+179	3	l	el
+180	3	a	ea
+181	22	e	se
+182	30	b	mb
+183	31	 	, 
+184	28	a	da
+185	4	O	 O
+186	13	e	ge
+187	11	g	ng
+188	5	r	Pr
+189	7	d	od
+190	27	a	la
+191	17	s	is
+192	12	u	bu
+193	16	r	fr
+194	1	h	Th
+195	19	g	ag
+196	19	i	ai
+197	37	n	In
+198	36	R	AR
+199	4	T	 T
+200	4	P	 P
+201	33	 	S 
+202	4	A	 A
+203	22	.	s.
+204	54	I	RI
+205	54	O	RO
+206	3	t	et
+207	1	H	TH
+208	47	T	CT
+209	17	o	io
+210	32	 	. 
+211	36	N	AN
+212	4	b	 b
+213	37	N	IN
+214	19	p	ap
+215	19	 	a 
+216	12	y	by
+217	18	l	pl
+218	37	l	Il
+219	22	t	st
+220	4	“	 “
+221	52	e	He
+222	17	m	im
+223	4	f	 f
+224	13	 	g 
+225	7	f	of
+226	11	a	na
+227	4	s	 s
+228	32	”	.”
+229	4	H	 H
+230	28	i	di
+231	17	r	ir
+232	18	t	pt
+233	68	 	; 
+234	7	v	ov
+235	22	s	ss
+236	18	r	pr
+237	63	u	qu
+238	3	n	en
+239	9	u	tu
+240	22	,	s,
+241	29	h	ch
+242	4	h	 h
+243	22	i	si
+244	17	e	ie
+245	29	e	ce
+246	15	e	ke
+247	6	s	rs
+248	34	e	ve
+249	11	t	nt
+250	69	 	” 
+251	30	o	mo
+252	10	n	un
+253	11	c	nc
+254	22	u	su
+255	16	f	ff
+256	19	u	au
+257	13	h	gh
+258	16	l	fl
+259	27	d	ld
+260	19	b	ab
+261	17	f	if
+262	18	p	pp
+263	7	l	ol
+264	19	k	ak
+265	17	d	id
+266	70	-	--
+267	18	e	pe
+268	29	k	ck
+269	18	a	pa
+270	28	d	dd
+271	18	i	pi
+272	3	y	ey
+273	3	,	e,
+274	3	p	ep
+275	13	o	go
+276	29	u	cu
+277	6	i	ri
+278	3	e	ee
+279	16	t	ft
+280	28	e	de
+281	6	y	ry
+282	17	p	ip
+283	30	e	me
+284	3	i	ei
+285	19	v	av
+286	19	a	aa
+287	16	u	fu
+288	24	e	we
+289	34	i	vi
+290	72	 	! 
+291	37	 	I 
+292	29	r	cr
+293	18	u	pu
+294	60	o	Yo
+295	30	u	mu
+296	27	y	ly
+297	34	o	vo
+298	18	o	po
+299	9	c	tc
+300	16	a	fa
+301	10	g	ug
+302	10	p	up
+303	6	m	rm
+304	24	o	wo
+305	13	r	gr
+306	16	e	fe
+307	59	s	’s
+308	69	]	”]
+309	6	d	rd
+310	77	T	“T
+311	17	a	ia
+312	28	,	d,
+313	30	a	ma
+314	12	r	br
+315	28	o	do
+316	23	e	ye
+317	29	o	co
+318	35	a	Va
+319	29	c	cc
+320	29	 	c 
+321	75	I	[I
+322	13	,	g,
+323	23	i	yi
+324	70	t	-t
+325	54	i	Ri
+326	20	o	Wo
+327	30	s	ms
+328	51	o	Fo
+329	80	”	?”
+330	37	t	It
+331	16	-	f-
+332	7	,	o,
+333	23	o	yo
+334	34	a	va
+335	24	r	wr
+336	32	S	.S
+337	7	j	oj
+338	23	r	yr
+339	40	.	1.
+340	61	u	Gu
+341	57	i	Li
+342	33	e	Se
+343	87	k	ook
+344	98	o	e o
+345	98	a	e a
+346	93	n	 in
+347	103	 	he 
+348	85	d	ted
+349	103	r	her
+350	88	f	 of
+351	105	h	 th
+352	98	w	e w
+353	108	t	 at
+354	108	n	 an
+355	97	 	th 
+356	98	i	e i
+357	111	a	t a
+358	138	o	y o
+359	99	e	use
+360	93	t	 it
+361	109	e	nde
+362	86	m	erm
+363	100	t	f t
+364	85	n	ten
+365	139	h	ith
+366	88	r	 or
+367	88	n	 on
+368	111	w	t w
+369	133	 	ou 
+370	114	e	are
+371	117	o	 no
+372	129	e	ate
+373	119	i	d i
+374	89	t	n t
+375	106	t	nit
+376	150	 	ed 
+377	107	t	tat
+378	124	,	es,
+379	97	e	the
+380	94	o	s o
+381	98	c	e c
+382	133	n	oun
+383	151	h	 wh
+384	104	 	re 
+385	90	g	ing
+386	101	 	an 
+387	92	n	hin
+388	102	 	on 
+389	84	e	ece
+390	86	 	er 
+391	91	 	   
+392	167	y	tly
+393	142	p	 up
+394	104	d	red
+395	139	s	its
+396	180	d	ead
+397	129	 	at 
+398	191	 	is 
+399	141	s	was
+400	119	f	d f
+401	124	 	es 
+402	186	n	gen
+403	85	r	ter
+404	176	c	Arc
+405	198	T	ART
+406	203	 	s. 
+407	199	H	 TH
+408	201	 	S  
+409	185	F	 OF
+410	151	i	 wi
+411	145	i	cti
+412	158	d	ild
+413	155	 	ne 
+414	210	n	. n
+415	210	T	. T
+416	207	E	THE
+417	193	o	fro
+418	204	P	RIP
+419	181	l	sel
+420	84	t	ect
+421	188	o	Pro
+422	139	i	iti
+423	209	n	ion
+424	218	l	Ill
+425	129	i	ati
+426	119	t	d t
+427	212	y	 by
+428	104	q	req
+429	215	k	a k
+430	206	u	etu
+431	121	 	al 
+432	112	h	oth
+433	98	p	e p
+434	92	c	hic
+435	212	e	 be
+436	95	r	for
+437	121	l	all
+438	211	 	AN 
+439	219	r	str
+440	125	a	tra
+441	127	o	tio
+442	132	O	 YO
+443	183	w	, w
+444	90	 	in 
+445	133	r	our
+446	173	u	llu
+447	101	d	and
+448	134	a	 ma
+449	221	 	He 
+450	105	o	 to
+451	136	o	 co
+452	193	e	fre
+453	109	 	nd 
+454	195	e	age
+455	166	o	efo
+456	196	n	ain
+457	242	a	 ha
+458	94	t	s t
+459	242	i	 hi
+460	235	 	ss 
+461	103	i	hei
+462	114	 	ar 
+463	194	e	The
+464	108	l	 al
+465	183	a	, a
+466	250	 	”  
+467	225	 	of 
+468	133	s	ous
+469	169	c	lec
+470	151	o	 wo
+471	116	 	or 
+472	85	a	tea
+473	241	i	chi
+474	187	 	ng 
+475	102	g	ong
+476	86	i	eri
+477	111	t	t t
+478	139	e	ite
+479	151	e	 we
+480	123	a	 ra
+481	172	 	as 
+482	89	a	n a
+483	96	o	r o
+484	225	f	off
+485	242	e	 he
+486	108	s	 as
+487	241	 	ch 
+488	94	a	s a
+489	119	w	d w
+490	180	t	eat
+491	111	h	t h
+492	175	 	to 
+493	92	s	his
+494	223	o	 fo
+495	187	s	ngs
+496	111	n	t n
+497	90	e	ine
+498	124	t	est
+499	245	s	ces
+500	92	m	him
+501	150	,	ed,
+502	246	 	ke 
+503	89	h	n h
+504	251	t	mot
+505	238	t	ent
+506	131	e	eve
+507	174	g	rag
+508	273	 	e, 
+509	128	i	whi
+510	263	l	oll
+511	171	u	hou
+512	257	t	ght
+513	112	 	ot 
+514	258	a	fla
+515	126	k	ick
+516	190	g	lag
+517	178	e	ame
+518	89	W	n W
+519	272	 	ey 
+520	260	l	abl
+521	94	h	s h
+522	183	h	, h
+523	249	i	nti
+524	240	 	s, 
+525	171	m	hom
+526	104	c	rec
+527	88	l	 ol
+528	237	a	qua
+529	101	c	anc
+530	275	n	gon
+531	104	a	rea
+532	110	i	osi
+533	256	g	aug
+534	113	r	 pr
+535	264	i	aki
+536	129	s	ats
+537	135	s	ays
+538	173	 	ll 
+539	259	 	ld 
+540	281	 	ry 
+541	251	u	mou
+542	244	s	ies
+543	151	a	 wa
+544	107	n	tan
+545	111	o	t o
+546	286	t	aat
+547	160	d	had
+548	249	e	nte
+549	144	c	jec
+550	179	l	ell
+551	115	 	ts 
+552	262	e	ppe
+553	114	a	ara
+554	253	e	nce
+555	103	n	hen
+556	98	v	e v
+557	161	o	 lo
+558	242	o	 ho
+559	189	 	od 
+560	97	i	thi
+561	248	r	ver
+562	120	l	wil
+563	278	p	eep
+564	98	d	e d
+565	135	 	ay 
+566	224	t	g t
+567	119	a	d a
+568	251	n	mon
+569	126	h	ich
+570	263	d	old
+571	94	i	s i
+572	219	o	sto
+573	143	v	rov
+574	90	c	inc
+575	98	s	e s
+576	210	H	. H
+577	165	n	can
+578	158	l	ill
+579	134	o	 mo
+580	109	a	nda
+581	116	y	ory
+582	296	 	ly 
+583	170	 	ut 
+584	236	e	pre
+585	283	 	me 
+586	86	,	er,
+587	120	t	wit
+588	159	t	l t
+589	94	w	s w
+590	299	h	tch
+591	199	h	 Th
+592	160	v	hav
+593	106	o	nio
+594	241	a	cha
+595	183	i	, i
+596	97	a	tha
+597	133	l	oul
+598	210	I	. I
+599	93	s	 is
+600	276	r	cur
+601	154	t	lit
+602	219	 	st 
+603	214	p	app
+604	146	e	bee
+605	219	a	sta
+606	191	t	ist
+607	102	a	ona
+608	97	o	tho
+609	116	t	ort
+610	279	e	fte
+611	154	c	lic
+612	233	a	; a
+613	102	e	one
+614	160	t	hat
+615	222	e	ime
+616	295	c	muc
+617	216	 	by 
+618	168	t	p t
+619	284	g	eig
+620	245	 	ce 
+621	306	c	fec
+622	251	r	mor
+623	118	b	o b
+624	101	y	any
+625	110	e	ose
+626	227	o	 so
+627	249	 	nt 
+628	155	s	nes
+629	164	o	loo
+630	183	o	, o
+631	252	t	unt
+632	244	n	ien
+633	182	e	mbe
+634	138	a	y a
+635	230	s	dis
+636	305	e	gre
+637	162	a	awa
+638	140	e	ive
+639	252	d	und
+640	160	n	han
+641	130	m	som
+642	108	r	 ar
+643	280	d	ded
+644	155	a	nea
+645	277	n	rin
+646	231	 	ir 
+647	233	b	; b
+648	149	o	clo
+649	247	 	rs 
+650	260	o	abo
+651	183	t	, t
+652	285	e	ave
+653	227	h	 sh
+654	169	a	lea
+655	217	a	pla
+656	157	t	 It
+657	289	l	vil
+658	278	n	een
+659	152	u	bou
+660	234	e	ove
+661	113	e	 pe
+662	277	g	rig
+663	133	g	oug
+664	312	 	d, 
+665	254	r	sur
+666	191	e	ise
+667	114	s	ars
+668	138	w	y w
+669	206	 	et 
+670	226	t	nat
+671	282	 	ip 
+672	249	,	nt,
+673	119	h	d h
+674	118	t	o t
+675	229	e	 He
+676	114	t	art
+677	313	n	man
+678	155	i	nei
+679	267	c	pec
+680	197	d	Ind
+681	254	c	suc
+682	283	n	men
+683	280	r	der
+684	311	n	ian
+685	105	e	 te
+686	303	a	rma
+687	183	b	, b
+688	243	d	sid
+689	85	 	te 
+690	155	v	nev
+691	235	i	ssi
+692	271	n	pin
+693	128	e	whe
+694	236	o	pro
+695	298	r	por
+696	301	h	ugh
+697	139	y	ity
+698	220	H	 “H
+699	228	]	.”]
+700	146	l	bel
+701	269	i	pai
+702	307	 	’s 
+703	172	k	ask
+704	315	e	doe
+705	139	 	it 
+706	191	h	ish
+707	183	e	, e
+708	122	t	not
+709	243	n	sin
+710	215	f	a f
+711	119	n	d n
+712	223	r	 fr
+713	230	n	din
+714	174	n	ran
+715	304	u	wou
+716	309	e	rde
+717	169	.	le.
+718	118	w	o w
+719	133	t	out
+720	288	r	wer
+721	292	e	cre
+722	104	,	re,
+723	282	,	ip,
+724	173	y	lly
+725	128	o	who
+726	157	f	 If
+727	169	d	led
+728	89	p	n p
+729	265	l	idl
+730	153	 	ok 
+731	153	e	oke
+732	297	l	vol
+733	164	n	lon
+734	324	h	-th
+735	271	r	pir
+736	251	m	mom
+737	219	i	sti
+738	108	b	 ab
+739	318	n	Van
+740	267	r	per
+741	245	.	ce.
+742	317	m	com
+743	190	s	las
+744	161	a	 la
+745	317	u	cou
+746	177	c	acc
+747	237	e	que
+748	138	b	y b
+749	327	e	mse
+750	175	n	ton
+751	127	v	tiv
+752	107	k	tak
+753	173	e	lle
+754	97	r	thr
+755	106	n	nin
+756	278	s	ees
+757	181	t	set
+758	325	p	Rip
+759	174	d	rad
+760	315	w	dow
+761	192	t	but
+762	248	d	ved
+763	298	s	pos
+764	278	m	eem
+765	172	s	ass
+766	124	.	es.
+767	269	r	par
+768	95	l	fol
+769	305	a	gra
+770	310	h	“Th
+771	220	T	 “T
+772	95	u	fou
+773	290	t	! t
+774	94	R	s R
+775	148	e	nse
+776	103	e	hee
+777	274	t	ept
+778	266	t	--t
+779	302	o	upo
+780	326	l	Wol
+781	108	f	 af
+782	170	e	ute
+783	181	e	see
+784	313	r	mar
+785	277	s	ris
+786	313	d	mad
+787	241	e	che
+788	183	s	, s
+789	300	c	fac
+790	304	o	woo
+791	314	o	bro
+792	122	w	now
+793	304	r	wor
+794	268	e	cke
+795	322	 	g, 
+796	317	n	con
+797	222	p	imp
+798	330	 	It 
+799	331	i	f-i
+800	195	a	aga
+801	270	e	dde
+802	163	o	 yo
+803	243	o	sio
+804	303	s	rms
+805	333	u	you
+806	294	u	You
+807	315	n	don
+808	251	s	mos
+809	160	b	hab
+810	297	u	vou
+811	147	 	rg 
+812	115	k	tsk
+813	215	r	a r
+814	249	r	ntr
+815	98	K	e K
+816	267	n	pen
+817	313	y	may
+818	287	l	ful
+819	165	t	cat
+820	154	g	lig
+821	194	i	Thi
+822	293	b	pub
+823	205	J	ROJ
+824	213	K	INK
+825	230	t	dit
+826	137	y	opy
+827	317	p	cop
+828	327	 	ms 
+829	323	n	yin
+830	143	j	roj
+831	143	t	rot
+832	208	 	CT 
+833	200	r	 Pr
+834	336	.	.S.
+835	98	P	e P
+836	111	G	t G
+837	170	i	uti
+838	235	o	sso
+839	337	e	oje
+840	183	y	, y
+841	238	b	enb
+842	102	l	onl
+843	179	e	ele
+844	320	w	c w
+845	278	 	ee 
+846	319	e	cce
+847	147	™	rg™
+848	311	t	iat
+849	195	r	agr
+850	338	i	yri
+851	340	t	Gut
+852	341	c	Lic
+853	339	E	1.E
+854	171	l	hol
+855	156	.	ww.
+856	341	t	Lit
+857	202	r	 Ar
+858	184	y	day
+859	191	s	iss
+860	255	o	ffo
+861	332	 	o, 
+862	232	 	pt 
+863	339	F	1.F
+864	261	 	if 
+865	295	s	mus
+866	335	i	wri
+867	328	u	Fou
+868	130	l	sol
+869	351	i	 thi
+870	363	h	f th
+871	343	 	ook 
+872	391	 	    
+873	354	d	 and
+874	351	e	 the
+875	385	 	ing 
+876	406	n	s. n
+877	408	 	S   
+878	380	f	s of
+879	372	d	ated
+880	416	 	THE 
+881	414	e	. ne
+882	348	 	ted 
+883	419	f	self
+884	360	s	 its
+885	345	 	e a 
+886	424	u	Illu
+887	425	o	atio
+888	441	n	tion
+889	365	 	ith 
+890	410	t	 wit
+891	439	a	stra
+892	346	 	 in 
+893	446	s	llus
+894	444	t	in t
+895	359	d	used
+896	427	 	 by 
+897	431	c	al c
+898	350	 	 of 
+899	379	 	the 
+900	378	 	es, 
+901	447	 	and 
+902	432	e	othe
+903	383	i	 whi
+904	395	 	its 
+905	437	 	all 
+906	388	t	on t
+907	370	 	are 
+908	462	a	ar a
+909	420	 	ect 
+910	401	o	es o
+911	356	s	e is
+912	464	l	 all
+913	374	h	n th
+914	352	o	e wo
+915	345	n	e an
+916	450	 	 to 
+917	366	 	 or 
+918	475	 	ong 
+919	376	a	ed a
+920	435	l	 bel
+921	466	 	”   
+922	376	i	ed i
+923	434	h	hich
+924	351	a	 tha
+925	352	a	e wa
+926	484	 	off 
+927	453	t	nd t
+928	347	o	he o
+929	344	f	e of
+930	376	h	ed h
+931	451	m	 com
+932	343	i	ooki
+933	474	a	ng a
+934	497	d	ined
+935	370	d	ared
+936	353	 	 at 
+937	398	h	is h
+938	376	w	ed w
+939	487	h	ch h
+940	382	d	ound
+941	347	f	he f
+942	457	v	 hav
+943	376	f	ed f
+944	459	m	 him
+945	376	t	ed t
+946	461	r	heir
+947	440	n	tran
+948	473	l	chil
+949	491	i	t hi
+950	459	s	 his
+951	513	o	ot o
+952	413	o	ne o
+953	485	 	 he 
+954	433	a	e pa
+955	494	u	 fou
+956	359	 	use 
+957	364	 	ten 
+958	376	r	ed r
+959	500	,	him,
+960	474	h	ng h
+961	368	i	t wi
+962	474	t	ng t
+963	525	 	hom 
+964	382	t	ount
+965	423	 	ion 
+966	520	e	able
+967	386	o	an o
+968	465	n	, an
+969	458	h	s th
+970	468	 	ous 
+971	488	 	s a 
+972	543	s	 was
+973	561	y	very
+974	448	n	 man
+975	572	r	stor
+976	568	g	mong
+977	486	 	 as 
+978	390	a	er a
+979	349	s	hers
+980	569	 	ich 
+981	555	e	hene
+982	379	r	ther
+983	455	r	efor
+984	376	u	ed u
+985	511	s	hous
+986	393	o	 upo
+987	360	 	 it 
+988	573	i	rovi
+989	443	h	, wh
+990	478	r	iter
+991	403	 	ter 
+992	554	 	nce 
+993	411	o	ctio
+994	505	l	entl
+995	582	a	ly a
+996	467	h	of h
+997	596	t	that
+998	512	 	ght 
+999	592	e	have
+1000	576	e	. He
+1001	522	o	, ho
+1002	586	 	er, 
+1003	399	 	was 
+1004	493	 	his 
+1005	444	h	in h
+1006	612	n	; an
+1007	398	n	is n
+1008	467	s	of s
+1009	488	n	s an
+1010	400	o	d fo
+1011	426	h	d th
+1012	561	 	ver 
+1013	361	d	nded
+1014	435	 	 be 
+1015	603	r	appr
+1016	530	e	gone
+1017	609	a	orta
+1018	367	 	 on 
+1019	387	g	hing
+1020	631	a	unta
+1021	469	t	lect
+1022	471	t	or t
+1023	533	h	augh
+1024	477	h	t th
+1025	418	 	RIP 
+1026	618	h	p th
+1027	536	k	atsk
+1028	591	e	 The
+1029	602	o	st o
+1030	501	 	ed, 
+1031	506	r	ever
+1032	379	s	thes
+1033	538	t	ll t
+1034	347	w	he w
+1035	490	h	eath
+1036	615	s	imes
+1037	545	f	t of
+1038	599	 	 is 
+1039	578	 	ill 
+1040	349	 	her 
+1041	583	t	ut t
+1042	562	l	will
+1043	579	u	 mou
+1044	508	w	e, w
+1045	516	e	lage
+1046	641	e	some
+1047	467	t	of t
+1048	384	w	re w
+1049	417	m	from
+1050	541	n	moun
+1051	556	i	e vi
+1052	584	c	prec
+1053	624	 	any 
+1054	631	r	untr
+1055	585	o	me o
+1056	518	i	n Wi
+1057	386	W	an W
+1058	537	 	ays 
+1059	467	P	of P
+1060	652	 	ave 
+1061	394	 	red 
+1062	628	s	ness
+1063	642	e	 are
+1064	425	n	atin
+1065	664	w	d, w
+1066	524	a	s, a
+1067	420	u	ectu
+1068	588	h	l th
+1069	476	n	erin
+1070	651	h	, th
+1071	614	 	hat 
+1072	444	a	in a
+1073	517	 	ame 
+1074	415	h	. Th
+1075	690	e	neve
+1076	379	i	thei
+1077	560	n	thin
+1078	570	 	old 
+1079	557	n	 lon
+1080	659	t	bout
+1081	503	i	n hi
+1082	608	u	thou
+1083	597	d	ould
+1084	412	r	ildr
+1085	489	i	d wi
+1086	483	f	r of
+1087	347	h	he h
+1088	524	w	s, w
+1089	388	a	on a
+1090	529	e	ance
+1091	344	n	e on
+1092	683	 	der 
+1093	436	 	for 
+1094	351	r	 thr
+1095	663	h	ough
+1096	453	d	nd d
+1097	410	l	 wil
+1098	619	h	eigh
+1099	613	 	one 
+1100	657	l	vill
+1101	454	,	age,
+1102	681	h	such
+1103	481	t	as t
+1104	563	i	eepi
+1105	453	i	nd i
+1106	479	r	 wer
+1107	566	o	g to
+1108	630	r	, or
+1109	470	r	 wor
+1110	605	t	stat
+1111	637	y	away
+1112	622	e	more
+1113	422	o	itio
+1114	445	h	ourh
+1115	567	n	d an
+1116	567	s	d as
+1117	534	o	 pro
+1118	355	t	th t
+1119	675	 	 He 
+1120	374	r	n tr
+1121	521	e	s he
+1122	616	h	much
+1123	704	s	does
+1124	531	d	read
+1125	696	t	ught
+1126	650	u	abou
+1127	524	h	s, h
+1128	645	g	ring
+1129	694	d	prod
+1130	428	u	requ
+1131	398	e	is e
+1132	687	u	, bu
+1133	371	t	 not
+1134	712	o	 fro
+1135	492	t	to t
+1136	582	s	ly s
+1137	674	h	o th
+1138	688	e	side
+1139	700	o	belo
+1140	495	 	ngs 
+1141	673	u	d hu
+1142	398	d	is d
+1143	679	k	peck
+1144	716	d	rded
+1145	587	h	with
+1146	381	a	e ca
+1147	658	 	een 
+1148	719	 	out 
+1149	585	V	me V
+1150	671	V	ip V
+1151	589	i	s wi
+1152	383	e	 whe
+1153	729	e	idle
+1154	436	e	fore
+1155	634	 	y a 
+1156	377	e	tate
+1157	376	o	ed o
+1158	465	 	, a 
+1159	631	e	unte
+1160	451	n	 con
+1161	727	 	led 
+1162	569	o	icho
+1163	632	t	ient
+1164	482	n	n an
+1165	467	a	of a
+1166	656	 	 It 
+1167	636	a	grea
+1168	672	 	nt, 
+1169	647	u	; bu
+1170	728	l	n pl
+1171	705	i	it i
+1172	507	r	ragr
+1173	358	f	y of
+1174	454	 	age 
+1175	633	r	mber
+1176	740	s	pers
+1177	607	g	onag
+1178	373	n	d in
+1179	671	w	ip w
+1180	743	t	last
+1181	626	m	 som
+1182	560	s	this
+1183	712	i	 fri
+1184	546	s	aats
+1185	610	r	fter
+1186	605	n	stan
+1187	347	l	he l
+1188	388	o	on o
+1189	648	u	clou
+1190	731	d	oked
+1191	443	i	, wi
+1192	505	s	ents
+1193	713	g	ding
+1194	615	 	ime 
+1195	754	o	thro
+1196	492	d	to d
+1197	635	t	dist
+1198	460	t	ss t
+1199	389	i	ecei
+1200	758	 	Rip 
+1201	739	 	Van 
+1202	346	t	 int
+1203	474	i	ng i
+1204	548	d	nted
+1205	629	k	look
+1206	552	a	ppea
+1207	653	o	 sho
+1208	589	a	s wa
+1209	732	u	volu
+1210	397	t	at t
+1211	538	o	ll o
+1212	606	r	istr
+1213	724	 	lly 
+1214	748	e	y be
+1215	524	t	s, t
+1216	623	e	o be
+1217	752	e	take
+1218	756	 	ees 
+1219	453	h	nd h
+1220	549	t	ject
+1221	714	g	rang
+1222	742	p	comp
+1223	571	n	s in
+1224	547	 	had 
+1225	352	i	e wi
+1226	406	T	s. T
+1227	720	e	were
+1228	706	 	ish 
+1229	601	t	litt
+1230	764	e	eeme
+1231	527	d	 old
+1232	701	n	pain
+1233	510	a	olla
+1234	767	t	part
+1235	392	 	tly 
+1236	709	g	sing
+1237	722	 	re, 
+1238	761	 	but 
+1239	456	t	aint
+1240	504	e	mote
+1241	513	s	ot s
+1242	516	o	lago
+1243	515	e	icke
+1244	502	g	ke g
+1245	551	o	ts o
+1246	636	e	gree
+1247	774	i	s Ri
+1248	689	t	te t
+1249	509	c	whic
+1250	550	e	elle
+1251	385	,	ing,
+1252	351	o	 tho
+1253	463	 	The 
+1254	734	e	-the
+1255	773	h	! th
+1256	397	w	at w
+1257	575	h	e sh
+1258	620	o	ce o
+1259	649	o	rs o
+1260	528	i	quai
+1261	625	 	ose 
+1262	771	h	 “Th
+1263	723	 	ip, 
+1264	593	n	nion
+1265	526	e	rece
+1266	558	w	 how
+1267	565	t	ay t
+1268	429	i	a ki
+1269	453	o	nd o
+1270	781	t	 aft
+1271	783	m	seem
+1272	627	o	nt o
+1273	638	 	ive 
+1274	357	 	t a 
+1275	413	i	ne i
+1276	779	n	upon
+1277	682	t	ment
+1278	480	n	 ran
+1279	705	w	it w
+1280	564	o	e do
+1281	751	e	tive
+1282	661	r	 per
+1283	396	 	ead 
+1284	698	e	 “He
+1285	772	n	foun
+1286	413	t	ne t
+1287	777	 	ept 
+1288	436	t	fort
+1289	607	t	onat
+1290	472	d	tead
+1291	753	c	llec
+1292	635	p	disp
+1293	738	o	 abo
+1294	789	e	face
+1295	655	c	plac
+1296	562	d	wild
+1297	532	t	osit
+1298	617	t	by t
+1299	595	n	, in
+1300	677	,	man,
+1301	776	l	heel
+1302	668	i	y wi
+1303	544	t	tant
+1304	496	o	t no
+1305	749	l	msel
+1306	463	r	Ther
+1307	801	r	dder
+1308	790	d	wood
+1309	402	e	gene
+1310	745	l	coul
+1311	711	o	d no
+1312	792	 	now 
+1313	507	g	ragg
+1314	794	d	cked
+1315	702	s	’s s
+1316	640	g	hang
+1317	488	g	s ag
+1318	600	i	curi
+1319	799	m	f-im
+1320	695	t	port
+1321	677	 	man 
+1322	802	u	 you
+1323	511	t	hout
+1324	639	e	unde
+1325	736	e	mome
+1326	678	g	neig
+1327	733	g	long
+1328	430	r	etur
+1329	403	m	term
+1330	581	 	ory 
+1331	604	n	been
+1332	755	e	nine
+1333	692	s	pins
+1334	725	 	who 
+1335	436	m	form
+1336	535	n	akin
+1337	488	m	s am
+1338	785	i	risi
+1339	798	w	It w
+1340	539	g	ld g
+1341	691	p	ssip
+1342	452	e	free
+1343	375	e	nite
+1344	786	e	made
+1345	803	n	sion
+1346	660	r	over
+1347	730	h	ok h
+1348	584	s	pres
+1349	809	i	habi
+1350	808	t	most
+1351	394	i	redi
+1352	735	i	piri
+1353	492	m	to m
+1354	643	 	ded 
+1355	590	 	tch 
+1356	757	t	sett
+1357	730	o	ok o
+1358	815	a	e Ka
+1359	344	r	e or
+1360	598	n	. In
+1361	350	f	 off
+1362	726	 	 If 
+1363	753	y	lley
+1364	654	s	leas
+1365	810	r	vour
+1366	703	i	aski
+1367	741	 	ce. 
+1368	715	l	woul
+1369	590	e	tche
+1370	355	i	th i
+1371	822	l	publ
+1372	438	W	AN W
+1373	825	i	diti
+1374	478	d	ited
+1375	826	r	opyr
+1376	577	 	can 
+1377	766	 	es. 
+1378	782	n	uten
+1379	793	k	work
+1380	440	d	trad
+1381	421	j	Proj
+1382	784	k	mark
+1383	594	r	char
+1384	804	 	rms 
+1385	611	e	lice
+1386	346	c	 inc
+1387	829	g	ying
+1388	830	e	roje
+1389	759	e	rade
+1390	817	 	may 
+1391	805	 	you 
+1392	831	e	rote
+1393	823	E	ROJE
+1394	832	G	CT G
+1395	407	I	 THI
+1396	442	U	 YOU
+1397	439	i	stri
+1398	362	s	erms
+1399	841	e	enbe
+1400	420	r	ectr
+1401	833	o	 Pro
+1402	828	o	ms o
+1403	827	y	copy
+1404	710	e	a fe
+1405	839	c	ojec
+1406	836	u	t Gu
+1407	843	c	elec
+1408	685	r	 ter
+1409	369	m	ou m
+1410	523	t	ntit
+1411	444	p	in p
+1412	553	g	arag
+1413	718	i	o wi
+1414	844	o	c wo
+1415	769	p	grap
+1416	540	A	ry A
+1417	846	s	cces
+1418	760	n	down
+1419	847	 	rg™ 
+1420	850	g	yrig
+1421	499	s	cess
+1422	693	r	wher
+1423	471	r	or r
+1424	574	l	incl
+1425	834	 	.S. 
+1426	851	e	Gute
+1427	848	e	iate
+1428	840	o	, yo
+1429	669	f	et f
+1430	763	t	post
+1431	805	r	your
+1432	837	o	utio
+1433	838	c	ssoc
+1434	853	.	1.E.
+1435	852	e	Lice
+1436	694	v	prov
+1437	686	t	rmat
+1438	662	i	rigi
+1439	818	l	full
+1440	775	 	nse 
+1441	708	 	not 
+1442	813	e	a re
+1443	542	 	ies 
+1444	473	v	chiv
+1445	580	t	ndat
+1446	845	t	ee t
+1447	796	t	cont
+1448	621	t	fect
+1449	806	 	You 
+1450	740	m	perm
+1451	835	r	e Pr
+1452	856	e	Lite
+1453	409	 	 OF 
+1454	762	 	ved 
+1455	767	a	para
+1456	863	.	1.F.
+1457	697	 	ity 
+1458	346	d	 ind
+1459	666	 	ise 
+1460	819	i	cati
+1461	860	r	ffor
+1462	765	i	assi
+1463	867	n	Foun
+1464	807	a	dona
+1465	857	c	 Arc
+1466	744	w	 law
+1467	811	L	rg L
+1468	404	h	Arch
+1469	670	i	nati
+1470	859	i	issi
+1471	746	e	acce
+1472	676	i	arti
+1473	866	t	writ
+1474	800	i	agai
+1475	855	g	ww.g
+1476	869	s	 this
+1477	872	 	     
+1478	872	T	    T
+1479	876	e	s. ne
+1480	877	 	S    
+1481	872	B	    B
+1482	881	t	. net
+1483	874	 	 the 
+1484	873	 	 and 
+1485	886	s	Illus
+1486	872	_	    _
+1487	888	s	tions
+1488	870	e	f the
+1489	899	v	the v
+1490	916	h	 to h
+1491	903	c	 whic
+1492	892	t	 in t
+1493	921	 	”    
+1494	890	h	 with
+1495	924	t	 that
+1496	901	h	and h
+1497	898	t	 of t
+1498	919	t	ed at
+1499	933	t	ng at
+1500	927	h	nd th
+1501	887	n	ation
+1502	942	e	 have
+1503	964	a	ounta
+1504	947	g	trang
+1505	901	a	and a
+1506	893	t	llust
+1507	962	h	ng th
+1508	923	 	hich 
+1509	941	o	he fo
+1510	955	n	 foun
+1511	972	 	 was 
+1512	878	 	s of 
+1513	899	f	the f
+1514	968	d	, and
+1515	946	 	heir 
+1516	894	h	in th
+1517	943	a	ed fa
+1518	898	a	 of a
+1519	980	h	ich h
+1520	950	 	 his 
+1521	916	t	 to t
+1522	899	t	the t
+1523	884	 	 its 
+1524	989	i	, whi
+1525	928	l	he ol
+1526	922	n	ed in
+1527	916	r	 to r
+1528	901	t	and t
+1529	913	e	n the
+1530	963	h	hom h
+1531	949	s	t his
+1532	916	i	 to i
+1533	879	 	ated 
+1534	999	 	have 
+1535	1006	d	; and
+1536	1016	 	gone 
+1537	908	s	ar as
+1538	906	h	on th
+1539	907	r	are r
+1540	905	t	all t
+1541	1019	 	hing 
+1542	910	f	es of
+1543	1020	i	untai
+1544	901	s	and s
+1545	896	a	 by a
+1546	1024	e	t the
+1547	989	e	, whe
+1548	988	n	rovin
+1549	966	 	able 
+1550	1035	e	eathe
+1551	997	 	that 
+1552	923	,	hich,
+1553	929	 	e of 
+1554	925	s	e was
+1555	1037	 	t of 
+1556	945	h	ed th
+1557	944	 	 him 
+1558	952	f	ne of
+1559	936	h	 at h
+1560	1034	a	he wa
+1561	912	 	 all 
+1562	889	t	ith t
+1563	981	v	henev
+1564	1033	h	ll th
+1565	1073	V	ame V
+1566	875	a	ing a
+1567	1047	h	of th
+1568	1018	h	 on h
+1569	1041	h	ut th
+1570	976	 	mong 
+1571	919	n	ed an
+1572	1072	 	in a 
+1573	914	u	e wou
+1574	1083	 	ould 
+1575	1066	n	s, an
+1576	1031	 	ever 
+1577	895	 	used 
+1578	960	i	ng hi
+1579	1103	h	as th
+1580	1105	n	nd in
+1581	996	i	of hi
+1582	1005	i	in hi
+1583	982	e	there
+1584	1098	b	eighb
+1585	1084	e	ildre
+1586	1106	e	 were
+1587	1081	s	n his
+1588	1088	i	s, wi
+1589	898	h	 of h
+1590	982	’	ther’
+1591	1057	i	an Wi
+1592	1001	w	, how
+1593	961	t	t wit
+1594	899	r	the r
+1595	953	w	 he w
+1596	875	o	ing o
+1597	1067	r	ectur
+1598	1127	o	s, ho
+1599	1117	v	 prov
+1600	1004	f	his f
+1601	1120	u	n tru
+1602	1056	n	n Win
+1603	874	m	 them
+1604	956	o	use o
+1605	1011	e	d the
+1606	945	o	ed to
+1607	1145	 	with 
+1608	1034	o	he wo
+1609	915	d	e and
+1610	979	 	hers 
+1611	901	o	and o
+1612	982	 	ther 
+1613	1045	,	lage,
+1614	899	s	the s
+1615	1094	o	 thro
+1616	1079	g	 long
+1617	1108	 	, or 
+1618	1152	n	 when
+1619	1090	 	ance 
+1620	967	l	an ol
+1621	1070	e	, the
+1622	1002	a	er, a
+1623	936	t	 at t
+1624	973	 	very 
+1625	1164	y	n any
+1626	1077	g	thing
+1627	959	 	him, 
+1628	1010	r	d for
+1629	1126	t	about
+1630	937	e	is he
+1631	882	b	ted b
+1632	901	c	and c
+1633	1162	l	ichol
+1634	930	i	ed hi
+1635	1135	h	to th
+1636	1099	o	one o
+1637	938	i	ed wi
+1638	1118	h	th th
+1639	1101	 	age, 
+1640	1044	i	e, wi
+1641	1021	i	lecti
+1642	1104	n	eepin
+1643	883	 	self 
+1644	1085	t	d wit
+1645	1134	m	 from
+1646	896	t	 by t
+1647	1182	 	this 
+1648	899	m	the m
+1649	983	e	efore
+1650	875	t	ing t
+1651	1121	 	s he 
+1652	1003	a	was a
+1653	1080	 	bout 
+1654	1090	,	ance,
+1655	1150	a	ip Va
+1656	1000	 	. He 
+1657	1082	g	thoug
+1658	1065	h	d, wh
+1659	932	n	ookin
+1660	1137	e	o the
+1661	1190	 	oked 
+1662	993	n	ction
+1663	1026	e	p the
+1664	1119	w	 He w
+1665	931	p	 comp
+1666	1053	o	any o
+1667	939	e	ch he
+1668	1161	b	led b
+1669	1069	g	ering
+1670	1163	 	ient 
+1671	1050	t	mount
+1672	1098	t	eight
+1673	1095	 	ough 
+1674	1157	n	ed on
+1675	1022	h	or th
+1676	1151	l	s wil
+1677	1148	t	out t
+1678	1181	e	 some
+1679	902	r	other
+1680	1028	y	 They
+1681	1226	h	s. Th
+1682	1191	t	, wit
+1683	1074	e	. The
+1684	1055	f	me of
+1685	1179	a	ip wa
+1686	1210	h	at th
+1687	1012	t	ver t
+1688	918	t	ong t
+1689	1218	s	ees s
+1690	1061	t	red t
+1691	1044	h	e, wh
+1692	1233	n	ollan
+1693	1071	e	hat e
+1694	1149	a	me Va
+1695	1219	i	nd hi
+1696	935	 	ared 
+1697	1240	 	mote 
+1698	986	n	 upon
+1699	1086	 	r of 
+1700	1087	a	he ha
+1701	1119	r	 He r
+1702	1125	 	ught 
+1703	1060	n	ave n
+1704	1241	l	ot sl
+1705	891	n	stran
+1706	1097	d	 wild
+1707	1254	 	-the 
+1708	1242	n	lagon
+1709	1243	d	icked
+1710	905	I	all I
+1711	958	o	ed ro
+1712	1170	a	n pla
+1713	875	b	ing b
+1714	1185	 	fter 
+1715	899	e	the e
+1716	1216	 	o be 
+1717	1008	t	of st
+1718	1221	e	range
+1719	951	n	ot on
+1720	1093	a	for a
+1721	1173	 	y of 
+1722	1252	u	 thou
+1723	1222	a	compa
+1724	1193	 	ding 
+1725	1043	n	 moun
+1726	1109	k	 work
+1727	1036	 	imes 
+1728	1124	 	read 
+1729	1203	n	ng in
+1730	1003	o	was o
+1731	1236	 	sing 
+1732	871	h	ook h
+1733	1211	f	ll of
+1734	1051	l	e vil
+1735	944	s	 hims
+1736	949	m	t him
+1737	1075	r	never
+1738	1258	f	ce of
+1739	1245	f	ts of
+1740	1239	a	ainta
+1741	1206	r	ppear
+1742	875	w	ing w
+1743	1208	s	s was
+1744	1238	t	but t
+1745	1184	k	aatsk
+1746	1058	b	ays b
+1747	1262	e	 “The
+1748	1283	t	ead t
+1749	1259	f	rs of
+1750	957	m	ten m
+1751	1068	e	l the
+1752	1266	e	 howe
+1753	1178	 	d in 
+1754	1290	 	tead 
+1755	1232	t	paint
+1756	1004	b	his b
+1757	1282	f	 perf
+1758	888	 	tion 
+1759	1167	t	great
+1760	995	s	ly as
+1761	1229	l	littl
+1762	1017	n	ortan
+1763	1201	W	Van W
+1764	1064	g	ating
+1765	1207	u	 shou
+1766	1281	 	tive 
+1767	948	d	child
+1768	1186	d	stand
+1769	974	 	 man 
+1770	1013	 	nded 
+1771	1132	t	, but
+1772	1046	 	some 
+1773	1115	d	d and
+1774	1286	o	ne to
+1775	1272	f	nt of
+1776	899	a	the a
+1777	1032	e	these
+1778	1275	n	ne in
+1779	1269	f	nd of
+1780	1200	V	Rip V
+1781	977	h	 as h
+1782	1296	e	wilde
+1783	1076	r	their
+1784	1048	a	re wa
+1785	1293	u	 abou
+1786	1249	h	which
+1787	1314	 	cked 
+1788	1052	i	preci
+1789	1107	 	g to 
+1790	991	w	ter w
+1791	1007	a	is na
+1792	1111	 	away 
+1793	1049	 	from 
+1794	1225	t	e wit
+1795	1169	t	; but
+1796	1023	t	aught
+1797	1300	 	man, 
+1798	892	h	 in h
+1799	987	i	 it i
+1800	1247	p	s Rip
+1801	1231	 	 old 
+1802	975	y	story
+1803	1093	t	for t
+1804	1227	 	were 
+1805	1319	p	f-imp
+1806	1114	o	ourho
+1807	1054	y	untry
+1808	1276	 	upon 
+1809	1328	n	eturn
+1810	969	a	s tha
+1811	1061	m	red m
+1812	1027	i	atski
+1813	1159	d	unted
+1814	1039	m	ill m
+1815	1295	e	place
+1816	899	U	the U
+1817	1156	s	tates
+1818	1316	e	hange
+1819	1040	f	her f
+1820	1345	 	sion 
+1821	1331	 	been 
+1822	1267	h	ay th
+1823	1063	 	 are 
+1824	1143	e	pecke
+1825	1141	s	d hus
+1826	1326	h	neigh
+1827	1018	t	 on t
+1828	1220	 	ject 
+1829	1192	 	ents 
+1830	1224	b	had b
+1831	1243	r	icker
+1832	1113	n	ition
+1833	1171	s	it is
+1834	1180	 	last 
+1835	1091	 	e on 
+1836	1029	f	st of
+1837	905	i	all i
+1838	994	e	entle
+1839	1292	l	displ
+1840	1363	s	lleys
+1841	1352	t	pirit
+1842	1336	g	aking
+1843	1166	i	 It i
+1844	1073	o	ame o
+1845	1298	h	by th
+1846	1122	 	much 
+1847	1311	t	d not
+1848	1287	h	ept h
+1849	1344	 	made 
+1850	1358	a	e Kaa
+1851	1025	V	RIP V
+1852	1133	 	 not 
+1853	940	a	ounda
+1854	1197	r	distr
+1855	1343	d	nited
+1856	1288	h	forth
+1857	909	G	ect G
+1858	1378	b	utenb
+1859	1380	e	trade
+1860	1322	 	 you 
+1861	1362	y	 If y
+1862	1131	B	is eB
+1863	1387	 	ying 
+1864	1212	i	istri
+1865	1388	c	rojec
+1866	1021	r	lectr
+1867	1359	 	e or 
+1868	1385	n	licen
+1869	1384	o	rms o
+1870	1246	 	gree 
+1871	1389	m	radem
+1872	1230	n	eemen
+1873	1391	m	you m
+1874	1402	f	ms of
+1875	1302	t	y wit
+1876	1140	t	ngs t
+1877	1399	r	enber
+1878	1407	t	elect
+1879	1329	s	terms
+1880	1317	r	s agr
+1881	1412	r	aragr
+1882	920	o	 belo
+1883	1306	e	There
+1884	1198	o	ss to
+1885	1401	j	 Proj
+1886	990	a	itera
+1887	1375	i	opyri
+1888	1381	e	Proje
+1889	1379	s	works
+1890	1392	c	rotec
+1891	1403	r	copyr
+1892	1405	t	oject
+1893	1188	f	on of
+1894	1414	r	c wor
+1895	1408	m	 term
+1896	899	w	the w
+1897	1398	 	erms 
+1898	1413	t	o wit
+1899	1187	a	he la
+1900	1373	o	ditio
+1901	1154	 	fore 
+1902	1251	 	ing, 
+1903	1374	 	ited 
+1904	917	o	 or o
+1905	1417	s	ccess
+1906	1406	t	t Gut
+1907	1409	a	ou ma
+1908	1092	t	der t
+1909	1422	e	where
+1910	1123	 	does 
+1911	998	h	ght h
+1912	1151	t	s wit
+1913	1323	 	hout 
+1914	1379	 	work 
+1915	1130	i	requi
+1916	1172	a	ragra
+1917	1195	u	throu
+1918	1420	h	yrigh
+1919	1397	b	strib
+1920	1427	d	iated
+1921	1429	o	et fo
+1922	984	p	ed up
+1923	1386	l	 incl
+1924	1428	u	, you
+1925	1415	h	graph
+1926	1383	g	charg
+1927	885	f	e a f
+1928	1436	i	provi
+1929	1431	 	your 
+1930	911	 	e is 
+1931	1324	r	under
+1932	1277	s	ments
+1933	1335	a	forma
+1934	1289	i	onati
+1935	1444	e	chive
+1936	1102	 	such 
+1937	1059	r	of Pr
+1938	872	•	    •
+1939	1299	 	, in 
+1940	1222	l	compl
+1941	965	i	ion i
+1942	1273	F	ive F
+1943	1451	o	e Pro
+1944	1370	n	th in
+1945	1426	n	Guten
+1946	1425	c	.S. c
+1947	1248	h	te th
+1948	1452	r	Liter
+1949	1396	 	 YOU 
+1950	1395	S	 THIS
+1951	1448	 	fect 
+1952	1400	o	ectro
+1953	1199	v	eceiv
+1954	1265	i	recei
+1955	1410	y	ntity
+1956	1277	,	ment,
+1957	1445	i	ndati
+1958	1009	d	s and
+1959	1360	f	. Inf
+1960	1424	u	inclu
+1961	1461	t	ffort
+1962	1437	i	rmati
+1963	1463	d	Found
+1964	1416	r	ry Ar
+1965	1460	o	catio
+1966	1367	T	ce. T
+1967	1465	h	 Arch
+1968	1096	o	nd do
+1969	898	e	 of e
+1970	1469	o	natio
+1971	1472	c	artic
+1972	1110	e	state
+1973	1464	t	donat
+1974	1138	 	side 
+1975	882	S	ted S
+1976	1438	n	rigin
+1977	1116	 	d as 
+1978	1223	 	s in 
+1979	1477	 	      
+1980	1479	t	s. net
+1981	1480	 	S     
+1982	1485	t	Illust
+1983	1483	g	 the g
+1984	1493	 	”     
+1985	1483	b	 the b
+1986	1495	 	 that 
+1987	1494	 	 with 
+1988	1498	 	ed at 
+1989	1488	 	f the 
+1990	1500	e	nd the
+1991	1510	d	 found
+1992	1497	h	 of th
+1993	1514	 	, and 
+1994	1502	 	 have 
+1995	1521	h	 to th
+1996	1506	r	llustr
+1997	1532	m	 to im
+1998	1483	w	 the w
+1999	1489	i	the vi
+2000	1492	h	 in th
+2001	1542	 	es of 
+2002	1538	e	on the
+2003	1529	 	n the 
+2004	1524	c	, whic
+2005	1516	e	in the
+2006	1546	 	t the 
+2007	1484	g	 and g
+2008	1550	r	eather
+2009	1548	c	rovinc
+2010	1553	t	e of t
+2011	1511	a	 was a
+2012	1491	h	 which
+2013	1507	e	ng the
+2014	1535	 	; and 
+2015	1546	i	t thei
+2016	1484	t	 and t
+2017	1573	l	e woul
+2018	1483	r	 the r
+2019	1551	t	that t
+2020	1525	d	he old
+2021	1559	i	 at hi
+2022	1589	i	 of hi
+2023	1519	e	ich he
+2024	1558	 	ne of 
+2025	1587	 	n his 
+2026	1531	 	t his 
+2027	1554	 	e was 
+2028	1552	 	hich, 
+2029	1520	m	 his m
+2030	1565	a	ame Va
+2031	1512	s	s of s
+2032	1595	a	 he wa
+2033	1556	e	ed the
+2034	1591	n	an Win
+2035	1567	e	of the
+2036	1483	c	 the c
+2037	1484	h	 and h
+2038	1586	 	 were 
+2039	1508	h	hich h
+2040	1584	o	eighbo
+2041	1592	e	, howe
+2042	1605	 	d the 
+2043	1540	h	all th
+2044	1512	h	s of h
+2045	1593	h	t with
+2046	1606	 	ed to 
+2047	1503	i	ountai
+2048	1596	n	ing on
+2049	1523	s	 its s
+2050	1638	e	th the
+2051	1602	k	n Wink
+2052	1543	n	untain
+2053	1650	h	ing th
+2054	1504	e	trange
+2055	1568	i	 on hi
+2056	1581	s	of his
+2057	1512	t	s of t
+2058	1562	h	ith th
+2059	1607	h	with h
+2060	1508	t	hich t
+2061	1673	t	ough t
+2062	1609	 	e and 
+2063	1666	f	any of
+2064	1659	g	ooking
+2065	1526	 	ed in 
+2066	1575	d	s, and
+2067	1664	a	 He wa
+2068	1620	d	an old
+2069	1648	o	the mo
+2070	1494	i	 withi
+2071	1630	a	is hea
+2072	1695	s	nd his
+2073	1505	p	and ap
+2074	1692	d	olland
+2075	1686	e	at the
+2076	1634	s	ed his
+2077	1683	 	. The 
+2078	1566	n	ing an
+2079	1570	t	mong t
+2080	1701	e	 He re
+2081	1693	x	hat ex
+2082	1621	 	, the 
+2083	1528	h	and th
+2084	1499	 	ng at 
+2085	1530	e	hom he
+2086	1509	u	he fou
+2087	1695	m	nd him
+2088	1484	f	 and f
+2089	1678	t	 somet
+2090	1645	 	 from 
+2091	1615	u	 throu
+2092	1660	 	o the 
+2093	1688	h	ong th
+2094	1607	a	with a
+2095	1637	t	ed wit
+2096	1476	 	 this 
+2097	1585	n	ildren
+2098	1719	e	ot one
+2099	1683	r	. Ther
+2100	1737	 	never 
+2101	1687	h	ver th
+2102	1639	w	age, w
+2103	1711	u	ed rou
+2104	1578	m	ng him
+2105	1690	h	red th
+2106	1691	i	e, whi
+2107	1682	h	, with
+2108	1742	i	ing wi
+2109	1684	 	me of 
+2110	1577	t	used t
+2111	1583	 	there 
+2112	1696	a	ared a
+2113	1640	t	e, wit
+2114	1743	 	s was 
+2115	1705	g	strang
+2116	1644	h	d with
+2117	1629	 	about 
+2118	1633	a	ichola
+2119	1754	o	tead o
+2120	1733	 	ll of 
+2121	1749	 	rs of 
+2122	1738	 	ce of 
+2123	1514	,	, and,
+2124	1685	s	ip was
+2125	1649	 	efore 
+2126	1736	 	t him 
+2127	1635	e	to the
+2128	1653	t	bout t
+2129	1547	n	, when
+2130	1623	h	 at th
+2131	1667	 	ch he 
+2132	1771	 	, but 
+2133	1655	n	ip Van
+2134	1716	s	o be s
+2135	1760	 	ly as 
+2136	1681	e	s. The
+2137	1642	g	eeping
+2138	1699	t	r of t
+2139	1561	a	 all a
+2140	1487	 	tions 
+2141	1582	s	in his
+2142	1579	e	as the
+2143	1670	i	ient i
+2144	1775	 	nt of 
+2145	1590	s	ther’s
+2146	1484	n	 and n
+2147	1735	e	 himse
+2148	1784	s	re was
+2149	1669	 	ering 
+2150	1622	n	er, an
+2151	1762	t	ortant
+2152	1769	i	 man i
+2153	1787	h	cked h
+2154	1618	 	 when 
+2155	1544	h	and sh
+2156	1732	i	ook hi
+2157	1663	 	p the 
+2158	1751	 	l the 
+2159	1652	 	was a 
+2160	1745	i	aatski
+2161	1631	y	ted by
+2162	1779	 	nd of 
+2163	1759	 	great 
+2164	1791	m	is nam
+2165	1641	o	lectio
+2166	1720	 	for a 
+2167	1628	 	d for 
+2168	1636	f	one of
+2169	1698	 	 upon 
+2170	1756	a	his ba
+2171	1675	e	or the
+2172	1746	e	ays be
+2173	1734	l	e vill
+2174	1718	 	range 
+2175	1810	t	s that
+2176	1752	v	 howev
+2177	1594	e	the re
+2178	1518	 	 of a 
+2179	1668	y	led by
+2180	1785	t	 about
+2181	1725	t	 mount
+2182	1780	a	Rip Va
+2183	1812	l	atskil
+2184	1603	 	 them 
+2185	1731	t	sing t
+2186	1608	u	he wou
+2187	1677	h	out th
+2188	1671	a	mounta
+2189	1501	s	ations
+2190	1782	r	wilder
+2191	1567	i	of thi
+2192	1793	t	from t
+2193	1786	 	which 
+2194	1826	b	neighb
+2195	1806	o	ourhoo
+2196	1729	 	ng in 
+2197	1827	h	 on th
+2198	1533	t	ated t
+2199	1557	a	 him a
+2200	1646	h	 by th
+2201	1527	e	 to re
+2202	1753	t	d in t
+2203	1832	s	itions
+2204	1858	e	utenbe
+2205	1607	t	with t
+2206	1862	o	is eBo
+2207	1757	o	 perfo
+2208	1855	 	nited 
+2209	1864	b	istrib
+2210	1865	t	roject
+2211	1854	i	distri
+2212	1828	G	ject G
+2213	1866	o	lectro
+2214	1868	s	licens
+2215	1522	e	the te
+2216	1869	f	rms of
+2217	1870	t	gree t
+2218	1845	e	by the
+2219	1856	 	forth 
+2220	1647	a	this a
+2221	1872	t	eement
+2222	1823	a	 are a
+2223	1726	s	 works
+2224	1874	 	ms of 
+2225	1496	e	and he
+2226	1857	u	ect Gu
+2227	1882	w	 below
+2228	1853	t	oundat
+2229	1878	r	electr
+2230	1817	 	tates 
+2231	1766	w	tive w
+2232	1885	e	 Proje
+2233	1877	g	enberg
+2234	1619	w	ance w
+2235	1880	e	s agre
+2236	1887	g	opyrig
+2237	1861	o	 If yo
+2238	1674	 	ed on 
+2239	1679	 	other 
+2240	1816	n	the Un
+2241	1513	u	the fu
+2242	1892	 	oject 
+2243	1563	e	heneve
+2244	1888	c	Projec
+2245	1903	S	ited S
+2246	1483	P	 the P
+2247	1533	i	ated i
+2248	1807	 	untry 
+2249	1860	a	 you a
+2250	1891	i	copyri
+2251	1571	d	ed and
+2252	1599	i	 provi
+2253	1905	 	ccess 
+2254	1604	f	use of
+2255	1916	p	ragrap
+2256	1881	a	aragra
+2257	1900	n	dition
+2258	1918	t	yright
+2259	1820	o	sion o
+2260	1919	u	stribu
+2261	1897	o	erms o
+2262	1907	y	ou may
+2263	1819	o	her fo
+2264	1904	t	 or ot
+2265	1906	e	t Gute
+2266	1839	a	displa
+2267	1884	 	ss to 
+2268	1928	d	provid
+2269	1871	a	radema
+2270	1690	o	red to
+2271	1886	r	iterar
+2272	1662	 	ction 
+2273	1938	 	    • 
+2274	1875	h	y with
+2275	1927	e	e a fe
+2276	1889	 	works 
+2277	1890	t	rotect
+2278	1945	b	Gutenb
+2279	1936	a	such a
+2280	1803	h	for th
+2281	1908	h	der th
+2282	1516	i	in thi
+2283	1953	e	eceive
+2284	1896	o	the wo
+2285	1924	 	, you 
+2286	1955	 	ntity 
+2287	1505	 	and a 
+2288	1580	 	nd in 
+2289	1925	 	graph 
+2290	1921	r	et for
+2291	1944	 	th in 
+2292	1899	w	he law
+2293	1957	o	ndatio
+2294	1956	 	ment, 
+2295	1739	 	ts of 
+2296	1934	o	onatio
+2297	1958	 	s and 
+2298	1959	o	. Info
+2299	1569	e	ut the
+2300	1943	j	e Proj
+2301	1948	a	Litera
+2302	1935	 	chive 
+2303	1963	a	Founda
+2304	1965	n	cation
+2305	1942	o	ive Fo
+2306	1962	o	rmatio
+2307	1970	n	nation
+2308	1952	n	ectron
+2309	1894	k	c work
+2310	1490	e	 to he
+2311	1979	 	       
+2312	1984	 	”      
+2313	1987	w	 with w
+2314	1982	r	Illustr
+2315	1989	l	f the l
+2316	1992	e	 of the
+2317	1996	a	llustra
+2318	2005	 	in the 
+2319	1998	o	 the wo
+2320	2012	 	 which 
+2321	1987	a	 with a
+2322	1993	w	, and w
+2323	2016	o	 and to
+2324	2025	f	n his f
+2325	2001	t	es of t
+2326	2016	h	 and th
+2327	2028	i	hich, i
+2328	1983	r	 the gr
+2329	2034	k	an Wink
+2330	2000	e	 in the
+2331	2035	 	of the 
+2332	1993	e	, and e
+2333	2013	 	ng the 
+2334	2037	i	 and hi
+2335	2017	d	e would
+2336	2022	s	 of his
+2337	2047	n	ountain
+2338	2043	e	all the
+2339	2048	 	ing on 
+2340	2037	e	 and he
+2341	2030	n	ame Van
+2342	2051	l	n Winkl
+2343	2046	h	ed to h
+2344	2010	h	e of th
+2345	1988	t	ed at t
+2346	2027	a	e was a
+2347	2056	 	of his 
+2348	2024	t	ne of t
+2349	2066	 	s, and 
+2350	2033	 	ed the 
+2351	2052	s	untains
+2352	2023	 	ich he 
+2353	1986	h	 that h
+2354	1995	e	 to the
+2355	1991	 	 found 
+2356	2002	 	on the 
+2357	2053	e	ing the
+2358	2079	h	mong th
+2359	1989	c	f the c
+2360	2021	m	 at him
+2361	2072	 	nd his 
+2362	2071	d	is head
+2363	2003	c	n the c
+2364	2039	e	hich he
+2365	2021	s	 at his
+2366	2084	h	ng at h
+2367	2085	 	hom he 
+2368	2054	 	trange 
+2369	2042	w	d the w
+2370	2087	,	nd him,
+2371	2090	h	 from h
+2372	1993	t	, and t
+2373	2101	e	ver the
+2374	2107	 	, with 
+2375	2004	h	, which
+2376	2059	i	with hi
+2377	2097	 	ildren 
+2378	2045	 	t with 
+2379	2061	h	ough th
+2380	2055	s	 on his
+2381	2090	t	 from t
+2382	2032	s	 he was
+2383	2040	u	eighbou
+2384	2118	s	icholas
+2385	2011	 	 was a 
+2386	2130	e	 at the
+2387	2133	 	ip Van 
+2388	2076	 	ed his 
+2389	2095	h	ed with
+2390	2109	t	me of t
+2391	1999	l	the vil
+2392	2093	e	ong the
+2393	2015	r	t their
+2394	2060	h	hich th
+2395	2067	s	 He was
+2396	2009	e	rovince
+2397	2142	 	as the 
+2398	2143	n	ient in
+2399	2080	c	 He rec
+2400	2065	t	ed in t
+2401	1990	 	nd the 
+2402	2046	t	ed to t
+2403	2063	 	any of 
+2404	2156	s	ook his
+2405	2127	 	to the 
+2406	2110	o	used to
+2407	2128	h	bout th
+2408	2160	l	aatskil
+2409	2073	p	and app
+2410	2175	 	s that 
+2411	2116	 	d with 
+2412	2129	 	, when 
+2413	2172	e	ays bee
+2414	2179	 	led by 
+2415	2068	 	an old 
+2416	2183	l	atskill
+2417	2075	 	at the 
+2418	2041	v	, howev
+2419	2123	 	, and, 
+2420	2144	t	nt of t
+2421	2019	h	that th
+2422	2176	e	 howeve
+2423	2057	h	s of th
+2424	2204	r	utenber
+2425	2065	a	ed in a
+2426	2050	 	th the 
+2427	2210	 	roject 
+2428	2191	s	of this
+2429	2213	n	lectron
+2430	2216	 	rms of 
+2431	1992	i	 of thi
+2432	2215	r	the ter
+2433	2228	i	oundati
+2434	2165	n	lection
+2435	2161	 	ted by 
+2436	2208	S	nited S
+2437	2202	h	d in th
+2438	2209	u	istribu
+2439	2197	e	 on the
+2440	2058	e	ith the
+2441	2137	 	eeping 
+2442	2212	u	ject Gu
+2443	2221	 	eement 
+2444	2224	t	ms of t
+2445	2207	r	 perfor
+2446	2231	o	tive wo
+2447	2113	h	e, with
+2448	2233	™	enberg™
+2449	1987	t	 with t
+2450	2237	u	 If you
+2451	2003	U	n the U
+2452	2185	h	sing th
+2453	2206	o	is eBoo
+2454	2205	h	with th
+2455	2171	 	or the 
+2456	2229	o	electro
+2457	2092	P	o the P
+2458	2258	 	yright 
+2459	2241	l	the ful
+2460	2242	G	oject G
+2461	2253	t	ccess t
+2462	2260	t	stribut
+2463	2244	t	Project
+2464	2263	r	her for
+2465	2232	c	 Projec
+2466	2211	b	distrib
+2467	2256	p	aragrap
+2468	2271	y	iterary
+2469	2070	n	 within
+2470	2255	h	ragraph
+2471	2223	 	 works 
+2472	2221	,	eement,
+2473	2192	h	from th
+2474	2269	r	rademar
+2475	2227	.	 below.
+2476	2236	h	opyrigh
+2477	2278	e	Gutenbe
+2478	1993	a	, and a
+2479	2283	d	eceived
+2480	2262	 	ou may 
+2481	2096	w	 this w
+2482	2252	d	 provid
+2483	2220	g	this ag
+2484	2235	e	s agree
+2485	2217	o	gree to
+2486	2187	e	out the
+2487	2146	e	 and ne
+2488	2246	r	 the Pr
+2489	2226	t	ect Gut
+2490	2233	 	enberg 
+2491	2281	e	der the
+2492	2303	t	Foundat
+2493	2298	r	. Infor
+2494	2296	n	onation
+2495	2300	e	e Proje
+2496	2305	u	ive Fou
+2497	2293	n	ndation
+2498	2189	 	ations 
+2499	2230	w	tates w
+2500	2240	i	the Uni
+2501	2297	a	s and a
+2502	2138	h	r of th
+2503	2308	i	ectroni
+2504	2234	i	ance wi
+2505	2306	n	rmation
+2506	2180	 	 about 
+2507	1993	h	, and h
+2508	2311	 	        
+2509	2312	 	”       
+2510	2314	a	Illustra
+2511	2316	 	 of the 
+2512	2316	s	 of thes
+2513	2317	t	llustrat
+2514	2320	h	 which h
+2515	2323	 	 and to 
+2516	2313	h	 with wh
+2517	2337	s	ountains
+2518	2329	l	an Winkl
+2519	2325	h	es of th
+2520	2346	 	e was a 
+2521	2322	h	, and wh
+2522	2344	e	e of the
+2523	2334	s	 and his
+2524	2342	e	n Winkle
+2525	2340	 	 and he 
+2526	2341	 	ame Van 
+2527	2315	a	f the la
+2528	2321	n	 with an
+2529	2322	a	, and wa
+2530	2330	i	 in thei
+2531	2364	 	hich he 
+2532	2355	t	 found t
+2533	2326	e	 and the
+2534	2343	i	ed to hi
+2535	2365	 	 at his 
+2536	2331	p	of the p
+2537	2318	c	in the c
+2538	2384	 	icholas 
+2539	2330	 	 in the 
+2540	2382	 	 he was 
+2541	2354	 	 to the 
+2542	2319	r	 the wor
+2543	2332	v	, and ev
+2544	2379	e	ough the
+2545	2387	W	ip Van W
+2546	2376	s	with his
+2547	2383	r	eighbour
+2548	2363	o	n the co
+2549	2336	 	 of his 
+2550	2331	h	of the h
+2551	2351	 	untains 
+2552	2388	o	ed his o
+2553	2392	 	ong the 
+2554	2348	h	ne of th
+2555	2352	h	ich he h
+2556	2362	,	is head,
+2557	2395	 	 He was 
+2558	2320	w	 which w
+2559	2372	h	, and th
+2560	2411	a	d with a
+2561	2381	h	 from th
+2562	2318	a	in the a
+2563	2416	 	atskill 
+2564	2335	 	e would 
+2565	2400	h	ed in th
+2566	2390	h	me of th
+2567	2318	U	in the U
+2568	2424	g	utenberg
+2569	2427	G	roject G
+2570	2338	 	all the 
+2571	2436	t	nited St
+2572	2429	i	lectroni
+2573	2423	i	s of thi
+2574	2389	 	ed with 
+2575	2426	t	th the t
+2576	2428	 	of this 
+2577	2441	t	eeping t
+2578	2438	t	istribut
+2579	2433	o	oundatio
+2580	2442	t	ject Gut
+2581	2359	o	f the co
+2582	2440	 	ith the 
+2583	2460	u	oject Gu
+2584	2445	m	 perform
+2585	2448	 	enberg™ 
+2586	2462	e	stribute
+2587	2465	t	 Project
+2588	2462	i	stributi
+2589	2357	 	ing the 
+2590	2467	h	aragraph
+2591	2457	r	o the Pr
+2592	2430	t	rms of t
+2593	2456	n	electron
+2594	2463	 	Project 
+2595	2320	t	 which t
+2596	2470	 	ragraph 
+2597	2474	k	rademark
+2598	2472	 	eement, 
+2599	2450	 	 If you 
+2600	2369	o	d the wo
+2601	2483	r	this agr
+2602	2443	s	eement s
+2603	2431	s	 of this
+2604	2482	e	 provide
+2605	2488	o	 the Pro
+2606	2486	 	out the 
+2607	2423	e	s of the
+2608	2459	l	the full
+2609	2494	s	onations
+2610	2449	h	 with th
+2611	2426	l	th the l
+2612	2479	 	eceived 
+2613	2499	h	tates wh
+2614	2489	e	ect Gute
+2615	2495	c	e Projec
+2616	2435	c	ted by c
+2617	2476	t	opyright
+2618	2508	 	         
+2619	2509	 	”        
+2620	2510	t	Illustrat
+2621	2511	s	 of the s
+2622	2512	e	 of these
+2623	2513	i	llustrati
+2624	2517	 	ountains 
+2625	2526	W	ame Van W
+2626	2531	h	hich he h
+2627	2511	g	 of the g
+2628	2518	e	an Winkle
+2629	2537	o	in the co
+2630	2545	i	ip Van Wi
+2631	2539	m	 in the m
+2632	2530	r	 in their
+2633	2547	h	eighbourh
+2634	2514	e	 which he
+2635	2524	 	n Winkle 
+2636	2551	h	untains h
+2637	2539	s	 in the s
+2638	2533	n	 and then
+2639	2559	e	, and the
+2640	2568	™	utenberg™
+2641	2569	u	roject Gu
+2642	2539	c	 in the c
+2643	2571	a	nited Sta
+2644	2578	e	istribute
+2645	2568	.	utenberg.
+2646	2578	i	istributi
+2647	2581	p	f the cop
+2648	2572	c	lectronic
+2649	2583	t	oject Gut
+2650	2508	y	        y
+2651	2580	e	ject Gute
+2652	2508	w	        w
+2653	2592	h	rms of th
+2654	2579	n	oundation
+2655	2587	 	 Project 
+2656	2585	e	enberg™ e
+2657	2593	i	electroni
+2658	2522	 	e of the 
+2659	2594	G	Project G
+2660	2591	o	o the Pro
+2661	2609	 	onations 
+2662	2605	j	 the Proj
+2663	2614	n	ect Guten
+2664	2618	 	          
+2665	2619	 	”         
+2666	2620	i	Illustrati
+2667	2621	a	 of the sa
+2668	2623	o	llustratio
+2669	2625	i	ame Van Wi
+2670	2626	a	hich he ha
+2671	2630	n	ip Van Win
+2672	2624	h	ountains h
+2673	2634	 	 which he 
+2674	2622	 	 of these 
+2675	2640	 	utenberg™ 
+2676	2641	t	roject Gut
+2677	2643	t	nited Stat
+2678	2648	 	lectronic 
+2679	2627	r	 of the gr
+2680	2649	e	oject Gute
+2681	2646	o	istributio
+2682	2651	n	ject Guten
+2683	2646	n	istributin
+2684	2657	c	electronic
+2685	2659	u	Project Gu
+2686	2645	o	utenberg.o
+2687	2655	G	 Project G
+2688	2654	’	oundation’
+2689	2644	d	istributed
+2690	2660	j	o the Proj
+2691	2664	 	           
+2692	2665	 	”          
+2693	2666	o	Illustratio
+2694	2668	n	llustration
+2695	2669	n	ame Van Win
+2696	2671	k	ip Van Wink
+2697	2676	e	roject Gute
+2698	2677	e	nited State
+2699	2678	w	lectronic w
+2700	2680	n	oject Guten
+2701	2681	n	istribution
+2702	2675	w	utenberg™ w
+2703	2682	b	ject Gutenb
+2704	2686	r	utenberg.or
+2705	2685	t	Project Gut
+2706	2691	 	            
+2707	2693	n	Illustration
+2708	2694	:	llustration:
+2709	2695	k	ame Van Wink
+2710	2697	n	roject Guten
+2711	2699	o	lectronic wo
+2712	2700	b	oject Gutenb
+2713	2701	 	istribution 
+2714	2703	e	ject Gutenbe
+2715	2706	 	             
+2716	2710	b	roject Gutenb
+2717	2711	r	lectronic wor
+2718	2712	e	oject Gutenbe
+2719	2715	 	              
+2720	2716	e	roject Gutenbe
+2721	2717	k	lectronic work
+2722	2718	r	oject Gutenber
+2723	2719	 	               
+2724	2720	r	roject Gutenber
+2725	2721	s	lectronic works
+2726	2722	g	oject Gutenberg
+2727	2723	 	                
+2728	2724	g	roject Gutenberg
+2729	2727	 	                 
+2730	2728	 	roject Gutenberg 
+2731	2728	™	roject Gutenberg™
+2732	2729	 	                  
+2733	2731	 	roject Gutenberg™ 
+2734	2731	’	roject Gutenberg™’
+2735	2732	 	                   
+2736	2733	w	roject Gutenberg™ w
+2737	2733	e	roject Gutenberg™ e
+2738	2733	t	roject Gutenberg™ t
+2739	2733	a	roject Gutenberg™ a
+2740	2735	 	                    
+2741	2736	o	roject Gutenberg™ wo
+2742	2737	l	roject Gutenberg™ el
+2743	2737	B	roject Gutenberg™ eB
+2744	2740	 	                     
+2745	2741	r	roject Gutenberg™ wor
+2746	2743	o	roject Gutenberg™ eBo
+2747	2744	 	                      
+2748	2745	k	roject Gutenberg™ work
+2749	2747	 	                       
+2750	2749	 	                        
+2751	2749	1	                       1
+2752	2750	 	                         
+2753	2752	 	                          
+2754	2753	 	                           
+2755	2754	 	                            
+2756	2755	 	                             
+2757	2756	 	                              
+2758	2757	 	                               
+2759	2758	 	                                
+2760	2759	 	                                 
+2761	2760	2	                                 2
+2762	2760	 	                                  
+2763	2762	 	                                   
+2764	2763	 	                                    
+2765	2764	 	                                     
+2766	2765	 	                                      
