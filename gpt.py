@@ -236,8 +236,12 @@ class gpt_t(nn.Module):
 
         ell = None
         if y is not None:
+            ignore = -100
+            if padid is not None:
+                ignore = int(padid)
             ell = F.cross_entropy(yh.view(-1, yh.size(-1)),
                                   y.view(-1),
+                                  ignore_index=ignore,
                                   label_smoothing=0.0)
 
         return yh, ell
@@ -260,6 +264,36 @@ class gpt_t(nn.Module):
                 xp = th.argmax(yh, -1, keepdim=True)
             r = th.cat((r, xp), dim=1)
         return r
+
+
+def _nll_and_bytes(m, x, y, tok):
+    yh, _ = m(x, y)
+    v = yh.size(-1)
+    nll = F.cross_entropy(
+        yh.view(-1, v),
+        y.view(-1),
+        reduction='none',
+        ignore_index=int(padid) if padid is not None else -100,
+    ).view_as(y)
+
+    if padid is None:
+        mask = th.ones_like(y, dtype=th.bool)
+    else:
+        mask = y.ne(int(padid))
+
+    nll_sum = nll.masked_select(mask).sum().detach().item()
+
+    byte_sum = 0
+    y_cpu = y.detach().to('cpu')
+    for i in range(y_cpu.size(0)):
+        ids = y_cpu[i].tolist()
+        if padid is not None:
+            ids = [t for t in ids if t != int(padid)]
+        txt = tok.decode(ids)
+        byte_sum += len(txt.encode('utf-8', errors='replace'))
+
+    token_count = int(mask.sum().detach().item())
+    return nll_sum, token_count, byte_sum
 
 def get_data(
     f='/tmp/10.txt.utf-8',
@@ -391,6 +425,7 @@ def main(seed=42,
 
     if not generate:
         ℓ=10;dt=0
+        bpb_ema = None
         cache = kv_cache_t(bsz, nblock, nhead, T, hdim)
         for t in range(E):
             m.train()
@@ -404,9 +439,19 @@ def main(seed=42,
             sched.step()
 
             ℓ = (1-0.1)*ℓ + 0.1*ell.detach().item()
+
+            nll_sum, _, byte_sum = _nll_and_bytes(m, x, y, tok)
+            if byte_sum > 0:
+                bpb = (nll_sum / byte_sum) / math.log(2)
+                if bpb_ema is None:
+                    bpb_ema = bpb
+                else:
+                    bpb_ema = (1-0.1)*bpb_ema + 0.1*bpb
+
             dt = (1-0.1)*dt + 0.1*(time.time()-ts)
             if t%100 == 0 and t > 0:
-                print(f'[{t:04d}/{E:04d}] ℓ: {ℓ:.3f} p: {np.exp(ℓ):.1f} dt: {dt*1000:3.1f} ms')
+                bpb_str = 'n/a' if bpb_ema is None else f'{bpb_ema:.3f}'
+                print(f'[{t:04d}/{E:04d}] ℓ: {ℓ:.3f} p: {np.exp(ℓ):.1f} bpb: {bpb_str} dt: {dt*1000:3.1f} ms')
                 th.save(m.state_dict(), 'm.p')
 
                 if False:
