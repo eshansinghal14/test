@@ -1,0 +1,1026 @@
+# BPE Dictionary
+# code	parent_code	char	pattern
+0	0	\0	 
+1	0	\0	!
+2	0	\0	#
+3	0	\0	$
+4	0	\0	%
+5	0	\0	&
+6	0	\0	(
+7	0	\0	)
+8	0	\0	*
+9	0	\0	,
+10	0	\0	-
+11	0	\0	.
+12	0	\0	/
+13	0	\0	0
+14	0	\0	1
+15	0	\0	2
+16	0	\0	3
+17	0	\0	4
+18	0	\0	5
+19	0	\0	6
+20	0	\0	7
+21	0	\0	8
+22	0	\0	9
+23	0	\0	:
+24	0	\0	;
+25	0	\0	?
+26	0	\0	A
+27	0	\0	B
+28	0	\0	C
+29	0	\0	D
+30	0	\0	E
+31	0	\0	F
+32	0	\0	G
+33	0	\0	H
+34	0	\0	I
+35	0	\0	J
+36	0	\0	K
+37	0	\0	L
+38	0	\0	M
+39	0	\0	N
+40	0	\0	O
+41	0	\0	P
+42	0	\0	Q
+43	0	\0	R
+44	0	\0	S
+45	0	\0	T
+46	0	\0	U
+47	0	\0	V
+48	0	\0	W
+49	0	\0	X
+50	0	\0	Y
+51	0	\0	[
+52	0	\0	]
+53	0	\0	_
+54	0	\0	a
+55	0	\0	b
+56	0	\0	c
+57	0	\0	d
+58	0	\0	e
+59	0	\0	f
+60	0	\0	g
+61	0	\0	h
+62	0	\0	i
+63	0	\0	j
+64	0	\0	k
+65	0	\0	l
+66	0	\0	m
+67	0	\0	n
+68	0	\0	o
+69	0	\0	p
+70	0	\0	q
+71	0	\0	r
+72	0	\0	s
+73	0	\0	t
+74	0	\0	u
+75	0	\0	v
+76	0	\0	w
+77	0	\0	x
+78	0	\0	y
+79	0	\0	z
+80	0	\0	·
+81	0	\0	É
+82	0	\0	ä
+83	0	\0	—
+84	0	\0	‘
+85	0	\0	’
+86	0	\0	“
+87	0	\0	”
+88	0	\0	•
+89	0	\0	™
+90	0	\0	  
+91	0	\0	e 
+92	0	\0	th
+93	0	\0	 a
+94	0	\0	in
+95	0	\0	d 
+96	0	\0	s 
+97	0	\0	er
+98	0	\0	t 
+99	0	\0	    
+100	0	\0	 th
+101	0	\0	on
+102	0	\0	en
+103	0	\0	, 
+104	0	\0	or
+105	0	\0	ou
+106	0	\0	of
+107	0	\0	an
+108	0	\0	 the 
+109	0	\0	y 
+110	0	\0	hi
+111	0	\0	re
+112	0	\0	 an
+113	0	\0	to
+114	0	\0	ed 
+115	0	\0	ing
+116	0	\0	at
+117	0	\0	ll
+118	0	\0	st
+119	0	\0	ar
+120	0	\0	        
+121	0	\0	ro
+122	0	\0	. 
+123	0	\0	it
+124	0	\0	 and 
+125	0	\0	ion
+126	0	\0	ec
+127	0	\0	 w
+128	0	\0	es
+129	0	\0	 a 
+130	0	\0	ch
+131	0	\0	ed
+132	0	\0	he 
+133	0	\0	of 
+134	0	\0	to 
+135	0	\0	the 
+136	0	\0	ha
+137	0	\0	his 
+138	0	\0	ut
+139	0	\0	ing 
+140	0	\0	ith
+141	0	\0	el
+142	0	\0	wa
+143	0	\0	ic
+144	0	\0	for
+145	0	\0	om
+146	0	\0	is
+147	0	\0	gh
+148	0	\0	ow
+149	0	\0	la
+150	0	\0	ation
+151	0	\0	le
+152	0	\0	oun
+153	0	\0	ri
+154	0	\0	ber
+155	0	\0	ver
+156	0	\0	with
+157	0	\0	in 
+158	0	\0	of the 
+159	0	\0	ent
+160	0	\0	em
+161	0	\0	ol
+162	0	\0	ta
+163	0	\0	at 
+164	0	\0	, and 
+165	0	\0	ra
+166	0	\0	                
+167	0	\0	es 
+168	0	\0	un
+169	0	\0	al
+170	0	\0	ip
+171	0	\0	he
+172	0	\0	no
+173	0	\0	us
+174	0	\0	berg
+175	0	\0	or 
+176	0	\0	ect
+177	0	\0	be
+178	0	\0	enberg
+179	0	\0	utenberg
+180	0	\0	oo
+181	0	\0	ter
+182	0	\0	ll 
+183	0	\0	is 
+184	0	\0	Pro
+185	0	\0	ork
+186	0	\0	ect 
+187	0	\0	ma
+188	0	\0	him
+189	0	\0	Gutenberg
+190	0	\0	le 
+191	0	\0	se
+192	0	\0	Proj
+193	0	\0	ir
+194	0	\0	an 
+195	0	\0	ur
+196	0	\0	ther
+197	0	\0	co
+198	0	\0	ve 
+199	0	\0	, w
+200	0	\0	ag
+201	0	\0	li
+202	0	\0	ce
+203	0	\0	ne
+204	0	\0	you
+205	0	\0	 the
+206	0	\0	id
+207	0	\0	am
+208	0	\0	str
+209	0	\0	ch 
+210	0	\0	Rip
+211	0	\0	en 
+212	0	\0	ect Gutenberg
+213	0	\0	Project Gutenberg
+214	0	\0	il
+215	0	\0	di
+216	0	\0	per
+217	0	\0	as
+218	0	\0	pro
+219	0	\0	qu
+220	0	\0	was 
+221	0	\0	do
+222	0	\0	 at 
+223	0	\0	 s
+224	0	\0	im
+225	0	\0	up
+226	0	\0	der
+227	0	\0	gre
+228	0	\0	her
+229	0	\0	it 
+230	0	\0	 and
+231	0	\0	ong
+232	0	\0	e a
+233	0	\0	the
+234	0	\0	oul
+235	0	\0	. T
+236	0	\0	 c
+237	0	\0	ut 
+238	0	\0	in the 
+239	0	\0	--
+240	0	\0	s, 
+241	0	\0	ght 
+242	0	\0	out 
+243	0	\0	rom
+244	0	\0	He 
+245	0	\0	fa
+246	0	\0	sh
+247	0	\0	ustr
+248	0	\0	and
+249	0	\0	Ill
+250	0	\0	ly 
+251	0	\0	os
+252	0	\0	and 
+253	0	\0	Illustr
+254	0	\0	our
+255	0	\0	Project Gutenberg™
+256	0	\0	Illustration
+257	0	\0	: 
+258	0	\0	by 
+259	0	\0	ever
+260	0	\0	from
+261	0	\0	with 
+262	0	\0	e, 
+263	0	\0	ink
+264	0	\0	 work
+265	0	\0	ook
+266	0	\0	[Illustration
+267	0	\0	one 
+268	0	\0	ion 
+269	0	\0	but 
+270	0	\0	pre
+271	0	\0	s a
+272	0	\0	cop
+273	0	\0	ould 
+274	0	\0	con
+275	0	\0	com
+276	0	\0	’s 
+277	0	\0	ent 
+278	0	\0	tain
+279	0	\0	ck
+280	0	\0	f 
+281	0	\0	ho
+282	0	\0	on 
+283	0	\0	but
+284	0	\0	ill
+285	0	\0	su
+286	0	\0	 that 
+287	0	\0	to the 
+288	0	\0	al 
+289	0	\0	IN
+290	0	\0	par
+291	0	\0	ound
+292	0	\0	1.
+293	0	\0	; 
+294	0	\0	ab
+295	0	\0	ce 
+296	0	\0	hen
+297	0	\0	pe
+298	0	\0	work
+299	0	\0	. I
+300	0	\0	old 
+301	0	\0	not 
+302	0	\0	Van 
+303	0	\0	by
+304	0	\0	fe
+305	0	\0	had 
+306	0	\0	.”
+307	0	\0	ir 
+308	0	\0	ad
+309	0	\0	ep
+310	0	\0	moun
+311	0	\0	other
+312	0	\0	tr
+313	0	\0	of th
+314	0	\0	ang
+315	0	\0	hich 
+316	0	\0	 with
+317	0	\0	Rip 
+318	0	\0	Wink
+319	0	\0	 as 
+320	0	\0	E 
+321	0	\0	chi
+322	0	\0	ly
+323	0	\0	you 
+324	0	\0	Van Wink
+325	0	\0	all
+326	0	\0	be 
+327	0	\0	ev
+328	0	\0	igh
+329	0	\0	pa
+330	0	\0	ron
+331	0	\0	s of 
+332	0	\0	ed to 
+333	0	\0	have 
+334	0	\0	elect
+335	0	\0	so
+336	0	\0	end
+337	0	\0	, and
+338	0	\0	man
+339	0	\0	n 
+340	0	\0	pla
+341	0	\0	s. 
+342	0	\0	sel
+343	0	\0	ul
+344	0	\0	TH
+345	0	\0	as 
+346	0	\0	po
+347	0	\0	was
+348	0	\0	ribut
+349	0	\0	dist
+350	0	\0	[Illustration: 
+351	0	\0	ronic
+352	0	\0	ces
+353	0	\0	now
+354	0	\0	that 
+355	0	\0	 ar
+356	0	\0	 as
+357	0	\0	row
+358	0	\0	itt
+359	0	\0	ed, 
+360	0	\0	comp
+361	0	\0	electronic
+362	0	\0	da
+363	0	\0	ex
+364	0	\0	ke
+365	0	\0	copy
+366	0	\0	, the 
+367	0	\0	de
+368	0	\0	dis
+369	0	\0	ke 
+370	0	\0	mo
+371	0	\0	ated 
+372	0	\0	form
+373	0	\0	ome 
+374	0	\0	ame 
+375	0	\0	mountain
+376	0	\0	electronic work
+377	0	\0	 in
+378	0	\0	AN
+379	0	\0	bl
+380	0	\0	cl
+381	0	\0	ell
+382	0	\0	ig
+383	0	\0	op
+384	0	\0	se 
+385	0	\0	tt
+386	0	\0	 any 
+387	0	\0	. He 
+388	0	\0	for 
+389	0	\0	                                
+390	0	\0	here 
+391	0	\0	The 
+392	0	\0	bout 
+393	0	\0	tra
+394	0	\0	um
+395	0	\0	 all
+396	0	\0	int
+397	0	\0	red 
+398	0	\0	too
+399	0	\0	ark
+400	0	\0	ome
+401	0	\0	ound 
+402	0	\0	Van Winkle
+403	0	\0	distribut
+404	0	\0	Found
+405	0	\0	iv
+406	0	\0	ere 
+407	0	\0	 this 
+408	0	\0	stor
+409	0	\0	 was 
+410	0	\0	had
+411	0	\0	. The 
+412	0	\0	Project Gutenberg™ 
+413	0	\0	from 
+414	0	\0	Foundation
+415	0	\0	 of
+416	0	\0	 of 
+417	0	\0	E.
+418	0	\0	ad 
+419	0	\0	ill 
+420	0	\0	lo
+421	0	\0	rou
+422	0	\0	tim
+423	0	\0	ud
+424	0	\0	vill
+425	0	\0	y, 
+426	0	\0	hich
+427	0	\0	es, 
+428	0	\0	term
+429	0	\0	prov
+430	0	\0	villag
+431	0	\0	AR
+432	0	\0	ON
+433	0	\0	S 
+434	0	\0	don
+435	0	\0	ear
+436	0	\0	fu
+437	0	\0	long
+438	0	\0	od
+439	0	\0	ph
+440	0	\0	pr
+441	0	\0	por
+442	0	\0	  “
+443	0	\0	ant 
+444	0	\0	ing the 
+445	0	\0	way
+446	0	\0	right 
+447	0	\0	[Illustration: “
+448	0	\0	go
+449	0	\0	how
+450	0	\0	if
+451	0	\0	st 
+452	0	\0	s and 
+453	0	\0	   
+454	0	\0	 all 
+455	0	\0	 agre
+456	0	\0	s of the 
+457	0	\0	ant
+458	0	\0	stat
+459	0	\0	ary 
+460	0	\0	its 
+461	0	\0	under
+462	0	\0	 are 
+463	0	\0	 to 
+464	0	\0	D 
+465	0	\0	LI
+466	0	\0	St
+467	0	\0	ct
+468	0	\0	ld
+469	0	\0	look
+470	0	\0	s,
+471	0	\0	sc
+472	0	\0	wor
+473	0	\0	 an 
+474	0	\0	hear
+475	0	\0	himsel
+476	0	\0	e a 
+477	0	\0	1.E.
+478	0	\0	.”]
+479	0	\0	 he 
+480	0	\0	 or 
+481	0	\0	In
+482	0	\0	RE
+483	0	\0	RI
+484	0	\0	Un
+485	0	\0	dem
+486	0	\0	fre
+487	0	\0	ive 
+488	0	\0	ment
+489	0	\0	sk
+490	0	\0	sid
+491	0	\0	 about 
+492	0	\0	on the 
+493	0	\0	out
+494	0	\0	ed by
+495	0	\0	use 
+496	0	\0	 W
+497	0	\0	EN
+498	0	\0	ey
+499	0	\0	est
+500	0	\0	ff
+501	0	\0	fla
+502	0	\0	ge 
+503	0	\0	hou
+504	0	\0	ist
+505	0	\0	me
+506	0	\0	mor
+507	0	\0	son
+508	0	\0	s, and 
+509	0	\0	tre
+510	0	\0	ust
+511	0	\0	w 
+512	0	\0	ww
+513	0	\0	would 
+514	0	\0	 al
+515	0	\0	 ap
+516	0	\0	ition
+517	0	\0	ese 
+518	0	\0	hat 
+519	0	\0	ick
+520	0	\0	ish
+521	0	\0	es of 
+522	0	\0	ost 
+523	0	\0	hich he 
+524	0	\0	full 
+525	0	\0	ER
+526	0	\0	T 
+527	0	\0	bour
+528	0	\0	dow
+529	0	\0	litt
+530	0	\0	over
+531	0	\0	sur
+532	0	\0	red
+533	0	\0	ard
+534	0	\0	ity
+535	0	\0	icen
+536	0	\0	ement
+537	0	\0	tain 
+538	0	\0	not
+539	0	\0	may 
+540	0	\0	strang
+541	0	\0	dog
+542	0	\0	great 
+543	0	\0	able 
+544	0	\0	was a 
+545	0	\0	little 
+546	0	\0	Book
+547	0	\0	ak
+548	0	\0	ap
+549	0	\0	ci
+550	0	\0	coun
+551	0	\0	ea
+552	0	\0	eBook
+553	0	\0	far
+554	0	\0	kin
+555	0	\0	s, w
+556	0	\0	 ac
+557	0	\0	 am
+558	0	\0	er 
+559	0	\0	his
+560	0	\0	llow
+561	0	\0	ited 
+562	0	\0	ess
+563	0	\0	unt
+564	0	\0	other 
+565	0	\0	copyright 
+566	0	\0	port
+567	0	\0	Stat
+568	0	\0	 L
+569	0	\0	 his 
+570	0	\0	; and 
+571	0	\0	?”
+572	0	\0	Ar
+573	0	\0	F 
+574	0	\0	ST
+575	0	\0	a 
+576	0	\0	ac
+577	0	\0	des
+578	0	\0	ga
+579	0	\0	man 
+580	0	\0	ob
+581	0	\0	ple
+582	0	\0	sp
+583	0	\0	ener
+584	0	\0	ance
+585	0	\0	 any
+586	0	\0	iter
+587	0	\0	char
+588	0	\0	way 
+589	0	\0	Project
+590	0	\0	net
+591	0	\0	 their 
+592	0	\0	ass
+593	0	\0	do 
+594	0	\0	[Illustration]
+595	0	\0	part
+596	0	\0	ight
+597	0	\0	rough
+598	0	\0	however
+599	0	\0	, a 
+600	0	\0	OR
+601	0	\0	OF 
+602	0	\0	bel
+603	0	\0	ble 
+604	0	\0	et
+605	0	\0	fi
+606	0	\0	fter
+607	0	\0	most 
+608	0	\0	ss
+609	0	\0	wh
+610	0	\0	s to 
+611	0	\0	off
+612	0	\0	of a 
+613	0	\0	ref
+614	0	\0	ed in
+615	0	\0	ed the 
+616	0	\0	befor
+617	0	\0	neigh
+618	0	\0	 they 
+619	0	\0	their 
+620	0	\0	Rip Van Winkle
+621	0	\0	THE 
+622	0	\0	provid
+623	0	\0	village
+624	0	\0	Archi
+625	0	\0	neighbour
+626	0	\0	I 
+627	0	\0	The
+628	0	\0	cla
+629	0	\0	found 
+630	0	\0	hoo
+631	0	\0	mis
+632	0	\0	sol
+633	0	\0	some 
+634	0	\0	were 
+635	0	\0	incl
+636	0	\0	s of th
+637	0	\0	, but 
+638	0	\0	ous 
+639	0	\0	y of 
+640	0	\0	. H
+641	0	\0	. S
+642	0	\0	eck
+643	0	\0	ely 
+644	0	\0	is agre
+645	0	\0	law
+646	0	\0	with the 
+647	0	\0	raph
+648	0	\0	no 
+649	0	\0	ust 
+650	0	\0	been 
+651	0	\0	mad
+652	0	\0	him 
+653	0	\0	ure 
+654	0	\0	ve Foundation
+655	0	\0	agraph
+656	0	\0	your
+657	0	\0	prec
+658	0	\0	ING
+659	0	\0	paragraph
+660	0	\0	even
+661	0	\0	tradem
+662	0	\0	donation
+663	0	\0	ways 
+664	0	\0	United 
+665	0	\0	Archive Foundation
+666	0	\0	includ
+667	0	\0	trademark
+668	0	\0	United Stat
+669	0	\0	!”
+670	0	\0	A 
+671	0	\0	OU
+672	0	\0	Y 
+673	0	\0	You
+674	0	\0	ca
+675	0	\0	cre
+676	0	\0	could 
+677	0	\0	du
+678	0	\0	fo
+679	0	\0	gg
+680	0	\0	gon
+681	0	\0	mon
+682	0	\0	pt
+683	0	\0	pu
+684	0	\0	s.
+685	0	\0	sa
+686	0	\0	some
+687	0	\0	tur
+688	0	\0	ue 
+689	0	\0	vo
+690	0	\0	th 
+691	0	\0	them
+692	0	\0	oud
+693	0	\0	ance 
+694	0	\0	ed by 
+695	0	\0	ing, 
+696	0	\0	atsk
+697	0	\0	            
+698	0	\0	 was
+699	0	\0	ess 
+700	0	\0	ght
+701	0	\0	very 
+702	0	\0	in his 
+703	0	\0	, who
+704	0	\0	qui
+705	0	\0	 at the 
+706	0	\0	. If 
+707	0	\0	child
+708	0	\0	play
+709	0	\0	himself
+710	0	\0	AM
+711	0	\0	By 
+712	0	\0	Dame 
+713	0	\0	F.
+714	0	\0	Ka
+715	0	\0	TI
+716	0	\0	bro
+717	0	\0	ble
+718	0	\0	e,
+719	0	\0	et 
+720	0	\0	gl
+721	0	\0	hel
+722	0	\0	hus
+723	0	\0	ies
+724	0	\0	know
+725	0	\0	mu
+726	0	\0	med
+727	0	\0	s. T
+728	0	\0	sion 
+729	0	\0	wil
+730	0	\0	year
+731	0	\0	that
+732	0	\0	ine 
+733	0	\0	org
+734	0	\0	ought 
+735	0	\0	of w
+736	0	\0	reg
+737	0	\0	ing a 
+738	0	\0	ions 
+739	0	\0	was a
+740	0	\0	sett
+741	0	\0	never
+742	0	\0	qua
+743	0	\0	every 
+744	0	\0	cont
+745	0	\0	1.F.
+746	0	\0	ular
+747	0	\0	day
+748	0	\0	strange 
+749	0	\0	 Liter
+750	0	\0	 I
+751	0	\0	 is 
+752	0	\0	,”
+753	0	\0	19
+754	0	\0	Dut
+755	0	\0	LE
+756	0	\0	bod
+757	0	\0	crow
+758	0	\0	dou
+759	0	\0	ef
+760	0	\0	gun
+761	0	\0	goo
+762	0	\0	gener
+763	0	\0	hom
+764	0	\0	led 
+765	0	\0	must 
+766	0	\0	nam
+767	0	\0	pt 
+768	0	\0	pen
+769	0	\0	pos
+770	0	\0	ran
+771	0	\0	sha
+772	0	\0	s--
+773	0	\0	tw
+774	0	\0	vour
+775	0	\0	inn
+776	0	\0	, in
+777	0	\0	, he 
+778	0	\0	, to 
+779	0	\0	, with
+780	0	\0	of the
+781	0	\0	rece
+782	0	\0	read
+783	0	\0	ate 
+784	0	\0	rock
+785	0	\0	ity 
+786	0	\0	est 
+787	0	\0	chang
+788	0	\0	ed a
+789	0	\0	ed and 
+790	0	\0	of his 
+791	0	\0	ement 
+792	0	\0	es of the 
+793	0	\0	used to 
+794	0	\0	person
+795	0	\0	 at his 
+796	0	\0	 at him
+797	0	\0	ong the 
+798	0	\0	on his 
+799	0	\0	; but 
+800	0	\0	try 
+801	0	\0	 with 
+802	0	\0	s. net
+803	0	\0	compan
+804	0	\0	keep
+805	0	\0	 all the 
+806	0	\0	terms of th
+807	0	\0	ary Archive Foundation
+808	0	\0	flagon
+809	0	\0	made 
+810	0	\0	paragraph 
+811	0	\0	turn
+812	0	\0	! 
+813	0	\0	..
+814	0	\0	.g
+815	0	\0	.org
+816	0	\0	AG
+817	0	\0	CH
+818	0	\0	RA
+819	0	\0	ared
+820	0	\0	bre
+821	0	\0	bit
+822	0	\0	cur
+823	0	\0	dition
+824	0	\0	eb
+825	0	\0	equ
+826	0	\0	ge
+827	0	\0	gra
+828	0	\0	gone 
+829	0	\0	id 
+830	0	\0	low
+831	0	\0	night
+832	0	\0	o 
+833	0	\0	pi
+834	0	\0	ren
+835	0	\0	sun
+836	0	\0	smo
+837	0	\0	ub
+838	0	\0	uth
+839	0	\0	ual
+840	0	\0	vol
+841	0	\0	when
+842	0	\0	”                                
+843	0	\0	e of 
+844	0	\0	e the 
+845	0	\0	thing
+846	0	\0	thing 
+847	0	\0	 ad
+848	0	\0	s to
+849	0	\0	s in 
+850	0	\0	, “
+851	0	\0	llect
+852	0	\0	ster
+853	0	\0	 a f
+854	0	\0	he was 
+855	0	\0	to be 
+856	0	\0	own
+857	0	\0	ation 
+858	0	\0	head
+859	0	\0	utenberg.org
+860	0	\0	seem
+861	0	\0	there 
+862	0	\0	collect
+863	0	\0	new
+864	0	\0	with his 
+865	0	\0	copi
+866	0	\0	pear
+867	0	\0	work 
+868	0	\0	by the 
+869	0	\0	Van Winkle 
+870	0	\0	ally 
+871	0	\0	so 
+872	0	\0	mountains 
+873	0	\0	cloud
+874	0	\0	Project Gutenberg™ electronic work
+875	0	\0	time 
+876	0	\0	long 
+877	0	\0	Indi
+878	0	\0	down 
+879	0	\0	eather
+880	0	\0	kind 
+881	0	\0	is agreement
+882	0	\0	your 
+883	0	\0	United States
+884	0	\0	You 
+885	0	\0	publ
+886	0	\0	.gutenberg.org
+887	0	\0	**
+888	0	\0	; s
+889	0	\0	AS
+890	0	\0	LL
+891	0	\0	On
+892	0	\0	Sect
+893	0	\0	TE
+894	0	\0	VAN
+895	0	\0	ach
+896	0	\0	bo
+897	0	\0	cr
+898	0	\0	cu
+899	0	\0	cer
+900	0	\0	cor
+901	0	\0	d, 
+902	0	\0	dec
+903	0	\0	fect
+904	0	\0	fam
+905	0	\0	gr
+906	0	\0	ject 
+907	0	\0	ld 
+908	0	\0	my 
+909	0	\0	mem
+910	0	\0	pass
+911	0	\0	si
+912	0	\0	te 
+913	0	\0	tell
+914	0	\0	ure
+915	0	\0	who
+916	0	\0	which 
+917	0	\0	where 
+918	0	\0	 at
+919	0	\0	ins
+920	0	\0	ince
+921	0	\0	       
+922	0	\0	, or
+923	0	\0	ed to
+924	0	\0	cho
+925	0	\0	habit
+926	0	\0	for the 
+927	0	\0	last 
+928	0	\0	without 
+929	0	\0	take 
+930	0	\0	heel
+931	0	\0	beg
+932	0	\0	been
+933	0	\0	beard
+934	0	\0	oot 
+935	0	\0	mall 
+936	0	\0	Gutenberg™
+937	0	\0	set 
+938	0	\0	cock
+939	0	\0	lik
+940	0	\0	Rip’s 
+941	0	\0	prot
+942	0	\0	door
+943	0	\0	it is 
+944	0	\0	 can 
+945	0	\0	Project Gutenberg™ work
+946	0	\0	sub
+947	0	\0	; he 
+948	0	\0	too, 
+949	0	\0	loc
+950	0	\0	looked 
+951	0	\0	 an old 
+952	0	\0	himself 
+953	0	\0	RIP
+954	0	\0	house
+955	0	\0	more 
+956	0	\0	www
+957	0	\0	icense 
+958	0	\0	OR 
+959	0	\0	refun
+960	0	\0	They 
+961	0	\0	claim
+962	0	\0	mission 
+963	0	\0	atskill 
+964	0	\0	Dame Van Winkle
+965	0	\0	husb
+966	0	\0	 Literary Archive Foundation
+967	0	\0	Dutch 
+968	0	\0	good 
+969	0	\0	 of the 
+970	0	\0	 VAN
+971	0	\0	) 
+972	0	\0	, as 
+973	0	\0	.S
+974	0	\0	21
+975	0	\0	DI
+976	0	\0	His 
+977	0	\0	Hud
+978	0	\0	Ne
+979	0	\0	OL
+980	0	\0	PR
+981	0	\0	UN
+982	0	\0	U.S
+983	0	\0	WI
+984	0	\0	Wol
+985	0	\0	When
+986	0	\0	av
+987	0	\0	bla
+988	0	\0	bus
+989	0	\0	cou
+990	0	\0	can
+991	0	\0	cend
+992	0	\0	dre
+993	0	\0	dra
+994	0	\0	e.
+995	0	\0	eer
+996	0	\0	e, and 
+997	0	\0	fri
+998	0	\0	found
+999	0	\0	hat
+1000	0	\0	hand
+1001	0	\0	king 
+1002	0	\0	land
+1003	0	\0	mer
+1004	0	\0	name 
+1005	0	\0	p 
+1006	0	\0	pl
+1007	0	\0	pat
+1008	0	\0	re 
+1009	0	\0	ser
+1010	0	\0	sent
+1011	0	\0	sil
+1012	0	\0	s and
+1013	0	\0	ty
+1014	0	\0	tor
+1015	0	\0	ty 
+1016	0	\0	ue
+1017	0	\0	whi
+1018	0	\0	yal
+1019	0	\0	“W
+1020	0	\0	s that 
+1021	0	\0	ere
+1022	0	\0	t the 
+1023	0	\0	 through
