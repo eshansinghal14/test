@@ -1,6 +1,7 @@
 from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+import torch
 from constants import HF_READ_TOKEN
 
 logged_in = False
@@ -25,3 +26,8 @@ def load_model(model_name):
     # Match neuron_distillation AddDataset/collate_fn (right-pad); eval/generate use same side.
     tokenizer.padding_side = "right"
     return model, tokenizer
+
+
+def get_default_device() -> torch.device:
+    """Get the default device, preferring CUDA if available."""
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
