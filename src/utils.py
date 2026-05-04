@@ -3,6 +3,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from constants import HF_READ_TOKEN
 
+logged_in = False
+
 def load_model(model_name):
     from transformers.utils import logging as hf_logging
 
