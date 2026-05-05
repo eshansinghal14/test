@@ -273,13 +273,6 @@ def _higher_coe_branch(branch_a, branch_b):
     return branch_a if branch_a_coe >= branch_b_coe else branch_b
 
 
-def _highest_coe_finished_branch(branches):
-    selected_branch = None
-    for branch in branches["finished_branches"]:
-        selected_branch = _higher_coe_branch(selected_branch, branch)
-    return selected_branch
-
-
 def _decode_highest_coe_branch(branches, tokenizer, model):
     selected_branch = None
     for branch in branches:
@@ -321,6 +314,7 @@ def brute_force_cot_tree(
     correct_answer_branch = None
     finished_branch_count = 0
     finished_answer_counts = {}
+    finished_answer_branches = {}
     tree_contains_answer = False
 
     model.eval()
@@ -359,6 +353,10 @@ def brute_force_cot_tree(
                         parsed_generated_answer = _parse_answer(decoded_child["generated_text"])
                         answer_key = _answer_count_key(parsed_generated_answer)
                         finished_answer_counts[answer_key] = finished_answer_counts.get(answer_key, 0) + 1
+                        finished_answer_branches[answer_key] = _higher_coe_branch(
+                            finished_answer_branches.get(answer_key),
+                            decoded_child,
+                        )
                         if target_answer is not None:
                             branch_is_correct = _answers_match(
                                 parsed_generated_answer,
@@ -373,7 +371,11 @@ def brute_force_cot_tree(
                         best_finished_branch = _higher_coe_branch(best_finished_branch, decoded_child)
                         if keep_branch_details:
                             finished_branches.append(decoded_child)
-                        elif decoded_child is not best_finished_branch and decoded_child is not correct_answer_branch:
+                        elif (
+                            decoded_child is not best_finished_branch
+                            and decoded_child is not correct_answer_branch
+                            and decoded_child is not finished_answer_branches[answer_key]
+                        ):
                             del decoded_child
                         del child
                     else:
@@ -402,6 +404,10 @@ def brute_force_cot_tree(
         decoded_unfinished_branches = []
     live_branches.clear()
     _release_torch_memory(device)
+    majority_answer_branch = None
+    if finished_answer_counts:
+        majority_answer_key = max(finished_answer_counts.items(), key=lambda item: item[1])[0]
+        majority_answer_branch = finished_answer_branches[majority_answer_key]
 
     return {
         "finished_branches": (
@@ -410,6 +416,7 @@ def brute_force_cot_tree(
             else ([best_finished_branch] if best_finished_branch is not None else [])
         ),
         "unfinished_branches": decoded_unfinished_branches,
+        "majority_answer_branch": majority_answer_branch,
         "correct_answer_branch": correct_answer_branch,
         "finished_branch_count": finished_branch_count,
         "unfinished_branch_count": unfinished_branch_count,
@@ -489,7 +496,7 @@ if __name__ == "__main__":
             target_answer=real_answer,
         )
 
-        selected_branch = _highest_coe_finished_branch(branches)
+        selected_branch = branches["majority_answer_branch"]
         selected_text = "" if selected_branch is None else selected_branch["generated_text"]
         coe_c = None if selected_branch is None else selected_branch["coe_c"]
         parsed_answer = _parse_answer(selected_text)
