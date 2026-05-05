@@ -248,10 +248,14 @@ def _format_answer_counts(answer_counts):
     if not answer_counts:
         return "answers: none"
 
+    sorted_answer_counts = sorted(
+        ((answer, count) for answer, count in answer_counts.items() if answer != "other"),
+        key=lambda item: item[1],
+        reverse=True,
+    )
     parts = [
         f"{answer}-{count}"
-        for answer, count in answer_counts.items()
-        if answer != "other"
+        for answer, count in sorted_answer_counts
     ]
     if "other" in answer_counts:
         parts.append(f"other-{answer_counts['other']}")
