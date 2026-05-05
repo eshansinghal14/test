@@ -237,6 +237,27 @@ def _answers_match(parsed_answer, real_answer):
     return parsed_answer.strip() == real_answer.strip()
 
 
+def _answer_count_key(parsed_answer):
+    normalized_answer = parsed_answer.strip().replace(",", "")
+    if re.fullmatch(r"[-+]?\d+(?:\.\d+)?", normalized_answer):
+        return normalized_answer
+    return "other"
+
+
+def _format_answer_counts(answer_counts):
+    if not answer_counts:
+        return "answers: none"
+
+    parts = [
+        f"{answer}-{count}"
+        for answer, count in answer_counts.items()
+        if answer != "other"
+    ]
+    if "other" in answer_counts:
+        parts.append(f"other-{answer_counts['other']}")
+    return "answers: " + ", ".join(parts)
+
+
 def _higher_coe_branch(branch_a, branch_b):
     if branch_a is None:
         return branch_b
@@ -295,6 +316,7 @@ def brute_force_cot_tree(
     best_finished_branch = None
     correct_answer_branch = None
     finished_branch_count = 0
+    finished_answer_counts = {}
     tree_contains_answer = False
 
     model.eval()
@@ -330,8 +352,10 @@ def brute_force_cot_tree(
                     if token_id == tokenizer.eos_token_id:
                         decoded_child = _decode_branch(child, tokenizer, model)
                         finished_branch_count += 1
+                        parsed_generated_answer = _parse_answer(decoded_child["generated_text"])
+                        answer_key = _answer_count_key(parsed_generated_answer)
+                        finished_answer_counts[answer_key] = finished_answer_counts.get(answer_key, 0) + 1
                         if target_answer is not None:
-                            parsed_generated_answer = _parse_answer(decoded_child["generated_text"])
                             branch_is_correct = _answers_match(
                                 parsed_generated_answer,
                                 target_answer,
@@ -385,6 +409,7 @@ def brute_force_cot_tree(
         "correct_answer_branch": correct_answer_branch,
         "finished_branch_count": finished_branch_count,
         "unfinished_branch_count": unfinished_branch_count,
+        "finished_answer_counts": finished_answer_counts,
         "tree_contains_answer": tree_contains_answer,
     }
 
@@ -484,6 +509,7 @@ if __name__ == "__main__":
             "correct_answer_branch": correct_answer_branch,
             "finished_branch_count": branches["finished_branch_count"],
             "unfinished_branch_count": branches["unfinished_branch_count"],
+            "finished_answer_counts": branches["finished_answer_counts"],
         }
         results.append(result)
 
@@ -494,10 +520,10 @@ if __name__ == "__main__":
         print(
             f"Problem {i + 1}/{max_problems}: "
             f"coe_c={coe_c_log}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
-            f"tree_contains_answer={tree_contains_answer}, "
             f"finished={branches['finished_branch_count']}, "
             f"unfinished={branches['unfinished_branch_count']}"
         )
+        print(_format_answer_counts(branches["finished_answer_counts"]))
         del branches, selected_branch, selected_text
         _release_torch_memory(_model_device(model))
 
