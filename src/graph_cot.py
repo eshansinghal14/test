@@ -1,4 +1,5 @@
 import argparse
+import gc
 import json
 import re
 from dataclasses import dataclass
@@ -93,6 +94,12 @@ def _decode_branch(branch, tokenizer):
     }
 
 
+def _release_torch_memory(device):
+    gc.collect()
+    if device.type == "cuda":
+        torch.cuda.empty_cache()
+
+
 def _parse_answer(text):
     final_answer_match = re.search(r"####\s*([^\n]+)", text)
     if final_answer_match:
@@ -109,7 +116,7 @@ def _answers_match(parsed_answer, real_answer):
     return parsed_answer.strip() == real_answer.strip()
 
 
-def _best_branch(branches):
+def _first_available_branch(branches):
     if branches["finished_branches"]:
         return branches["finished_branches"][0]
     if branches["unfinished_branches"]:
@@ -123,14 +130,12 @@ def brute_force_cot_tree(
     model,
     tokenizer,
     max_new_tokens=256,
-    max_live_branches=None,
+    keep_branch_details=False,
 ):
     if not 0 < node_out_cum_prob < 1:
         raise ValueError("node_out_cum_prob must be between 0 and 1.")
     if max_new_tokens < 0:
         raise ValueError("max_new_tokens must be non-negative.")
-    if max_live_branches is not None and max_live_branches <= 0:
-        raise ValueError("max_live_branches must be positive when provided.")
 
     device = _model_device(model)
     pad_token_id = tokenizer.pad_token_id
@@ -142,6 +147,8 @@ def brute_force_cot_tree(
     prompt_ids = _normalize_prompt_ids(prompt, tokenizer, device)
     live_branches = [Branch(input_ids=prompt_ids, log_prob=0.0)]
     finished_branches = []
+    first_finished_branch = None
+    finished_branch_count = 0
 
     model.eval()
     with torch.inference_mode():
@@ -175,21 +182,41 @@ def brute_force_cot_tree(
                     )
 
                     if token_id == tokenizer.eos_token_id:
-                        finished_branches.append(child)
+                        decoded_child = _decode_branch(child, tokenizer)
+                        finished_branch_count += 1
+                        if first_finished_branch is None:
+                            first_finished_branch = decoded_child
+                        if keep_branch_details:
+                            finished_branches.append(decoded_child)
+                        del child
                     else:
                         next_live_branches.append(child)
 
-            if max_live_branches is not None and len(next_live_branches) > max_live_branches:
-                next_live_branches.sort(key=lambda branch: branch.log_prob, reverse=True)
-                next_live_branches = next_live_branches[:max_live_branches]
-
+            del batch, attention_mask, lengths, outputs, next_token_logits, next_token_log_probs
+            live_branches.clear()
             live_branches = next_live_branches
 
-    finished_branches.sort(key=lambda branch: branch.log_prob, reverse=True)
-    live_branches.sort(key=lambda branch: branch.log_prob, reverse=True)
+    _release_torch_memory(device)
+
+    unfinished_branch_count = len(live_branches)
+    if keep_branch_details:
+        decoded_unfinished_branches = [_decode_branch(branch, tokenizer) for branch in live_branches]
+    elif live_branches:
+        decoded_unfinished_branches = [_decode_branch(live_branches[0], tokenizer)]
+    else:
+        decoded_unfinished_branches = []
+    live_branches.clear()
+    _release_torch_memory(device)
+
     return {
-        "finished_branches": [_decode_branch(branch, tokenizer) for branch in finished_branches],
-        "unfinished_branches": [_decode_branch(branch, tokenizer) for branch in live_branches],
+        "finished_branches": (
+            finished_branches
+            if keep_branch_details
+            else ([first_finished_branch] if first_finished_branch is not None else [])
+        ),
+        "unfinished_branches": decoded_unfinished_branches,
+        "finished_branch_count": finished_branch_count,
+        "unfinished_branch_count": unfinished_branch_count,
     }
 
 
@@ -220,16 +247,14 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         required=True
     )
     p.add_argument(
-        "--max-live-branches",
-        type=int,
-        default=None,
-        metavar="N",
-        help="Optional cap on live branches, keeping highest log-probability branches.",
-    )
-    p.add_argument(
         "--output-json",
         default="graph_cot_results.json",
-        help="Path to write per-problem JSON results. Relative paths are saved in this script's directory.",
+        help="Path to write per-problem JSON results. Relative paths are saved from the current working directory.",
+    )
+    p.add_argument(
+        "--keep-branch-details",
+        action="store_true",
+        help="Keep every decoded branch in memory. By default only the first branch and counts are retained.",
     )
     return p.parse_args(argv)
 
@@ -248,41 +273,41 @@ if __name__ == "__main__":
             model,
             tokenizer,
             max_new_tokens=args.max_new_tokens,
-            max_live_branches=args.max_live_branches,
+            keep_branch_details=args.keep_branch_details,
         )
 
-        best_branch = _best_branch(branches)
-        best_text = "" if best_branch is None else best_branch["generated_text"]
-        full_branch_text = "" if best_branch is None else best_branch["text"]
-        log_prob = None if best_branch is None else best_branch["log_prob"]
-        parsed_answer = _parse_answer(best_text)
+        selected_branch = _first_available_branch(branches)
+        selected_text = "" if selected_branch is None else selected_branch["generated_text"]
+        full_branch_text = "" if selected_branch is None else selected_branch["text"]
+        log_prob = None if selected_branch is None else selected_branch["log_prob"]
+        parsed_answer = _parse_answer(selected_text)
         real_answer = _parse_answer(example["answer"])
         is_correct = _answers_match(parsed_answer, real_answer)
 
         result = {
             "problem_index": i,
             "question": example["question"],
-            "prediction": best_text,
+            "prediction": selected_text,
             "full_branch_text": full_branch_text,
             "parsed_answer": parsed_answer,
             "real_answer": real_answer,
             "log_prob": log_prob,
             "is_correct": is_correct,
-            "finished_branch_count": len(branches["finished_branches"]),
-            "unfinished_branch_count": len(branches["unfinished_branches"]),
+            "finished_branch_count": branches["finished_branch_count"],
+            "unfinished_branch_count": branches["unfinished_branch_count"],
         }
         results.append(result)
 
         print(
             f"Problem {i + 1}/{max_problems}: "
             f"log_prob={log_prob}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
-            f"finished={len(branches['finished_branches'])}, "
-            f"unfinished={len(branches['unfinished_branches'])}"
+            f"finished={branches['finished_branch_count']}, "
+            f"unfinished={branches['unfinished_branch_count']}"
         )
+        del branches, selected_branch, selected_text, full_branch_text
+        _release_torch_memory(_model_device(model))
 
     output_path = Path(args.output_json)
-    if not output_path.is_absolute():
-        output_path = Path(__file__).resolve().parent / output_path
 
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
