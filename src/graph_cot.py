@@ -441,6 +441,7 @@ if __name__ == "__main__":
 
     model, tokenizer = load_model(model_name)
     max_problems = len(ds) if args.max_problems is None else min(args.max_problems, len(ds))
+    output_path = Path(args.output_json)
     results = []
     for i in range(max_problems):
         example = ds[i]
@@ -486,20 +487,19 @@ if __name__ == "__main__":
         }
         results.append(result)
 
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=2)
+
+        coe_c_log = "None" if coe_c is None else f"{coe_c:.2f}"
         print(
             f"Problem {i + 1}/{max_problems}: "
-            f"coe_c={coe_c}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
+            f"coe_c={coe_c_log}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
             f"tree_contains_answer={tree_contains_answer}, "
             f"finished={branches['finished_branch_count']}, "
             f"unfinished={branches['unfinished_branch_count']}"
         )
         del branches, selected_branch, selected_text, full_branch_text
         _release_torch_memory(_model_device(model))
-
-    output_path = Path(args.output_json)
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2)
 
     print(f"Wrote {len(results)} results to {output_path}")
     correct_count = sum(result["is_correct"] for result in results)
