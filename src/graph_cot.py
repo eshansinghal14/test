@@ -209,7 +209,6 @@ def _decode_branch(branch, tokenizer, model):
     input_ids = branch.input_ids.detach().cpu().tolist()
     generated_ids = input_ids[-branch.generated_tokens :] if branch.generated_tokens else []
     return {
-        "text": tokenizer.decode(input_ids, skip_special_tokens=True),
         "generated_text": tokenizer.decode(generated_ids, skip_special_tokens=True),
         "coe_c": _calculate_coe_c(branch, model),
         "generated_tokens": branch.generated_tokens,
@@ -463,7 +462,6 @@ if __name__ == "__main__":
 
         selected_branch = _highest_coe_branch(branches)
         selected_text = "" if selected_branch is None else selected_branch["generated_text"]
-        full_branch_text = "" if selected_branch is None else selected_branch["text"]
         coe_c = None if selected_branch is None else selected_branch["coe_c"]
         parsed_answer = _parse_answer(selected_text)
         is_correct = _answers_match(parsed_answer, real_answer)
@@ -478,7 +476,6 @@ if __name__ == "__main__":
             "problem_index": i,
             "question": example["question"],
             "prediction": selected_text,
-            "full_branch_text": full_branch_text,
             "parsed_answer": parsed_answer,
             "real_answer": real_answer,
             "coe_c": coe_c,
@@ -501,7 +498,7 @@ if __name__ == "__main__":
             f"finished={branches['finished_branch_count']}, "
             f"unfinished={branches['unfinished_branch_count']}"
         )
-        del branches, selected_branch, selected_text, full_branch_text
+        del branches, selected_branch, selected_text
         _release_torch_memory(_model_device(model))
 
     print(f"Wrote {len(results)} results to {output_path}")
