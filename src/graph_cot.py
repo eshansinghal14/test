@@ -21,7 +21,6 @@ ds = load_dataset(dataset, "main", split="test")
 @dataclass
 class Branch:
     input_ids: torch.Tensor
-    log_prob: float
     generated_tokens: int = 0
 
 
@@ -82,14 +81,47 @@ def _minimal_threshold_tokens(log_probs_row, node_out_cum_prob, initial_top_k=32
         top_k = min(top_k * 2, vocab_size)
 
 
-def _decode_branch(branch, tokenizer):
+def _calculate_coe_c(branch, model, eps=1e-8):
+    if branch.generated_tokens == 0:
+        return None
+
+    with torch.inference_mode():
+        input_ids = branch.input_ids.unsqueeze(0)
+        attention_mask = torch.ones_like(input_ids)
+        outputs = model(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            output_hidden_states=True,
+            return_dict=True,
+        )
+    hidden_states = outputs.hidden_states
+    if hidden_states is None or len(hidden_states) < 3:
+        return None
+
+    output_start = branch.input_ids.numel() - branch.generated_tokens
+    layer_means = torch.stack(
+        [hidden_state[0, output_start:, :].float().mean(dim=0) for hidden_state in hidden_states[1:]],
+        dim=0,
+    )
+    norms = torch.linalg.vector_norm(layer_means, dim=1)
+    mag_changes = torch.abs(norms[1:] - norms[:-1])
+    dot_products = (layer_means[:-1] * layer_means[1:]).sum(dim=1)
+    cosine = dot_products / (norms[:-1] * norms[1:]).clamp_min(eps)
+    ang_changes = torch.acos(cosine.clamp(-1.0, 1.0))
+
+    coe_c = torch.abs(torch.complex(mag_changes.mean(), ang_changes.mean()))
+    del outputs, hidden_states, layer_means, norms, mag_changes, dot_products, cosine, ang_changes
+    return float(coe_c.item())
+
+
+def _decode_branch(branch, tokenizer, model):
     input_ids = branch.input_ids.detach().cpu().tolist()
     generated_ids = input_ids[-branch.generated_tokens :] if branch.generated_tokens else []
     return {
         "input_ids": input_ids,
         "text": tokenizer.decode(input_ids, skip_special_tokens=True),
         "generated_text": tokenizer.decode(generated_ids, skip_special_tokens=True),
-        "log_prob": branch.log_prob,
+        "coe_c": _calculate_coe_c(branch, model),
         "generated_tokens": branch.generated_tokens,
     }
 
@@ -145,7 +177,7 @@ def brute_force_cot_tree(
         raise ValueError("tokenizer must define a pad token or an eos token.")
 
     prompt_ids = _normalize_prompt_ids(prompt, tokenizer, device)
-    live_branches = [Branch(input_ids=prompt_ids, log_prob=0.0)]
+    live_branches = [Branch(input_ids=prompt_ids)]
     finished_branches = []
     first_finished_branch = None
     finished_branch_count = 0
@@ -167,26 +199,28 @@ def brute_force_cot_tree(
 
             next_live_branches = []
             for branch_idx, branch in enumerate(live_branches):
-                token_ids, token_log_probs = _minimal_threshold_tokens(
+                token_ids, _ = _minimal_threshold_tokens(
                     next_token_log_probs[branch_idx],
                     node_out_cum_prob,
                 )
 
-                for token_id, token_log_prob in zip(token_ids.tolist(), token_log_probs.tolist()):
+                for token_id in token_ids.tolist():
                     child = Branch(
                         input_ids=torch.cat(
                             [branch.input_ids, torch.tensor([token_id], device=device)]
                         ),
-                        log_prob=branch.log_prob + float(token_log_prob),
                         generated_tokens=branch.generated_tokens + 1,
                     )
 
                     if token_id == tokenizer.eos_token_id:
-                        decoded_child = _decode_branch(child, tokenizer)
+                        decoded_child = None
                         finished_branch_count += 1
                         if first_finished_branch is None:
+                            decoded_child = _decode_branch(child, tokenizer, model)
                             first_finished_branch = decoded_child
                         if keep_branch_details:
+                            if decoded_child is None:
+                                decoded_child = _decode_branch(child, tokenizer, model)
                             finished_branches.append(decoded_child)
                         del child
                     else:
@@ -200,9 +234,9 @@ def brute_force_cot_tree(
 
     unfinished_branch_count = len(live_branches)
     if keep_branch_details:
-        decoded_unfinished_branches = [_decode_branch(branch, tokenizer) for branch in live_branches]
+        decoded_unfinished_branches = [_decode_branch(branch, tokenizer, model) for branch in live_branches]
     elif live_branches:
-        decoded_unfinished_branches = [_decode_branch(live_branches[0], tokenizer)]
+        decoded_unfinished_branches = [_decode_branch(live_branches[0], tokenizer, model)]
     else:
         decoded_unfinished_branches = []
     live_branches.clear()
@@ -279,7 +313,7 @@ if __name__ == "__main__":
         selected_branch = _first_available_branch(branches)
         selected_text = "" if selected_branch is None else selected_branch["generated_text"]
         full_branch_text = "" if selected_branch is None else selected_branch["text"]
-        log_prob = None if selected_branch is None else selected_branch["log_prob"]
+        coe_c = None if selected_branch is None else selected_branch["coe_c"]
         parsed_answer = _parse_answer(selected_text)
         real_answer = _parse_answer(example["answer"])
         is_correct = _answers_match(parsed_answer, real_answer)
@@ -291,7 +325,7 @@ if __name__ == "__main__":
             "full_branch_text": full_branch_text,
             "parsed_answer": parsed_answer,
             "real_answer": real_answer,
-            "log_prob": log_prob,
+            "coe_c": coe_c,
             "is_correct": is_correct,
             "finished_branch_count": branches["finished_branch_count"],
             "unfinished_branch_count": branches["unfinished_branch_count"],
@@ -300,7 +334,7 @@ if __name__ == "__main__":
 
         print(
             f"Problem {i + 1}/{max_problems}: "
-            f"log_prob={log_prob}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
+            f"coe_c={coe_c}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
             f"finished={branches['finished_branch_count']}, "
             f"unfinished={branches['unfinished_branch_count']}"
         )
