@@ -162,12 +162,15 @@ def brute_force_cot_tree(
     model,
     tokenizer,
     max_new_tokens=256,
+    max_live_branches=None,
     keep_branch_details=False,
 ):
     if not 0 < node_out_cum_prob < 1:
         raise ValueError("node_out_cum_prob must be between 0 and 1.")
     if max_new_tokens < 0:
         raise ValueError("max_new_tokens must be non-negative.")
+    if max_live_branches is not None and max_live_branches <= 0:
+        raise ValueError("max_live_branches must be positive when provided.")
 
     device = _model_device(model)
     pad_token_id = tokenizer.pad_token_id
@@ -229,6 +232,15 @@ def brute_force_cot_tree(
             del batch, attention_mask, lengths, outputs, next_token_logits, next_token_log_probs
             live_branches.clear()
             live_branches = next_live_branches
+            if max_live_branches is not None and len(live_branches) > max_live_branches:
+                live_branch_count = len(live_branches)
+                live_branches.clear()
+                _release_torch_memory(device)
+                raise RuntimeError(
+                    f"Live branch count {live_branch_count} exceeded "
+                    f"--max-live-branches={max_live_branches}. "
+                    "No branches were pruned; increase the limit or lower node_out_cum_prob."
+                )
 
     _release_torch_memory(device)
 
@@ -281,6 +293,13 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         required=True
     )
     p.add_argument(
+        "--max-live-branches",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Safety cap on live branches. Exits instead of pruning when exceeded.",
+    )
+    p.add_argument(
         "--output-json",
         default="graph_cot_results.json",
         help="Path to write per-problem JSON results. Relative paths are saved from the current working directory.",
@@ -307,6 +326,7 @@ if __name__ == "__main__":
             model,
             tokenizer,
             max_new_tokens=args.max_new_tokens,
+            max_live_branches=args.max_live_branches,
             keep_branch_details=args.keep_branch_details,
         )
 
