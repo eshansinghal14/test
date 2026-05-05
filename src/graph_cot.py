@@ -443,6 +443,10 @@ if __name__ == "__main__":
     max_problems = len(ds) if args.max_problems is None else min(args.max_problems, len(ds))
     output_path = Path(args.output_json)
     results = []
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+
     for i in range(max_problems):
         example = ds[i]
         prompt = example["question"] + " Let's think step by step."
