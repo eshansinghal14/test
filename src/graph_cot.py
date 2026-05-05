@@ -273,9 +273,9 @@ def _higher_coe_branch(branch_a, branch_b):
     return branch_a if branch_a_coe >= branch_b_coe else branch_b
 
 
-def _highest_coe_branch(branches):
+def _highest_coe_finished_branch(branches):
     selected_branch = None
-    for branch in branches["finished_branches"] + branches["unfinished_branches"]:
+    for branch in branches["finished_branches"]:
         selected_branch = _higher_coe_branch(selected_branch, branch)
     return selected_branch
 
@@ -489,7 +489,7 @@ if __name__ == "__main__":
             target_answer=real_answer,
         )
 
-        selected_branch = _highest_coe_branch(branches)
+        selected_branch = _highest_coe_finished_branch(branches)
         selected_text = "" if selected_branch is None else selected_branch["generated_text"]
         coe_c = None if selected_branch is None else selected_branch["coe_c"]
         parsed_answer = _parse_answer(selected_text)
