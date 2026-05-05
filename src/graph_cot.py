@@ -114,6 +114,64 @@ def _calculate_coe_c(branch, model, eps=1e-8):
     return float(coe_c.item())
 
 
+def _calculate_branch_coes(branches, model, pad_token_id, device, batch_size=8, eps=1e-8):
+    scores = []
+    with torch.inference_mode():
+        for start in range(0, len(branches), batch_size):
+            branch_batch = branches[start : start + batch_size]
+            batch, attention_mask, lengths = _pad_branches(branch_batch, pad_token_id, device)
+            outputs = model(
+                input_ids=batch,
+                attention_mask=attention_mask,
+                output_hidden_states=True,
+                return_dict=True,
+            )
+            hidden_states = outputs.hidden_states
+            if hidden_states is None or len(hidden_states) < 3:
+                scores.extend([float("-inf")] * len(branch_batch))
+                continue
+
+            for row, branch in enumerate(branch_batch):
+                if branch.generated_tokens == 0:
+                    scores.append(float("-inf"))
+                    continue
+
+                output_start = int(lengths[row].item()) - branch.generated_tokens
+                output_end = int(lengths[row].item())
+                layer_means = torch.stack(
+                    [
+                        hidden_state[row, output_start:output_end, :].float().mean(dim=0)
+                        for hidden_state in hidden_states[1:]
+                    ],
+                    dim=0,
+                )
+                norms = torch.linalg.vector_norm(layer_means, dim=1)
+                mag_changes = torch.abs(norms[1:] - norms[:-1])
+                dot_products = (layer_means[:-1] * layer_means[1:]).sum(dim=1)
+                cosine = dot_products / (norms[:-1] * norms[1:]).clamp_min(eps)
+                ang_changes = torch.acos(cosine.clamp(-1.0, 1.0))
+                coe_c = torch.abs(torch.complex(mag_changes.mean(), ang_changes.mean()))
+                scores.append(float(coe_c.item()))
+
+            del batch, attention_mask, lengths, outputs, hidden_states
+
+    return scores
+
+
+def _prune_branches_by_coe(branches, max_live_branches, model, pad_token_id, device):
+    coe_scores = _calculate_branch_coes(branches, model, pad_token_id, device)
+    scored_branches = sorted(
+        zip(coe_scores, branches),
+        key=lambda item: item[0],
+        reverse=True,
+    )
+    kept_branches = [branch for _, branch in scored_branches[:max_live_branches]]
+    pruned_branches = [branch for _, branch in scored_branches[max_live_branches:]]
+    del coe_scores, scored_branches, pruned_branches
+    _release_torch_memory(device)
+    return kept_branches
+
+
 def _decode_branch(branch, tokenizer, model):
     input_ids = branch.input_ids.detach().cpu().tolist()
     generated_ids = input_ids[-branch.generated_tokens :] if branch.generated_tokens else []
@@ -233,13 +291,12 @@ def brute_force_cot_tree(
             live_branches.clear()
             live_branches = next_live_branches
             if max_live_branches is not None and len(live_branches) > max_live_branches:
-                live_branch_count = len(live_branches)
-                live_branches.clear()
-                _release_torch_memory(device)
-                raise RuntimeError(
-                    f"Live branch count {live_branch_count} exceeded "
-                    f"--max-live-branches={max_live_branches}. "
-                    "No branches were pruned; increase the limit or lower node_out_cum_prob."
+                live_branches = _prune_branches_by_coe(
+                    live_branches,
+                    max_live_branches,
+                    model,
+                    pad_token_id,
+                    device,
                 )
 
     _release_torch_memory(device)
@@ -297,7 +354,7 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=int,
         default=None,
         metavar="N",
-        help="Safety cap on live branches. Exits instead of pruning when exceeded.",
+        help="Maximum live branches to keep after each step, pruning lowest-CoE branches when exceeded.",
     )
     p.add_argument(
         "--output-json",
