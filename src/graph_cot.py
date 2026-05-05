@@ -114,20 +114,9 @@ def _calculate_coe_c(branch, model, eps=1e-8):
     return float(coe_c.item())
 
 
-def _pooled_kv_by_layer(past_key_values, row, seq_len):
-    layer_representations = []
-    for layer_cache in past_key_values:
-        key_states, value_states = layer_cache[:2]
-        key_pooled = key_states[row, :, :seq_len, :].float().mean(dim=(0, 1))
-        value_pooled = value_states[row, :, :seq_len, :].float().mean(dim=(0, 1))
-        layer_representations.append(torch.cat([key_pooled, value_pooled], dim=0))
-
-    return torch.stack(layer_representations, dim=0)
-
-
 def _calculate_branch_pruning_stats(branches, model, pad_token_id, device, batch_size=8, eps=1e-8):
     coe_scores = []
-    kv_representations = []
+    hidden_representations = []
     with torch.inference_mode():
         for start in range(0, len(branches), batch_size):
             branch_batch = branches[start : start + batch_size]
@@ -136,23 +125,15 @@ def _calculate_branch_pruning_stats(branches, model, pad_token_id, device, batch
                 input_ids=batch,
                 attention_mask=attention_mask,
                 output_hidden_states=True,
-                use_cache=True,
                 return_dict=True,
             )
             hidden_states = outputs.hidden_states
-            past_key_values = outputs.past_key_values
 
             for row, branch in enumerate(branch_batch):
                 seq_len = int(lengths[row].item())
-                if past_key_values is None:
-                    kv_representations.append(None)
-                else:
-                    kv_representations.append(
-                        _pooled_kv_by_layer(past_key_values, row, seq_len).detach().cpu()
-                    )
-
                 if branch.generated_tokens == 0 or hidden_states is None or len(hidden_states) < 3:
                     coe_scores.append(float("-inf"))
+                    hidden_representations.append(None)
                     continue
 
                 output_start = seq_len - branch.generated_tokens
@@ -163,6 +144,7 @@ def _calculate_branch_pruning_stats(branches, model, pad_token_id, device, batch
                     ],
                     dim=0,
                 )
+                hidden_representations.append(layer_means.detach().cpu())
                 norms = torch.linalg.vector_norm(layer_means, dim=1)
                 mag_changes = torch.abs(norms[1:] - norms[:-1])
                 dot_products = (layer_means[:-1] * layer_means[1:]).sum(dim=1)
@@ -171,18 +153,18 @@ def _calculate_branch_pruning_stats(branches, model, pad_token_id, device, batch
                 coe_c = torch.abs(torch.complex(mag_changes.mean(), ang_changes.mean()))
                 coe_scores.append(float(coe_c.item()))
 
-            del batch, attention_mask, lengths, outputs, hidden_states, past_key_values
+            del batch, attention_mask, lengths, outputs, hidden_states
 
-    return coe_scores, kv_representations
+    return coe_scores, hidden_representations
 
 
-def _kv_similarity(kv_a, kv_b):
-    layer_sims = F.cosine_similarity(kv_a, kv_b, dim=1)
+def _branch_similarity(means_a, means_b):
+    layer_sims = F.cosine_similarity(means_a, means_b, dim=1)
     return float(layer_sims.mean().item())
 
 
-def _prune_branches_by_kv_similarity(branches, max_live_branches, model, pad_token_id, device):
-    coe_scores, kv_representations = _calculate_branch_pruning_stats(
+def _prune_branches_by_hidden_similarity(branches, max_live_branches, model, pad_token_id, device):
+    coe_scores, hidden_representations = _calculate_branch_pruning_stats(
         branches,
         model,
         pad_token_id,
@@ -195,16 +177,16 @@ def _prune_branches_by_kv_similarity(branches, max_live_branches, model, pad_tok
         best_similarity = float("-inf")
 
         for left_pos, left_idx in enumerate(active_indices[:-1]):
-            kv_left = kv_representations[left_idx]
-            if kv_left is None:
+            means_left = hidden_representations[left_idx]
+            if means_left is None:
                 continue
 
             for right_idx in active_indices[left_pos + 1 :]:
-                kv_right = kv_representations[right_idx]
-                if kv_right is None:
+                means_right = hidden_representations[right_idx]
+                if means_right is None:
                     continue
 
-                similarity = _kv_similarity(kv_left, kv_right)
+                similarity = _branch_similarity(means_left, means_right)
                 if similarity > best_similarity:
                     best_similarity = similarity
                     most_similar_pair = (left_idx, right_idx)
@@ -218,7 +200,7 @@ def _prune_branches_by_kv_similarity(branches, max_live_branches, model, pad_tok
         active_indices.remove(drop_idx)
 
     kept_branches = [branches[idx] for idx in active_indices]
-    del coe_scores, kv_representations, active_indices
+    del coe_scores, hidden_representations, active_indices
     _release_torch_memory(device)
     return kept_branches
 
@@ -342,7 +324,7 @@ def brute_force_cot_tree(
             live_branches.clear()
             live_branches = next_live_branches
             if max_live_branches is not None and len(live_branches) > max_live_branches:
-                live_branches = _prune_branches_by_kv_similarity(
+                live_branches = _prune_branches_by_hidden_similarity(
                     live_branches,
                     max_live_branches,
                     model,
@@ -405,7 +387,7 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=int,
         default=None,
         metavar="N",
-        help="Maximum live branches to keep after each step, pruning similar KV-cache branches by CoE.",
+        help="Maximum live branches to keep after each step, pruning similar hidden-state branches by CoE.",
     )
     p.add_argument(
         "--output-json",
