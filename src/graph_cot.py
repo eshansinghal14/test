@@ -209,7 +209,6 @@ def _decode_branch(branch, tokenizer, model):
     input_ids = branch.input_ids.detach().cpu().tolist()
     generated_ids = input_ids[-branch.generated_tokens :] if branch.generated_tokens else []
     return {
-        "input_ids": input_ids,
         "text": tokenizer.decode(input_ids, skip_special_tokens=True),
         "generated_text": tokenizer.decode(generated_ids, skip_special_tokens=True),
         "coe_c": _calculate_coe_c(branch, model),
