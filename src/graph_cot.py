@@ -239,12 +239,32 @@ def _answers_match(parsed_answer, real_answer):
     return parsed_answer.strip() == real_answer.strip()
 
 
-def _first_available_branch(branches):
-    if branches["finished_branches"]:
-        return branches["finished_branches"][0]
-    if branches["unfinished_branches"]:
-        return branches["unfinished_branches"][0]
-    return None
+def _higher_coe_branch(branch_a, branch_b):
+    if branch_a is None:
+        return branch_b
+    if branch_b is None:
+        return branch_a
+
+    branch_a_coe = branch_a["coe_c"] if branch_a["coe_c"] is not None else float("-inf")
+    branch_b_coe = branch_b["coe_c"] if branch_b["coe_c"] is not None else float("-inf")
+    return branch_a if branch_a_coe >= branch_b_coe else branch_b
+
+
+def _highest_coe_branch(branches):
+    selected_branch = None
+    for branch in branches["finished_branches"] + branches["unfinished_branches"]:
+        selected_branch = _higher_coe_branch(selected_branch, branch)
+    return selected_branch
+
+
+def _decode_highest_coe_branch(branches, tokenizer, model):
+    selected_branch = None
+    for branch in branches:
+        decoded_branch = _decode_branch(branch, tokenizer, model)
+        selected_branch = _higher_coe_branch(selected_branch, decoded_branch)
+        if selected_branch is not decoded_branch:
+            del decoded_branch
+    return selected_branch
 
 
 def brute_force_cot_tree(
@@ -255,6 +275,7 @@ def brute_force_cot_tree(
     max_new_tokens=256,
     max_live_branches=None,
     keep_branch_details=False,
+    target_answer=None,
 ):
     if not 0 < node_out_cum_prob < 1:
         raise ValueError("node_out_cum_prob must be between 0 and 1.")
@@ -273,8 +294,10 @@ def brute_force_cot_tree(
     prompt_ids = _normalize_prompt_ids(prompt, tokenizer, device)
     live_branches = [Branch(input_ids=prompt_ids)]
     finished_branches = []
-    first_finished_branch = None
+    best_finished_branch = None
+    correct_answer_branch = None
     finished_branch_count = 0
+    tree_contains_answer = False
 
     model.eval()
     with torch.inference_mode():
@@ -307,15 +330,25 @@ def brute_force_cot_tree(
                     )
 
                     if token_id == tokenizer.eos_token_id:
-                        decoded_child = None
+                        decoded_child = _decode_branch(child, tokenizer, model)
                         finished_branch_count += 1
-                        if first_finished_branch is None:
-                            decoded_child = _decode_branch(child, tokenizer, model)
-                            first_finished_branch = decoded_child
+                        if target_answer is not None:
+                            parsed_generated_answer = _parse_answer(decoded_child["generated_text"])
+                            branch_is_correct = _answers_match(
+                                parsed_generated_answer,
+                                target_answer,
+                            )
+                            tree_contains_answer = tree_contains_answer or branch_is_correct
+                            if branch_is_correct:
+                                correct_answer_branch = _higher_coe_branch(
+                                    correct_answer_branch,
+                                    decoded_child,
+                                )
+                        best_finished_branch = _higher_coe_branch(best_finished_branch, decoded_child)
                         if keep_branch_details:
-                            if decoded_child is None:
-                                decoded_child = _decode_branch(child, tokenizer, model)
                             finished_branches.append(decoded_child)
+                        elif decoded_child is not best_finished_branch and decoded_child is not correct_answer_branch:
+                            del decoded_child
                         del child
                     else:
                         next_live_branches.append(child)
@@ -338,7 +371,7 @@ def brute_force_cot_tree(
     if keep_branch_details:
         decoded_unfinished_branches = [_decode_branch(branch, tokenizer, model) for branch in live_branches]
     elif live_branches:
-        decoded_unfinished_branches = [_decode_branch(live_branches[0], tokenizer, model)]
+        decoded_unfinished_branches = [_decode_highest_coe_branch(live_branches, tokenizer, model)]
     else:
         decoded_unfinished_branches = []
     live_branches.clear()
@@ -348,11 +381,13 @@ def brute_force_cot_tree(
         "finished_branches": (
             finished_branches
             if keep_branch_details
-            else ([first_finished_branch] if first_finished_branch is not None else [])
+            else ([best_finished_branch] if best_finished_branch is not None else [])
         ),
         "unfinished_branches": decoded_unfinished_branches,
+        "correct_answer_branch": correct_answer_branch,
         "finished_branch_count": finished_branch_count,
         "unfinished_branch_count": unfinished_branch_count,
+        "tree_contains_answer": tree_contains_answer,
     }
 
 
@@ -410,6 +445,7 @@ if __name__ == "__main__":
     for i in range(max_problems):
         example = ds[i]
         prompt = example["question"] + " Let's think step by step."
+        real_answer = _parse_answer(example["answer"])
         branches = brute_force_cot_tree(
             prompt,
             args.node_out_cum_prob,
@@ -418,15 +454,21 @@ if __name__ == "__main__":
             max_new_tokens=args.max_new_tokens,
             max_live_branches=args.max_live_branches,
             keep_branch_details=args.keep_branch_details,
+            target_answer=real_answer,
         )
 
-        selected_branch = _first_available_branch(branches)
+        selected_branch = _highest_coe_branch(branches)
         selected_text = "" if selected_branch is None else selected_branch["generated_text"]
         full_branch_text = "" if selected_branch is None else selected_branch["text"]
         coe_c = None if selected_branch is None else selected_branch["coe_c"]
         parsed_answer = _parse_answer(selected_text)
-        real_answer = _parse_answer(example["answer"])
         is_correct = _answers_match(parsed_answer, real_answer)
+        tree_contains_answer = branches["tree_contains_answer"]
+        correct_answer_branch = (
+            branches["correct_answer_branch"]
+            if tree_contains_answer and not is_correct
+            else None
+        )
 
         result = {
             "problem_index": i,
@@ -437,6 +479,8 @@ if __name__ == "__main__":
             "real_answer": real_answer,
             "coe_c": coe_c,
             "is_correct": is_correct,
+            "tree_contains_answer": tree_contains_answer,
+            "correct_answer_branch": correct_answer_branch,
             "finished_branch_count": branches["finished_branch_count"],
             "unfinished_branch_count": branches["unfinished_branch_count"],
         }
@@ -445,6 +489,7 @@ if __name__ == "__main__":
         print(
             f"Problem {i + 1}/{max_problems}: "
             f"coe_c={coe_c}, parsed_answer={parsed_answer}, real_answer={real_answer}, "
+            f"tree_contains_answer={tree_contains_answer}, "
             f"finished={branches['finished_branch_count']}, "
             f"unfinished={branches['unfinished_branch_count']}"
         )
