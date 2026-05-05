@@ -114,8 +114,20 @@ def _calculate_coe_c(branch, model, eps=1e-8):
     return float(coe_c.item())
 
 
-def _calculate_branch_coes(branches, model, pad_token_id, device, batch_size=8, eps=1e-8):
-    scores = []
+def _pooled_kv_by_layer(past_key_values, row, seq_len):
+    layer_representations = []
+    for layer_cache in past_key_values:
+        key_states, value_states = layer_cache[:2]
+        key_pooled = key_states[row, :, :seq_len, :].float().mean(dim=(0, 1))
+        value_pooled = value_states[row, :, :seq_len, :].float().mean(dim=(0, 1))
+        layer_representations.append(torch.cat([key_pooled, value_pooled], dim=0))
+
+    return torch.stack(layer_representations, dim=0)
+
+
+def _calculate_branch_pruning_stats(branches, model, pad_token_id, device, batch_size=8, eps=1e-8):
+    coe_scores = []
+    kv_representations = []
     with torch.inference_mode():
         for start in range(0, len(branches), batch_size):
             branch_batch = branches[start : start + batch_size]
@@ -124,23 +136,29 @@ def _calculate_branch_coes(branches, model, pad_token_id, device, batch_size=8, 
                 input_ids=batch,
                 attention_mask=attention_mask,
                 output_hidden_states=True,
+                use_cache=True,
                 return_dict=True,
             )
             hidden_states = outputs.hidden_states
-            if hidden_states is None or len(hidden_states) < 3:
-                scores.extend([float("-inf")] * len(branch_batch))
-                continue
+            past_key_values = outputs.past_key_values
 
             for row, branch in enumerate(branch_batch):
-                if branch.generated_tokens == 0:
-                    scores.append(float("-inf"))
+                seq_len = int(lengths[row].item())
+                if past_key_values is None:
+                    kv_representations.append(None)
+                else:
+                    kv_representations.append(
+                        _pooled_kv_by_layer(past_key_values, row, seq_len).detach().cpu()
+                    )
+
+                if branch.generated_tokens == 0 or hidden_states is None or len(hidden_states) < 3:
+                    coe_scores.append(float("-inf"))
                     continue
 
-                output_start = int(lengths[row].item()) - branch.generated_tokens
-                output_end = int(lengths[row].item())
+                output_start = seq_len - branch.generated_tokens
                 layer_means = torch.stack(
                     [
-                        hidden_state[row, output_start:output_end, :].float().mean(dim=0)
+                        hidden_state[row, output_start:seq_len, :].float().mean(dim=0)
                         for hidden_state in hidden_states[1:]
                     ],
                     dim=0,
@@ -151,23 +169,56 @@ def _calculate_branch_coes(branches, model, pad_token_id, device, batch_size=8, 
                 cosine = dot_products / (norms[:-1] * norms[1:]).clamp_min(eps)
                 ang_changes = torch.acos(cosine.clamp(-1.0, 1.0))
                 coe_c = torch.abs(torch.complex(mag_changes.mean(), ang_changes.mean()))
-                scores.append(float(coe_c.item()))
+                coe_scores.append(float(coe_c.item()))
 
-            del batch, attention_mask, lengths, outputs, hidden_states
+            del batch, attention_mask, lengths, outputs, hidden_states, past_key_values
 
-    return scores
+    return coe_scores, kv_representations
 
 
-def _prune_branches_by_coe(branches, max_live_branches, model, pad_token_id, device):
-    coe_scores = _calculate_branch_coes(branches, model, pad_token_id, device)
-    scored_branches = sorted(
-        zip(coe_scores, branches),
-        key=lambda item: item[0],
-        reverse=True,
+def _kv_similarity(kv_a, kv_b):
+    layer_sims = F.cosine_similarity(kv_a, kv_b, dim=1)
+    return float(layer_sims.mean().item())
+
+
+def _prune_branches_by_kv_similarity(branches, max_live_branches, model, pad_token_id, device):
+    coe_scores, kv_representations = _calculate_branch_pruning_stats(
+        branches,
+        model,
+        pad_token_id,
+        device,
     )
-    kept_branches = [branch for _, branch in scored_branches[:max_live_branches]]
-    pruned_branches = [branch for _, branch in scored_branches[max_live_branches:]]
-    del coe_scores, scored_branches, pruned_branches
+    active_indices = list(range(len(branches)))
+
+    while len(active_indices) > max_live_branches:
+        most_similar_pair = None
+        best_similarity = float("-inf")
+
+        for left_pos, left_idx in enumerate(active_indices[:-1]):
+            kv_left = kv_representations[left_idx]
+            if kv_left is None:
+                continue
+
+            for right_idx in active_indices[left_pos + 1 :]:
+                kv_right = kv_representations[right_idx]
+                if kv_right is None:
+                    continue
+
+                similarity = _kv_similarity(kv_left, kv_right)
+                if similarity > best_similarity:
+                    best_similarity = similarity
+                    most_similar_pair = (left_idx, right_idx)
+
+        if most_similar_pair is None:
+            drop_idx = min(active_indices, key=lambda idx: coe_scores[idx])
+        else:
+            left_idx, right_idx = most_similar_pair
+            drop_idx = left_idx if coe_scores[left_idx] < coe_scores[right_idx] else right_idx
+
+        active_indices.remove(drop_idx)
+
+    kept_branches = [branches[idx] for idx in active_indices]
+    del coe_scores, kv_representations, active_indices
     _release_torch_memory(device)
     return kept_branches
 
@@ -291,7 +342,7 @@ def brute_force_cot_tree(
             live_branches.clear()
             live_branches = next_live_branches
             if max_live_branches is not None and len(live_branches) > max_live_branches:
-                live_branches = _prune_branches_by_coe(
+                live_branches = _prune_branches_by_kv_similarity(
                     live_branches,
                     max_live_branches,
                     model,
@@ -354,7 +405,7 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=int,
         default=None,
         metavar="N",
-        help="Maximum live branches to keep after each step, pruning lowest-CoE branches when exceeded.",
+        help="Maximum live branches to keep after each step, pruning similar KV-cache branches by CoE.",
     )
     p.add_argument(
         "--output-json",
