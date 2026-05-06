@@ -22,7 +22,7 @@ EXPERIMENT_DIR = Path(__file__).resolve().parent
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Measure correlation between current-step COE and answer correctness.",
+        description="Measure correlation between current-step log probability and answer correctness.",
     )
     parser.add_argument(
         "--input-json",
@@ -41,13 +41,13 @@ def _parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--plot-path",
-        default=str(EXPERIMENT_DIR / "coe_acc_corr.png"),
-        help="Path to write the accuracy-vs-COE plot.",
+        default=str(EXPERIMENT_DIR / "log_prob_acc_corr.png"),
+        help="Path to write the accuracy-vs-log-probability plot.",
     )
     parser.add_argument(
         "--model-name",
         default=DEFAULT_MODEL_NAME,
-        help="Hugging Face model name used for COE scoring.",
+        help="Hugging Face model name used for log-probability scoring.",
     )
     parser.add_argument(
         "--max-steps",
@@ -132,12 +132,11 @@ def _prefix_text(prompt: str, prior_steps: str) -> str:
     return f"{prompt} "
 
 
-def _calculate_current_step_coe(
+def _calculate_current_step_log_prob(
     row: Dict[str, Any],
     model: torch.nn.Module,
     tokenizer: Any,
     device: torch.device,
-    eps: float = 1e-8,
 ) -> Optional[float]:
     current_step = str(row["current_step"])
     prefix_text = _prefix_text(str(row["prompt"]), str(row["prior_steps"]))
@@ -156,37 +155,25 @@ def _calculate_current_step_coe(
     attention_mask = encoded["attention_mask"].to(device)
     current_token_count = int(current_ids.numel())
     output_start = input_ids.size(1) - current_token_count
-    if output_start < 0:
+    if output_start <= 0:
         return None
 
     with torch.inference_mode():
         outputs = model(
             input_ids=input_ids,
             attention_mask=attention_mask,
-            output_hidden_states=True,
             return_dict=True,
         )
 
-    hidden_states = outputs.hidden_states
-    if hidden_states is None or len(hidden_states) < 3:
-        return None
-
-    layer_means = torch.stack(
-        [
-            hidden_state[0, output_start:, :].float().mean(dim=0)
-            for hidden_state in hidden_states[1:]
-        ],
-        dim=0,
+    target_ids = input_ids[0, output_start:]
+    target_logits = outputs.logits[0, output_start - 1 : -1, :]
+    token_log_probs = torch.log_softmax(target_logits.float(), dim=-1).gather(
+        dim=-1,
+        index=target_ids.unsqueeze(-1),
     )
-    norms = torch.linalg.vector_norm(layer_means, dim=1)
-    mag_changes = torch.abs(norms[1:] - norms[:-1])
-    dot_products = (layer_means[:-1] * layer_means[1:]).sum(dim=1)
-    cosine = dot_products / (norms[:-1] * norms[1:]).clamp_min(eps)
-    ang_changes = torch.acos(cosine.clamp(-1.0, 1.0))
-    coe_c = torch.abs(torch.complex(mag_changes.mean(), ang_changes.mean()))
 
-    score = float(coe_c.item())
-    del outputs, hidden_states, layer_means, norms, mag_changes, dot_products, cosine, ang_changes
+    score = float(token_log_probs.sum().item())
+    del outputs, target_ids, target_logits, token_log_probs
     return score
 
 
@@ -205,27 +192,27 @@ def _score_dataset(
     scored_count = 0
     skipped_count = 0
     for row in rows_to_score:
-        coe_c = _calculate_current_step_coe(row, model, tokenizer, device)
-        row["coe_c"] = coe_c
-        if coe_c is None:
+        log_prob = _calculate_current_step_log_prob(row, model, tokenizer, device)
+        row["log_prob"] = log_prob
+        if log_prob is None:
             skipped_count += 1
         else:
             scored_count += 1
         _release_torch_memory(device)
 
     for row in dataset[len(rows_to_score) :]:
-        row["coe_c"] = None
+        row["log_prob"] = None
 
     return scored_count, skipped_count
 
 
-def _plot_accuracy_vs_coe(dataset: List[Dict[str, Any]], path: Path) -> None:
-    scored_rows = [row for row in dataset if row.get("coe_c") is not None]
+def _plot_accuracy_vs_log_prob(dataset: List[Dict[str, Any]], path: Path) -> None:
+    scored_rows = [row for row in dataset if row.get("log_prob") is not None]
     if not scored_rows:
         print("No scored rows available for plotting.")
         return
 
-    x_values = [float(row["coe_c"]) for row in scored_rows]
+    x_values = [float(row["log_prob"]) for row in scored_rows]
     y_values = [int(row["correct"]) for row in scored_rows]
     y_jitter = [y + (0.04 if index % 2 else -0.04) for index, y in enumerate(y_values)]
 
@@ -233,20 +220,20 @@ def _plot_accuracy_vs_coe(dataset: List[Dict[str, Any]], path: Path) -> None:
     plt.figure(figsize=(8, 4.5))
     plt.scatter(x_values, y_jitter, alpha=0.65, s=24)
     plt.yticks([0, 1], ["Incorrect", "Correct"])
-    plt.xlabel("Current-step COE")
+    plt.xlabel("Current-step log probability")
     plt.ylabel("Answer correctness")
-    plt.title("Accuracy vs. Current-Step COE")
+    plt.title("Accuracy vs. Current-Step Log Probability")
     plt.ylim(-0.25, 1.25)
     plt.tight_layout()
     plt.savefig(path, dpi=200)
     plt.close()
 
 
-def _mean_coe(dataset: List[Dict[str, Any]], correct: int) -> Optional[float]:
+def _mean_log_prob(dataset: List[Dict[str, Any]], correct: int) -> Optional[float]:
     values = [
-        float(row["coe_c"])
+        float(row["log_prob"])
         for row in dataset
-        if row.get("coe_c") is not None and int(row["correct"]) == correct
+        if row.get("log_prob") is not None and int(row["correct"]) == correct
     ]
     if not values:
         return None
@@ -271,18 +258,18 @@ def main() -> None:
 
     scored_count, skipped_score_count = _score_dataset(dataset, args.model_name, args.max_steps)
     _save_json(dataset_path, dataset)
-    _plot_accuracy_vs_coe(dataset, plot_path)
+    _plot_accuracy_vs_log_prob(dataset, plot_path)
 
-    correct_mean = _mean_coe(dataset, correct=1)
-    incorrect_mean = _mean_coe(dataset, correct=0)
+    correct_mean = _mean_log_prob(dataset, correct=1)
+    incorrect_mean = _mean_log_prob(dataset, correct=0)
     correct_mean_log = "n/a" if correct_mean is None else f"{correct_mean:.4f}"
     incorrect_mean_log = "n/a" if incorrect_mean is None else f"{incorrect_mean:.4f}"
 
     print(f"Scored steps: {scored_count}")
     print(f"Skipped empty predictions: {skipped_empty_predictions}")
-    print(f"Skipped COE scores: {skipped_score_count}")
-    print(f"Mean COE for correct steps: {correct_mean_log}")
-    print(f"Mean COE for incorrect steps: {incorrect_mean_log}")
+    print(f"Skipped log-probability scores: {skipped_score_count}")
+    print(f"Mean log probability for correct steps: {correct_mean_log}")
+    print(f"Mean log probability for incorrect steps: {incorrect_mean_log}")
     print(f"Updated dataset JSON: {dataset_path}")
     print(f"Plot path: {plot_path}")
 
