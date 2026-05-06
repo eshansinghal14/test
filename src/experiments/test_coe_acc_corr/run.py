@@ -26,8 +26,11 @@ def _parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input-json",
-        required=True,
-        help="Path to graph-cot results JSON with question, prediction, and is_correct fields.",
+        default=None,
+        help=(
+            "Optional path to graph-cot results JSON with question, prediction, and "
+            "is_correct fields. Omit to load --steps-json directly."
+        ),
     )
     parser.add_argument(
         "--steps-json",
@@ -252,14 +255,19 @@ def _mean_coe(dataset: List[Dict[str, Any]], correct: int) -> Optional[float]:
 
 def main() -> None:
     args = _parse_args()
-    input_path = Path(args.input_json)
     dataset_path = Path(args.steps_json)
     plot_path = Path(args.plot_path)
 
-    records = _load_results(input_path)
-    dataset, skipped_empty_predictions = _build_step_dataset(records)
-    _save_json(dataset_path, dataset)
-    print(f"Wrote {len(dataset)} step rows to {dataset_path}")
+    if args.input_json is None:
+        dataset = _load_results(dataset_path)
+        skipped_empty_predictions = 0
+        print(f"Loaded {len(dataset)} step rows from {dataset_path}")
+    else:
+        input_path = Path(args.input_json)
+        records = _load_results(input_path)
+        dataset, skipped_empty_predictions = _build_step_dataset(records)
+        _save_json(dataset_path, dataset)
+        print(f"Wrote {len(dataset)} step rows to {dataset_path}")
 
     scored_count, skipped_score_count = _score_dataset(dataset, args.model_name, args.max_steps)
     _save_json(dataset_path, dataset)
