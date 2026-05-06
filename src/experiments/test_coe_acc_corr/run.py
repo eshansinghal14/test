@@ -30,7 +30,9 @@ def _parse_args() -> argparse.Namespace:
         help="Path to graph-cot results JSON with question, prediction, and is_correct fields.",
     )
     parser.add_argument(
+        "--steps-json",
         "--dataset-json",
+        dest="steps_json",
         default=str(EXPERIMENT_DIR / "coe_acc_corr_steps.json"),
         help="Path to write the step-level JSON dataset.",
     )
@@ -251,7 +253,7 @@ def _mean_coe(dataset: List[Dict[str, Any]], correct: int) -> Optional[float]:
 def main() -> None:
     args = _parse_args()
     input_path = Path(args.input_json)
-    dataset_path = Path(args.dataset_json)
+    dataset_path = Path(args.steps_json)
     plot_path = Path(args.plot_path)
 
     records = _load_results(input_path)

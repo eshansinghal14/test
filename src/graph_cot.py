@@ -3,6 +3,7 @@ import gc
 import json
 import re
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import List, Optional
 
@@ -234,11 +235,24 @@ def _parse_answer(text):
 
 
 def _answers_match(parsed_answer, real_answer):
-    return parsed_answer.strip() == real_answer.strip()
+    return _normalize_answer_for_match(parsed_answer) == _normalize_answer_for_match(real_answer)
+
+
+def _normalize_answer_for_match(answer):
+    normalized_answer = answer.strip().replace(",", "")
+    try:
+        decimal_answer = Decimal(normalized_answer)
+    except InvalidOperation:
+        return normalized_answer
+
+    if decimal_answer == decimal_answer.to_integral_value():
+        return str(decimal_answer.quantize(Decimal("1")))
+
+    return format(decimal_answer.normalize(), "f")
 
 
 def _answer_count_key(parsed_answer):
-    normalized_answer = parsed_answer.strip().replace(",", "")
+    normalized_answer = _normalize_answer_for_match(parsed_answer)
     if re.fullmatch(r"[-+]?\d+(?:\.\d+)?", normalized_answer):
         return normalized_answer
     return "other"
