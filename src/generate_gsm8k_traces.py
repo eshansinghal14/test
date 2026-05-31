@@ -3,7 +3,7 @@ import json
 
 import torch
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from utils import load_model
 
 
 def parse_args():
@@ -29,17 +29,9 @@ def main():
     dataset = load_dataset("openai/gsm8k", "main", split="train")
     dataset = dataset.select(range(args.num_sequences))
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    model, tokenizer = load_model(args.model)
     tokenizer.padding_side = "left"
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model,
-        torch_dtype=torch.float16 if device.type == "cuda" else torch.float32,
-    ).to(device)
     model.eval()
-
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token_id = tokenizer.eos_token_id
 
     results = []
     examples = list(dataset)
@@ -48,7 +40,7 @@ def main():
         batch = examples[batch_start: batch_start + args.batch_size]
         prompts = [build_prompt(ex["question"], tokenizer) for ex in batch]
 
-        inputs = tokenizer(prompts, return_tensors="pt", padding=True).to(device)
+        inputs = tokenizer(prompts, return_tensors="pt", padding=True).to(model.device)
         prompt_lengths = inputs["attention_mask"].sum(dim=1)
 
         with torch.inference_mode():
@@ -57,7 +49,6 @@ def main():
                 max_new_tokens=args.max_new_tokens,
                 do_sample=True,
                 temperature=0.8,
-                pad_token_id=tokenizer.pad_token_id,
             )
 
         for j, (ex, out, prompt_len) in enumerate(zip(batch, output_ids, prompt_lengths)):
