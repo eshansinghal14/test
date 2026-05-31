@@ -26,7 +26,7 @@ def build_prompt(question, tokenizer):
 def main():
     args = parse_args()
 
-    dataset = load_dataset("gsm8k", "main", split="train")
+    dataset = load_dataset("openai/gsm8k", "main", split="train")
     dataset = dataset.select(range(args.num_sequences))
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
