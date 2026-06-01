@@ -140,6 +140,7 @@ def run_bpe(corpus, tokenizer, num_superchunks, max_chunks_per_token):
                 break
 
         merged_text = best_left + best_right
+        merged_tids = left_tids + right_tids
         merged_id = next_id
         next_id += 1
         symbol_to_id[merged_text] = merged_id
@@ -150,6 +151,10 @@ def run_bpe(corpus, tokenizer, num_superchunks, max_chunks_per_token):
             "merged_from": [
                 {"token_string": best_left, "token_id": get_or_assign_id(best_left, left_tids)},
                 {"token_string": best_right, "token_id": get_or_assign_id(best_right, right_tids)},
+            ],
+            "original_tokens": [
+                {"token_string": tokenizer.decode([tid]), "token_id": tid}
+                for tid in merged_tids
             ],
         })
 
