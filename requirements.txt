@@ -1,0 +1,10 @@
+datasets
+huggingface-hub
+matplotlib
+nltk
+numpy
+regex
+seaborn
+sentencepiece
+torch
+transformers
