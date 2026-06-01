@@ -41,8 +41,6 @@ def main():
         prompts = [build_prompt(ex["question"], tokenizer) for ex in batch]
 
         inputs = tokenizer(prompts, return_tensors="pt", padding=True).to(model.device)
-        prompt_lengths = inputs["attention_mask"].sum(dim=1)
-
         with torch.inference_mode():
             output_ids = model.generate(
                 **inputs,
@@ -51,8 +49,9 @@ def main():
                 temperature=0.8,
             )
 
-        for j, (ex, out, prompt_len) in enumerate(zip(batch, output_ids, prompt_lengths)):
-            generated_response = tokenizer.decode(out[prompt_len:], skip_special_tokens=True)
+        input_len = inputs["input_ids"].shape[1]
+        for j, (ex, out) in enumerate(zip(batch, output_ids)):
+            generated_response = tokenizer.decode(out[input_len:], skip_special_tokens=True)
             results.append({
                 "problem_index": batch_start + j,
                 "question": ex["question"],
