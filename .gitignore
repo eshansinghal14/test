@@ -1,1 +1,4 @@
 src/constants.py
+data/
+superchunk_embeddings_ckpts/
+superchunked_model_ckpts/

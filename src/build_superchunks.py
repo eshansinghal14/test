@@ -22,7 +22,7 @@ def parse_args():
                         help="Number of BPE merges to perform")
     parser.add_argument("--max_chunks_per_token", type=int, required=True,
                         help="Maximum number of GPT-2 chunks a new superchunk token may span")
-    parser.add_argument("--output", default="superchunks.json", help="Output JSON file path")
+    parser.add_argument("--output", default="data/superchunks.json", help="Output JSON file path")
     return parser.parse_args()
 
 

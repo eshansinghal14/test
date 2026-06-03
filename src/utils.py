@@ -6,7 +6,7 @@ from constants import HF_READ_TOKEN
 
 logged_in = False
 
-def load_model(model_name):
+def load_model(model_name, device_map="auto"):
     from transformers.utils import logging as hf_logging
 
     hf_logging.set_verbosity_error()
@@ -19,8 +19,9 @@ def load_model(model_name):
     device = get_default_device()
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        dtype=torch.float16 if device.type == "cuda" else None,
-    ).to(device)
+        torch_dtype=torch.float16 if device.type == "cuda" else None,
+        device_map=device_map if device.type == "cuda" else None,
+    )
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     tokenizer.pad_token = tokenizer.eos_token
     # Match neuron_distillation AddDataset/collate_fn (right-pad); eval/generate use same side.
